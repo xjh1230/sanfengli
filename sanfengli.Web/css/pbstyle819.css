@@ -1,0 +1,123 @@
+@charset "utf-8";
+/* CSS reset*/
+body,div,ul,ol,li,p,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,blockquote,th,td,a {margin:0; padding:0;}
+table {border-collapse:collapse; border-spacing:0;}
+fieldset,img,abbr,acronym {border:0;}
+address,caption,cite,code,dfn,em,strong,th,var {font-style: normal; font-weight:normal;}
+ul,ol {list-style:none;}
+caption,th {text-align:left;}
+h1, h2, h3, h4, h5, h6 {font-size:100%; font-weight:normal}
+q:before,q:after{content:'';}
+
+
+/*文字排版*/
+.f12{font-size: 12px;}
+.f14{font-size: 14px;}
+.fn{font-weight: normal;}
+
+/*定位*/
+.clearfix:after {visibility:hidden; display:block; font-size:0; content:"."; clear:both; height:0;}
+.clearfix{*zoom:1;display: inline-block;}
+/*长高*/
+/*边距*/
+.pl160{padding-left: 160px;}
+.inp_btn { height:28px; border:1px solid #c0d0d8; border-radius:3px; color:#2298be; font-size:14px; text-align:center; line-height:28px; text-decoration:none; margin-top:10px;}
+.inp_focus .reg_hover,.inp_focus .reg_onfocus,.inp_btn:hover,.save_draft:hover { background-color: #e8f6fb;  border:1px solid #2298be;}
+
+
+/*内容区*/
+.container { width:950px; margin:0 auto 40px; font-family:"SimSun","宋体"; }
+.bread-crumbs { padding-left:10px; font-size:12px; color:#666; line-height:46px; }
+.bread-crumbs a {color:#666; text-decoration:none;}
+.bread-crumbs a:hover {text-decoration:underline;}
+.main_box { width:928px; padding:0 10px 10px; border:1px solid #e8e8e8;}
+.main_con { border-bottom:1px solid #f4f4f4; padding-bottom:20px;}
+.main_con.line_b { border-bottom:0; padding-bottom:0px;}
+.main_con h1 { font-size:18px; color:#333; line-height:60px; font-family:"Microsoft YaHei","微软雅黑";}
+.bg_color { padding-top:10px; margin-bottom:10px; background-color:#f8fdff;}
+.input_box li,.input_box label,.input_box span,.input_box input,.input_box select,.input_box p,.input_box a,.pop_color_box li,.pop_color_box span,.pop_color_box input,.pop_color_box a,.pic_box,.ad_info .pic_con { float:left;}
+.input_box li{ width:100%; height:50px; font-size:14px; color:#666; line-height:30px;}
+.input_box li.w46{ width:46px;}
+.input_box li.w206{ width:206px;}
+.input_box li.w460{ width:460px;}
+.input_box li.h300{ height:300px;}
+.input_box li.h158{ height:158px;}
+.input_box li.h138{ height:138px;}
+/*.input_box li.h86{ height:86px;}
+.input_box li.h150{ height:150px;}*/
+.input_box li.h50{ height:50px;}
+.input_box li.h30{ height:30px;}
+.input_box span { width:130px; padding-right:30px; text-align:right; color:#999; line-height:30px;}
+.input_box input,.input_box select  {margin-right:8px; border:1px solid #c0d0d8; background-color:#f8fbfd; font-size:14px; vertical-align:middle; outline:none;}
+.input_box input { height:28px; width:650px; padding-left:6px; line-height:28px;}
+.input_box input.w102 { width:102px;}
+.input_box input.w214 { width:214px;}
+.calendar { background:url(../images/calendar.jpg) no-repeat 200px 6px;}
+.input_box select { height:30px; width:104px; line-height:30px;}
+.input_box input.check_box { position:relative; top:8px; width:14px; height:14px; padding:0px; margin-right:6px;}
+.input_box input.radio_box{ position:relative; top:8px;width:16px; height:16px; padding:0px; margin-right:6px; border:none; background-color:none;}
+.input_box p { padding:0 6px; line-height:30px; background-color:#f8fdff; color:#999;}
+.dealer_btn,.color_btn { padding:0 10px;}
+.add_info { display:block; height:30px; line-height:30px; border:1px dashed #a2cadd; color:#2298be; font-size:12px; text-align:center; background:url(../images/plus.jpg) no-repeat 414px 9px #ebf9ff; text-decoration:none;}
+.add_info:hover  { border-color:#2298be; background-color: #e8f6fb;}
+.cancel_box { float:right; padding-right:10px; color:#be2222; font-size:14px; cursor:pointer; font-weight:normal;}
+.sale_con,.selected_box .sale_con { +position:relative; overflow-x:hidden; overflow-y:auto;}
+.car_info,.car_info .sale_con,.selected_box,.car_info li,.color_info li,.color_info {height:auto;}
+/*.color_info .sale_con {height:86px;}*/
+.selected_box .sale_con { +position:relative;+z-index:0;height:auto; width:770px; background-color:#f8fdff;}
+.selected_box .sale_con.h495 { height:495px;overflow-x:hidden; overflow-y:auto;}
+.car_info label { padding-right:20px; width:300px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.color_info label i { position:relative; top:2px; margin-right:10px; display:inline-block; width:48px; height:14px; border:1px solid #c0d0d8; background-color:#c00;}
+.color_info label { padding-right:40px; width:200px; overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.color_btn { margin-top:10px;}
+.selected_box { padding-left:160px;}
+.selected_box td { padding-left:6px; height:33px; border:1px solid #eee; background-color:#f8fdff; color:#666; font-size:14px; vertical-align:middle; }
+.selected_box input { width:24px; height:13px; border:1px solid #eee; font-size:12px; background-color:#fff; vertical-align:middle;}
+.sale_con input { width:65px; margin-right:6px;}
+.apply_box { position:relative; left:-6px; display:inline-block; *display: inline; *zoom:1;+z-index:10;}
+.apply_box a { position:absolute; left:2px;}
+.apply_icon { top:-13px; width:20px; height:20px; background:url(../images/icon.png) no-repeat 0 -2px #f8fdff; }
+.apply_box.hover .apply_icon { background-color:#d3f2fd; }
+.apply_btn { top:7px; display:none; width:68px; height:22px; border:1px solid #d3f2fd; background-color:#fff; text-align:center; line-height:22px; color:#2298be; font-size:12px; text-decoration:none; }
+.apply_btn:hover { text-decoration:underline;}
+.apply_box.hover .apply_btn { display:block;}
+.sale_con i { position:relative; top:3px; display:inline-block; width:25px; height:13px; margin-right:3px; border:1px solid #eee; background-color:#c00;}
+.sale_con a { color:#be2222;}
+.pic_box {margin-right:30px; width:110px; }
+.details_info .pic_box {margin-right:90px; width:237px; }
+.pic_con { position:relative; width:108px; height:108px; margin-bottom:8px; border:1px solid #c0d0d8;}
+.details_info .pic_con { width:235px; height:235px;}
+.pic_con img,.pic_con p{ position:absolute; top:0px; left:0px;}
+.pic_con p { padding:0; width:108px; height:108px; line-height:108px; z-index:2; text-align:center; font-size:14px; color:#2298be; background:url(../images/txt_bg.png) repeat 0 0;}
+.pic_box a { display:inline-block; height:19px;}
+.details_info .pic_btn{ margin:12px 0 0 72px; height:28px;}
+.pre_arrow,.next_arrow { width:19px; height:14px; background:url(../images/icon.png) no-repeat;}
+.pre_arrow { padding:0 11px 0 15px; background-position:-24px -110px; }
+.pre_arrow.forbid,.pre_arrow.forbid:hover { background-position:-63px -110px; cursor:default; }
+.pre_arrow:hover { background-position:-141px -110px; }
+.next_arrow { padding-right:13px; background-position:0px -110px;}
+.next_arrow.forbid,.next_arrow.forbid:hover { background-position:-117px -110px; cursor:default; }
+.next_arrow:hover { background-position:-180px -140px; }
+.delete_btn { width:16px; height:19px; background:url(../images/icon.png) no-repeat -25px -74px;}
+.delete_btn:hover { background-position:0px -74px;}
+.pic_btn { padding:0 15px; margin-right:8px;}
+.ad_info .pic_btn { margin:55px 0 0 6px; background-color:#fff;} 
+.ad_info .cancel_box {padding:90px 170px 0 0 ;}
+.description_box { height:470px; line-height:470px; text-align:center; font-size:20px; border:1px solid #ccc;}
+.bottom_box { padding:26px 0 38px; text-align:center;}
+.bottom_box a { display:inline-block; width:225px; height:48px; border-radius:6px; line-height:50px; text-align:center; font-size:25px; margin-right:8px; text-decoration:none; font-family:"Microsoft Yahei","微软雅黑";}
+.next_step { border:1px solid #2298be; background-color:#2298be; font-weight:bold; color:#fff;}
+.next_step:hover { background-color:#27a9d3;}
+.save_draft { border:1px solid #c0d0d8; background-color:#fff; color:#2298be;}
+
+/*经销商*/
+.mask { position:fixed; width:3000px; height:10000px; left:50%; top:0; margin:0 0 0 -1500px; z-index:99; background:url(../images/pop_bg.png) repeat 0 0; display:none;  }
+.pop_color_box {position:fixed; left:50%; top:50%; width:318px; height:150px; padding-top:20px; margin:-85px 0 0 -159px;  border:1px solid #d9d9d9; background-color:#fff;  z-index:100; display:none;}
+.pop_color_box li { width:100%; height:50px;}
+.pop_color_box span { width:67px; padding-right:10px; text-align:right; font-size:12px; color:#999; line-height:30px;}
+.pop_color_box input { height:28px; width:190px; padding-left:4px; border:1px solid #c0d0d8; background-color:#f8fbfd; font-size:12px; vertical-align:middle; outline:none;}
+.pop_color_box a { padding:0 30px;}
+.btn_row { padding-left:77px;}
+.confirm_s { margin-right:20px;}
+.cancel_s { color:#666;}
+.input_box { width:100%;}

@@ -1,0 +1,55 @@
+.am-navbar .am-navbar-nav {
+    padding: 0 0 0 0;
+}
+
+#ds-thread #ds-reset .ds-powered-by {
+    display: none;
+}
+
+.am-navbar-one a {
+    color: #000000;
+}
+
+.am-navbar-default a {
+    color: #000000;
+}
+
+.controls {
+    overflow: hidden;
+    padding: 5px 5px 5px 0;
+    margin-left: 0px;
+}
+
+.input-large {
+    width: 390px;
+}
+
+.textarea {
+    display: block;
+}
+
+label {
+    cursor: default;
+}
+
+.textarea textarea {
+    padding: 6px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    transition: all .3s linear;
+    display: block;
+    min-height: 100px;
+    min-width: 390px;
+}
+.item-label {
+    display: block;
+    margin-right: 5px;
+    height: 30px;
+    line-height: 30px;
+    font-size: 14px;
+}
+.need_flag {
+    color: #F00;
+    vertical-align: -6px;
+    font-size: 20px;
+}
