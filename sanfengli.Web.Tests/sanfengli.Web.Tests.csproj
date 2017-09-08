@@ -52,6 +52,14 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\sanfengli.Bll\sanfengli.Bll.csproj">
+      <Project>{96644bcb-b719-4ce8-aa0f-9070c2542d5f}</Project>
+      <Name>sanfengli.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sanfengli.Model\sanfengli.Model.csproj">
+      <Project>{25B4BEC9-3C1A-4376-BD0C-58F2787C03EB}</Project>
+      <Name>sanfengli.Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sanfengli.Web\sanfengli.Web.csproj">
       <Project>{1BB0C3C4-65EE-44FA-83CB-1802D8398F22}</Project>
       <Name>sanfengli.Web</Name>

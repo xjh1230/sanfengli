@@ -9,8 +9,8 @@ namespace sanfengli.Web.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            var i = 0;
-            var s = i + 1;
+            var s = new Bll.WeChatMp.FeedBackBll().GetList();
+            var a = s;
         }
     }
 }
