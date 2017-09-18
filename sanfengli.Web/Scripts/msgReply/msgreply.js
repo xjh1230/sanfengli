@@ -46,7 +46,7 @@ function createOneRule(obj) {
     }
     var index = dataList.push(obj) - 1;
     var domObj = $("#Js_ruleItem_0").clone();
-    domObj.attr('id', index).attr('msgId', obj.Msg.MsgId);
+    domObj.attr('id', index).attr('msgId', obj.Msg.Id);
     domObj.find(".keywords_rule_num").html("规则"+(index+1)+"："+obj.Msg.RuleName);
     domObj.find(".frm_checkbox").prop("checked", obj.Msg.ReplyMode !== "random_one");
     domObj.addClass("open");

@@ -10,7 +10,35 @@ var demo_h5_upload_ops = {
             reader.onload = function (e) {
                 that.compress(this.result);
             };
-            reader.readAsDataURL(this.files[0]);
+            $('#uploadImg').submit();
+            var formData = new FormData();
+            var name = $("input").val();
+            var path = $(this).data('path');
+            formData.append("fileImage", $("#upload")[0].files[0]);
+            formData.append("op", "uploadImg");
+            formData.append("path", path);
+            
+            $.ajax({
+                url: "/home/ajax/uploadHandler.aspx?op=uploadImg&path=" + path,
+                type: "POST",
+                data: formData,
+                // 告诉jQuery不要去处理发送的数据
+                processData: false,
+                // 告诉jQuery不要去设置Content-Type请求头
+                contentType: false,
+                success: function (res) {
+                    data = $.parseJSON(res);
+                    if (data.IsSuccess) {
+                        $(".img_wrap").attr("src", data.Msg);
+                        $('#image_src').val(data.Msg);
+                        $(".img_wrap").show();
+                        //$('#upload-btn').css("display", "none");
+                    } else {
+                        alert(data.Msg, "error");
+                    }
+                }
+            });
+            //reader.readAsDataURL(this.files[0]);
         });
     },
     compress: function (res) {
@@ -32,11 +60,11 @@ var demo_h5_upload_ops = {
             ctx.clearRect(0, 0, cvs.width, cvs.height);
             ctx.drawImage(img, 0, 0, img.width, img.height);
             var dataUrl = cvs.toDataURL('image/jpeg', 1);
-            $(".img_wrap1").attr("src", dataUrl);
-            $(".img_wrap").attr("src", res);
+            //$(".img_wrap1").attr("src", dataUrl);
+            $(".img_wrap").attr("src", dataUrl);
             $(".img_wrap").show();
-            $(".img_wrap1").show();
-            $('#image_src').val(res);
+            //$(".img_wrap1").show();
+            $('#image_src').val(dataUrl);
             // 上传略
             //that.upload( dataUrl );
         };

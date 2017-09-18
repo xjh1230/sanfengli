@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+
+    <h1>测试</h1>
+
+    <a id="post">post</a>
+</body>
+<script src="Scripts/jquery-1.10.2.min.js"></script>
+<script>
+    $(function () {
+
+        $('#post').on('click', function () {
+
+            $.post('http://localhost:24954/api/Survey/SaveSurvey?name=123', { 'wp_survey': { 'Id': 13, 'keyword': 'asdhasdas' },'list_question':[]}, function (data) {
+                console.log(data)
+            })
+
+        })
+    })
+</script>
+</html>

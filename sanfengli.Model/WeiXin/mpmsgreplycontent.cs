@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ServiceStack.DataAnnotations;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace sanfengli.Model.WeiXin
     {
         #region 非数据库字段
 
+        [Ignore]
         public int IsDel { get; set; }
 
         #endregion

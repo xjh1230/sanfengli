@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MsgReply.aspx.cs" Inherits="sanfengli.Web.Wx.MsgReply" %>
 
 <!DOCTYPE html>
+<include file="Home@Public/head" />	
 <html>
 <head lang="en">
     <meta charset="UTF-8">

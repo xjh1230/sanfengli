@@ -55,7 +55,7 @@ namespace sanfengli.Bll.WeChatMp
                 string returnText = RequestUtility.HttpPost(urlFormat, null, memoryStream, null, null, Encoding.UTF8, null, timeOut);
                 return JsonConvert.DeserializeObject<MediaList_OthersResult>(returnText);
             }
-            
+
         }
         private MediaList_NewsResult GetNewsMediaList(string accessToken, int offset,
             int count, int timeOut = 10000)
@@ -63,7 +63,7 @@ namespace sanfengli.Bll.WeChatMp
             string urlFormat = string.Format("https://api.weixin.qq.com/cgi-bin/material/batchget_material?access_token={0}", accessToken.AsUrlData());
             var data = new
             {
-                type ="news",
+                type = "news",
                 offset = offset,
                 count = count
             };
@@ -87,13 +87,13 @@ namespace sanfengli.Bll.WeChatMp
                 return false;
             }
             var buttonList = data.selfmenu_info.button;
-            MenuResult result = new MenuResult {menu = new YchButtonGroup()};
+            MenuResult result = new MenuResult { menu = new YchButtonGroup() };
             foreach (var item in buttonList)
             {
-                var btn=new Button(){name = item.name};
+                var btn = new Button() { name = item.name };
                 if (item.sub_button?.list != null && item.sub_button?.list.Count > 0)
                 {
-                    btn.sub_button=new List<Button>();
+                    btn.sub_button = new List<Button>();
                     foreach (var sItem in item.sub_button.list)
                     {
                         var sbtn = ChangeButton(sItem);
@@ -107,12 +107,12 @@ namespace sanfengli.Bll.WeChatMp
                 }
                 result.menu.button.Add(btn);
             }
-            string jonLog=JsonConvert.SerializeObject(result.menu,new JsonSerializerSettings()
+            string jonLog = JsonConvert.SerializeObject(result.menu, new JsonSerializerSettings()
             {
                 NullValueHandling = NullValueHandling.Ignore,
                 DefaultValueHandling = DefaultValueHandling.Ignore
             });
-            MpMenuLogBll.WriteLog(jonLog,"system");
+            MpMenuLogBll.WriteLog(jonLog, "system");
             return true;
         }
         /// <summary>
@@ -123,7 +123,7 @@ namespace sanfengli.Bll.WeChatMp
         {
             //需要转换的按钮类型
             string btnType = item.type;
-            List<string> typeList = new List<string>() {"img","news", "text", "voice", "video" };
+            List<string> typeList = new List<string>() { "img", "news", "text", "voice", "video" };
             if (typeList.Contains(btnType.ToLower()))
             {
                 item.type = "click";
@@ -155,7 +155,7 @@ namespace sanfengli.Bll.WeChatMp
                     EventKey = item.key,
                     EventType = "click",
                     ReplyType = btnType,
-                    ReplyContent =item.value
+                    ReplyContent = item.value
                 });
             }
             return btn;
@@ -163,10 +163,10 @@ namespace sanfengli.Bll.WeChatMp
         public bool SaveMsgReplyData()
         {
             var mpMsgData = AutoReplyApi.GetCurrentAutoreplyInfo(BaseClass.AppId);
-            if (mpMsgData.errcode==0)
+            if (mpMsgData.errcode == 0)
             {
                 //初始化关注回复
-                if (mpMsgData.add_friend_autoreply_info!=null)
+                if (mpMsgData.add_friend_autoreply_info != null)
                 {
                     var sereply = mpMsgData.add_friend_autoreply_info;
                     if (sereply.type.ToString() == "text")
@@ -180,10 +180,10 @@ namespace sanfengli.Bll.WeChatMp
                         ReplyType = sereply.type.ToString(),
                         ReplyContent = sereply.content,
                     });
-                    
+
                 }
                 //初始化自动消息回复
-                if (mpMsgData.message_default_autoreply_info!=null)
+                if (mpMsgData.message_default_autoreply_info != null)
                 {
                     var autoreply = mpMsgData.message_default_autoreply_info;
                     if (autoreply.type.ToString() == "text")
@@ -212,7 +212,7 @@ namespace sanfengli.Bll.WeChatMp
                                 ReplyMode = ruleItem.reply_mode.ToString()
                             }
                         };
-                        if (ruleItem.keyword_list_info!=null&& ruleItem.keyword_list_info.Count > 0)
+                        if (ruleItem.keyword_list_info != null && ruleItem.keyword_list_info.Count > 0)
                         {
                             foreach (var keyItem in ruleItem.keyword_list_info)
                             {
@@ -250,11 +250,11 @@ namespace sanfengli.Bll.WeChatMp
         {
             try
             {
-                var count=MediaApi.GetMediaCount(BaseClass.AppId);
+                var count = MediaApi.GetMediaCount(BaseClass.AppId);
                 var listDto = new List<mpmateriallib>();
                 if (count.image_count > 0)
                 {
-                    var imglist = GetMediaList(AccessTokenContainer.TryGetAccessToken(BaseClass.AppId,BaseClass.Secret), UploadMediaFileType.image, 0, count.image_count);
+                    var imglist = GetMediaList(AccessTokenContainer.TryGetAccessToken(BaseClass.AppId, BaseClass.Secret), UploadMediaFileType.image, 0, count.image_count);
                     foreach (var imgItem in imglist.item)
                     {
                         mpmateriallib dto = new mpmateriallib()
@@ -285,17 +285,18 @@ namespace sanfengli.Bll.WeChatMp
                     }
                 }
                 //MpMaterialLibDal.Instantiation.SyncMpData(EConvert.ListToDataTable(listDto));
-                return true;
+                return new MpMaterialLibBll().SyncMpData(listDto);
+                //return true;
             }
             catch (Exception ex)
             {
                 LogHandler.Error(ex);
 
-                
+
                 LogHandler.Error("请检查微信同步素材接口使用次数");
                 return false;
             }
-            
+
 
         }
     }
@@ -380,5 +381,5 @@ namespace sanfengli.Bll.WeChatMp
     }
     #endregion
 
-    
+
 }

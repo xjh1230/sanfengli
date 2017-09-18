@@ -6,7 +6,7 @@ namespace sanfengli.Common
     public class LoginTokenID
     {
         static readonly string token_ekey = "I'vek0w\n";
-        int _uid;
+        long _uid;
         string _pwd;
         int _timestamp;
         int _machine;
@@ -57,7 +57,7 @@ namespace sanfengli.Common
         }
         /// <summary>用户Id
         /// </summary>
-        public int Uid { get { return _uid; } }
+        public long Uid { get { return _uid; } }
         /// <summary>密码（密文）
         /// </summary>
         public string Pwd { get { return _pwd; } }
@@ -117,7 +117,7 @@ namespace sanfengli.Common
 
 
         }
-        public LoginTokenID(int uid, string pwd="niciaiwomima")
+        public LoginTokenID(long uid, string pwd="niciaiwomima")
         {
             _uniqueObjectID = UniqueObjectID.GenerateNewId();
             _timestamp = UniqueObjectID.GetTimestampFromDateTime(DateTime.UtcNow);

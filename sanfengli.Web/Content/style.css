@@ -1,0 +1,148 @@
+/*首页*/
+*{margin:0;padding:0;}
+h1, h2, h3, h4, h5, h6 { font-size:100%;}
+body{
+	text-align:left;
+	font-size:12px;
+	font-family: Arial, SimSun, "宋体", sans-serif;
+	line-height:1.5;
+	}
+
+a{text-decoration:none; color:#333}
+a:hover{color: #2196F3}
+ul,ol{list-style:none;}
+img{border:0;vertical-align: middle}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption, th {text-align: left;}
+
+/*清除浮动*/
+.clearfix:after {
+visibility: hidden;
+display: block;
+font-size: 0;
+content: " ";
+clear: both;
+height: 0;
+}
+.clearfix{*zoom:1;}
+input{ vertical-align:middle;outline: 0}
+/*--public--*/
+.column-1{width: 100px}
+.column-2{width: 200px}
+.column-3{width: 300px}
+.column-4{width: 400px}
+.column-5{width: 500px}
+.column-6{width: 600px}
+.column-7{width: 700px}
+.h-center{text-align: center}
+.f-left{float:left}
+.f-right{float:right}
+
+
+.wrapper{ width:1025px; padding:10px 20px;font-family:"Microsoft Yahei";}
+p.title{ font-size:16px; color:#333; }
+.main-tit{margin-top:20px}
+.btn{display: inline-block;width:130px;height:28px;line-height:28px;background: #1565C0;color: #fff; text-align: center;cursor: pointer;vertical-align: middle;-ms-transition:all .2s linear ;-moz-transition:all .2s linear ;-webkit-transition: all .2s linear;transition:all .2s linear ;}
+.inputxt{ border:1px solid #c0d0d8; color: #333; background:#fff; height:26px; line-height:26px;vertical-align: middle;-ms-transition:all .2s linear ;-moz-transition:all .2s linear ;-webkit-transition: all .2s linear;transition:all .2s linear ;}
+.inputxt:focus{border-color:#1E88E5}
+input.inputxt{ text-indent:4px;}
+
+/*--配置表单--*/
+.config-ul{padding: 20px 0}
+.config-ul span.c-tit{width:37px;height:30px; line-height:30px;display: inline-block;text-align: right;float: left; margin-right:10px;}
+.config-ul li{margin-bottom: 15px;overflow: hidden}
+.config-ul li div{overflow: hidden}
+.config-ul li div p{margin-bottom: 10px}
+.config-ul li label{margin-right: 30px}
+.config-ul li .upload-pic{display: inline-block;width:140px;height: 80px;border: 1px solid #c0d0d8;vertical-align: text-top;overflow: hidden;cursor: pointer}
+.config-ul li .upload-pic img{width: 100%}
+
+
+.form_box_w{ width:100%; margin-bottom:10px;}
+.form_top_w{ height:40px; line-height: 40px; padding:0 20px 0 0; color:#333; overflow: hidden;}
+.form_top_w p {
+    float: right;
+    height: 44px;
+    overflow: hidden;
+}
+.form_top_w .add_xm{ color:#20478a; font-size:16px;font-family:"Microsoft YaHei","微软雅黑"; height:40px; line-height:40px; float:left; text-decoration:none; margin-right:50px;}
+.putout{margin-top:6px; height:26px; line-height: 26px;font-family:"Microsoft YaHei","微软雅黑"; float:left;text-decoration: none; }
+
+/*匹配车型信息*/
+.table_box{ border-top:1px solid #bfbfbf;}
+.tables{ width:100%;border-left:1px solid #bfbfbf; font-size:12px;}
+table.list {
+    clear: both;
+    width: 100%;
+    border-top: 1px solid #CDCDCD;
+	border-left:1px solid #CDCDCD;
+    border-collapse: collapse;
+	font-size:12px;
+	font-family:"Microsoft YaHei","微软雅黑";
+}
+table.list td {
+    border-bottom: 1px solid #CDCDCD;
+    border-right: 1px solid #CDCDCD;
+    height: 65px;
+    line-height: 65px;
+    padding: 0 8px;
+    white-space: nowrap;
+    word-break: normal;
+	text-align:center;
+}
+table.list td.prewrap {
+    line-height: 25px;
+    white-space: pre-wrap;
+    padding-top: 10px;
+}
+table.list td img {
+    width: 58px;
+    height: 54px;
+}
+table.list th {
+    color: #333333;
+    height: 30px;
+    border-bottom: 1px solid #CDCDCD;
+    border-right: 1px solid #CDCDCD;
+    text-align: center;
+	font-size:14px;
+}
+
+
+
+/*弹窗*/
+
+.pop-box1{ width:410px; height:160px; padding:20px; position:fixed; left:50%; top:50%; margin:-100px 0 0 -225px; background:#fff; border:1px solid #ccc; display:none;z-index: 100;}
+.pop-box2{ width:410px; height:160px; padding:20px; position:fixed; left:50%; top:50%; margin:-100px 0 0 -225px; background:#fff; border:1px solid #ccc; display:none;z-index: 100;}
+.pop-close{ width:30px; height:30px; font-size:28px; line-height:30px; text-align:center; position:absolute; right:0; top:-30px; background:#999; color:#fff;cursor: pointer;}
+.tables-box{width:100%;}
+.tables-box th{ height:40px; line-height:40px; color:#333; font-size:14px; font-weight:bold;text-align:center;}
+.tables-box td{ height:30px; line-height:30px; color:#666; font-size:12px; text-align:center;}
+.roll{ height:150px; overflow-y:auto;}
+textarea{ width:100%; height:100px; resize:none;}
+.mask {
+    position: fixed;
+    left: 50%;
+    top: 0;
+    width: 3000px;
+    height: 10000px;
+    margin: 0 0 0 -1500px;
+    background: url(../img/mask.png);
+    z-index: 99;
+    display: none
+}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -22,6 +22,7 @@ namespace sanfengli.Bll
 
         public virtual bool SaveItem(T t)
         {
+
             using (var db = DbFactory.Open())
             {
                 return db.Save(t);
@@ -50,13 +51,13 @@ namespace sanfengli.Bll
             }
         }
 
-        public static int ExecuteSql(string sql, object dbParams)
+        public static int ExecuteSql(string sql, object dbParams=null)
         {
             try
             {
                 using (var db = DbFactory.OpenDbConnection())
                 {
-                    
+
                     return db.ExecuteSql(sql, dbParams);
                 }
             }
@@ -66,6 +67,16 @@ namespace sanfengli.Bll
                 return -1;
             }
         }
-        
+
+
+        public static s ScalarSql<s>(string sql, object dbParams=null)
+        {
+
+            using (var db = DbFactory.OpenDbConnection())
+            {
+                return db.Scalar<s>(sql, dbParams);
+            }
+
+        }
     }
 }

@@ -56,6 +56,10 @@
       <Project>{96644bcb-b719-4ce8-aa0f-9070c2542d5f}</Project>
       <Name>sanfengli.Bll</Name>
     </ProjectReference>
+    <ProjectReference Include="..\sanfengli.Common\sanfengli.Common.csproj">
+      <Project>{7288c622-2539-47be-846a-ac4bf89745dd}</Project>
+      <Name>sanfengli.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sanfengli.Model\sanfengli.Model.csproj">
       <Project>{25B4BEC9-3C1A-4376-BD0C-58F2787C03EB}</Project>
       <Name>sanfengli.Model</Name>

@@ -5,6 +5,7 @@ using sanfengli.Model.WeiXin;
 using ServiceStack.OrmLite;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Xml;
@@ -18,11 +19,12 @@ namespace sanfengli.Bll.WeChatMp
     {
         public static List<MsgReplyResult> GetAllMsgRule()
         {
-            string sql = @"SELECT m.*, ('<root>'+( SELECT c.* FROM MpMsgReplyContent c WHERE c.MsgId = m.MsgId FOR XML PATH ('Item') )+'</root>') AS Contents,('<root>'+(SELECT k.* FROM MpMsgReplyKeys k WHERE k.MsgId = m.MsgId FOR XML PATH ('Item') )+'</root>') AS Keys FROM MpMsgReply m ";
+            //string sql = @"SELECT m.*, ('<root>'+( SELECT c.* FROM MpMsgReplyContent c WHERE c.MsgId = m.MsgId FOR XML PATH ('Item') )+'</root>') AS Contents,('<root>'+(SELECT k.* FROM MpMsgReplyKeys k WHERE k.MsgId = m.MsgId FOR XML PATH ('Item') )+'</root>') AS Keys FROM MpMsgReply m ";
 
+            string sql = "select * from MpMsgReply";
             try
             {
-                using (var db = DbFactory.CreateDbConnection())
+                using (var db = DbFactory.OpenDbConnection())
                 {
                     List<mpmsgreply> list = db.Select<mpmsgreply>(sql);
                     List<MsgReplyResult> listResult = new List<MsgReplyResult>();
@@ -40,9 +42,8 @@ namespace sanfengli.Bll.WeChatMp
                             ReplyMode = s.ReplyMode,
                             CreateOn = s.CreateOn
                             },
-                                Contents = ConvertXmlToJson<MsgReplyJsonResult<mpmsgreplycontent>>(s.Contents)?.Item,
-                                Keys = ConvertXmlToJson<MsgReplyJsonResult<mpmsgreplykey>>(s.Keys)?.Item
-
+                                Contents = GetContentByMsgId(db, s.Id),
+                                Keys = GetReplyKeyByMsgId(db, s.Id),
                             };
                             listResult.Add(result);
                         });
@@ -56,6 +57,22 @@ namespace sanfengli.Bll.WeChatMp
                 return null;
             }
 
+        }
+
+
+        public static List<mpmsgreplycontent> GetContentByMsgId(IDbConnection db, int MsgId)
+        {
+            List<mpmsgreplycontent> model = new List<mpmsgreplycontent>();
+            string sql = $"select * from MpMsgReplyContent   where MsgId={MsgId} ";
+            model = db.Select<mpmsgreplycontent>(sql);
+            return model;
+        }
+        public static List<mpmsgreplykey> GetReplyKeyByMsgId(IDbConnection db, int MsgId)
+        {
+            List<mpmsgreplykey> model = new List<mpmsgreplykey>();
+            string sql = $"select * from mpmsgreplykeys   where MsgId={MsgId} ";
+            model = db.Select<mpmsgreplykey>(sql);
+            return model;
         }
         public static bool SaveMsgRule(MsgReplyResult dto)
         {
@@ -107,9 +124,7 @@ namespace sanfengli.Bll.WeChatMp
         }
         public static bool DeleteMsgRule(int msgId)
         {
-            string sql = @"DELETE MpMsgReply WHERE MsgId=@MsgId
-DELETE MpMsgReplyContent WHERE MsgId=@MsgId
-DELETE MpMsgReplyKeys WHERE MsgId=@MsgId";
+            string sql = $"DELETE from  MpMsgReply WHERE MsgId={msgId}; DELETE  from MpMsgReplyContent WHERE MsgId={msgId}; DELETE from MpMsgReplyKeys WHERE MsgId={msgId}";
             // SqlParameter[] parameters = new SqlParameter[]
             //{
             //     new SqlParameter("@MsgId",msgId),
@@ -135,11 +150,9 @@ DELETE MpMsgReplyKeys WHERE MsgId=@MsgId";
         {
             try
             {
-                using (var db = DbFactory.CreateDbConnection())
+                using (var db = DbFactory.OpenDbConnection())
                 {
-                    string sqlmId = @"SELECT  MsgId FROM MpMsgReplyKeys
-WHERE (@Key LIKE '%'+KeyVal+'%' AND MatchMode='contain') OR (@Key=KeyVal AND MatchMode='equal')
-ORDER BY CreateOn DESC limit 1";
+                    string sqlmId = $"SELECT  MsgId FROM MpMsgReplyKeys WHERE (keyval LIKE '%{key}%' AND MatchMode='contain') OR (keyval='{key}' AND MatchMode='equal') ORDER BY CreateOn DESC limit 1";
 
                     var parameters = new { Key = key };
                     var MsgId = db.Scalar<int>(sqlmId, parameters);
@@ -166,13 +179,12 @@ ORDER BY CreateOn DESC";
 
         public static int SaveMsgReply(mpmsgreply dto)
         {
-            using (var db = DbFactory.CreateDbConnection())
+            using (var db = DbFactory.OpenDbConnection())
             {
-                string sql = @"INSERT INTO MpMsgReply  (RuleName,ReplyMode) VALUES(@RuleName,@ReplyMode) SELECT @@IDENTITY";
+                string sql = $"INSERT INTO MpMsgReply  (RuleName,ReplyMode) VALUES('{dto.RuleName}','{dto.ReplyMode}'); SELECT @@IDENTITY;";
                 if (dto.Id > 0)
                 {
-                    sql = @"UPDATE  MpMsgReply SET RuleName = @RuleName ,ReplyMode = @ReplyMode,
- UpdateOn=GETDATE() WHERE MsgId=@MsgId";
+                    sql = $"UPDATE  MpMsgReply SET RuleName = '{dto.RuleName}' ,ReplyMode = '{dto.ReplyMode}',UpdateOn=now() WHERE MsgId={dto.Id}";
                 }
                 //SqlParameter[] parameters = new SqlParameter[]
                 //{

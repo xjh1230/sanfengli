@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sanfengli.Bll", "sanfengli.Bll\sanfengli.Bll.csproj", "{96644BCB-B719-4CE8-AA0F-9070C2542D5F}"
 EndProject
@@ -14,6 +14,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sanfengli.Web", "sanfengli.Web\sanfengli.Web.csproj", "{1BB0C3C4-65EE-44FA-83CB-1802D8398F22}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sanfengli.Web.Tests", "sanfengli.Web.Tests\sanfengli.Web.Tests.csproj", "{1B0C7B13-A044-4DA8-AD06-47EF28D822A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sanfengli.Api", "sanfengli.Api\sanfengli.Api.csproj", "{3C666853-0EB8-48C2-9FF4-1169F85C8B28}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sanfengli.Mvc", "sanfengli.Mvc\sanfengli.Mvc.csproj", "{75ECEAF4-65D6-4C24-943B-0A2F3DADAB1A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{1B0C7B13-A044-4DA8-AD06-47EF28D822A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1B0C7B13-A044-4DA8-AD06-47EF28D822A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1B0C7B13-A044-4DA8-AD06-47EF28D822A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C666853-0EB8-48C2-9FF4-1169F85C8B28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C666853-0EB8-48C2-9FF4-1169F85C8B28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C666853-0EB8-48C2-9FF4-1169F85C8B28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C666853-0EB8-48C2-9FF4-1169F85C8B28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75ECEAF4-65D6-4C24-943B-0A2F3DADAB1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75ECEAF4-65D6-4C24-943B-0A2F3DADAB1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75ECEAF4-65D6-4C24-943B-0A2F3DADAB1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75ECEAF4-65D6-4C24-943B-0A2F3DADAB1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

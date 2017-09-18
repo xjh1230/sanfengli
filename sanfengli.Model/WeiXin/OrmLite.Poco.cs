@@ -7,8 +7,8 @@
 // 
 //     Connection String Name: `WeiXin`
 //     Provider:               `MySql.Data.MySqlClient`
-//     Connection String:      `Server=localhost;Database='test';UID=root;Password=root`
-//     Schema:                 `test`
+//     Connection String:      `Server=47.94.244.119;Database='weiphp';UID=root;Password=!QAZ2wsx3`
+//     Schema:                 `weiphp`
 //     Include Views:          `False`
 
 //     Factory Name:          `MySqlClientFactory`
@@ -31,7 +31,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("adminmenu")]
     public partial class adminmenu : IHasId<int> 
     {
-        [Alias("Id")]
+        //[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -60,8 +60,9 @@ namespace sanfengli.Model.WeiXin
 	[Alias("cyactivitycontent")]
     public partial class cyactivitycontent : IHasId<int> 
     {
-        [Alias("Id")]
+        //[Alias("Id")]
         [Required]
+		[Alias("Id")]
         public int Id { get; set; }
         [Required]
 		[Alias("ActivityId")]
@@ -83,19 +84,22 @@ namespace sanfengli.Model.WeiXin
 	[Alias("feedback")]
     public partial class feedback : IHasId<long> 
     {
-        [Alias("Id")]
+        //[Alias("Id")]
         [AutoIncrement]
         public long Id { get; set; }
         public int? UserId { get; set; }
         public string Content { get; set; }
         public string Image { get; set; }
         public DateTime? CreateOn { get; set; }
+        public string name { get; set; }
+        public string phone { get; set; }
+        public string remark { get; set; }
     }
 
 	[Alias("mpeventreply")]
     public partial class mpeventreply : IHasId<int> 
     {
-        [Alias("Id")]
+        //[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -117,7 +121,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmateriallib")]
     public partial class mpmateriallib : IHasId<int> 
     {
-        [Alias("Id")]
+        //[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -133,7 +137,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmenulog")]
     public partial class mpmenulog : IHasId<int> 
     {
-        [Alias("Id")]
+        //[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string Content { get; set; }
@@ -144,8 +148,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmsgreply")]
     public partial class mpmsgreply : IHasId<int> 
     {
-        [Alias("MsgId")]
-        [Required]
+        //[Alias("MsgId")]
+        [AutoIncrement]
         public int Id { get; set; }
         [Required]
 		[Alias("RuleName")]
@@ -158,8 +162,9 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmsgreplycontent")]
     public partial class mpmsgreplycontent : IHasId<int> 
     {
-        [Alias("ReplyId")]
+        //[Alias("ReplyId")]
         [Required]
+		[Alias("ReplyId")]
         public int Id { get; set; }
         [Required]
 		[Alias("MsgId")]
@@ -177,8 +182,9 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmsgreplykeys")]
     public partial class mpmsgreplykey : IHasId<int> 
     {
-        [Alias("KeyId")]
+        //[Alias("KeyId")]
         [Required]
+		[Alias("KeyId")]
         public int Id { get; set; }
         [Required]
 		[Alias("MsgId")]
@@ -193,10 +199,2987 @@ namespace sanfengli.Model.WeiXin
         public DateTime UpdateOn { get; set; }
     }
 
+	[Alias("wp_action")]
+    public partial class wp_action : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("remark")]
+        public string remark { get; set; }
+        public string rule { get; set; }
+        public string log { get; set; }
+        [Required]
+		[Alias("type")]
+        public byte type { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        [Required]
+		[Alias("update_time")]
+        public uint update_time { get; set; }
+    }
+
+	[Alias("wp_action_log")]
+    public partial class wp_action_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("action_id")]
+        public uint action_id { get; set; }
+        [Required]
+		[Alias("user_id")]
+        public uint user_id { get; set; }
+        [Required]
+		[Alias("action_ip")]
+        public long action_ip { get; set; }
+        [Required]
+		[Alias("model")]
+        public string model { get; set; }
+        [Required]
+		[Alias("record_id")]
+        public uint record_id { get; set; }
+        [Required]
+		[Alias("remark")]
+        public string remark { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+    }
+
+	[Alias("wp_addon_category")]
+    public partial class wp_addon_category : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public uint? icon { get; set; }
+        public string title { get; set; }
+        public int? sort { get; set; }
+    }
+
+	[Alias("wp_addons")]
+    public partial class wp_addon : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string description { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        public string config { get; set; }
+        public string author { get; set; }
+        public string version { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+        [Required]
+		[Alias("has_adminlist")]
+        public byte has_adminlist { get; set; }
+        public sbyte? type { get; set; }
+        public int? cate_id { get; set; }
+        public sbyte? is_show { get; set; }
+    }
+
+	[Alias("wp_admin_log")]
+    public partial class wp_admin_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public string ip { get; set; }
+        public string content { get; set; }
+        public string mod { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_analysis")]
+    public partial class wp_analysi : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? sports_id { get; set; }
+        public string type { get; set; }
+        public string time { get; set; }
+        public int? total_count { get; set; }
+        public int? follow_count { get; set; }
+        public int? aver_count { get; set; }
+    }
+
+	[Alias("wp_api")]
+    public partial class wp_api : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string mod { get; set; }
+        public string method { get; set; }
+        public string return_type { get; set; }
+        public string type { get; set; }
+        public int? request_count { get; set; }
+        [Required]
+		[Alias("url")]
+        public string url { get; set; }
+        public sbyte? page { get; set; }
+    }
+
+	[Alias("wp_api_access_token")]
+    public partial class wp_api_access_token : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string appid { get; set; }
+        public string secret { get; set; }
+        public string access_token { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_api_param")]
+    public partial class wp_api_param : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        public sbyte? is_must { get; set; }
+        public string type { get; set; }
+        public string remark { get; set; }
+        public string extra { get; set; }
+        public string param_type { get; set; }
+        public int? api_id { get; set; }
+    }
+
+	[Alias("wp_apps")]
+    public partial class wp_app : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public string public_name { get; set; }
+        public string public_id { get; set; }
+        public string headface_url { get; set; }
+        public string area { get; set; }
+        public string addon_config { get; set; }
+        public string addon_status { get; set; }
+        public string token { get; set; }
+        public string type { get; set; }
+        public string appid { get; set; }
+        public string secret { get; set; }
+        public string encodingaeskey { get; set; }
+        public string tips_url { get; set; }
+        public sbyte? is_bind { get; set; }
+        public int? check_file { get; set; }
+        public sbyte? app_type { get; set; }
+        public string mch_id { get; set; }
+        public string partner_key { get; set; }
+        public uint? cert_pem { get; set; }
+        public uint? key_pem { get; set; }
+    }
+
+	[Alias("wp_apps_auth")]
+    public partial class wp_apps_auth : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public sbyte? type_0 { get; set; }
+        public sbyte? type_1 { get; set; }
+        public sbyte? type_2 { get; set; }
+        public sbyte? type_3 { get; set; }
+    }
+
+	[Alias("wp_apps_check")]
+    public partial class wp_apps_check : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("token")]
+        public string token { get; set; }
+        [Required]
+		[Alias("na")]
+        public string na { get; set; }
+        public string msg { get; set; }
+    }
+
+	[Alias("wp_apps_follow")]
+    public partial class wp_apps_follow 
+    {
+        //[Alias("openid")]
+        [Required]
+		[Alias("openid")]
+        public string openid { get; set; }
+        //[Alias("token")]
+        [Required]
+		[Alias("token")]
+        public string token { get; set; }
+        public int? uid { get; set; }
+        public sbyte? has_subscribe { get; set; }
+        public sbyte? syc_status { get; set; }
+        public string remark { get; set; }
+    }
+
+	[Alias("wp_apps_group")]
+    public partial class wp_apps_group : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string addon_status { get; set; }
+    }
+
+	[Alias("wp_apps_link")]
+    public partial class wp_apps_link : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public uint? mp_id { get; set; }
+        public sbyte? is_creator { get; set; }
+        public string addon_status { get; set; }
+    }
+
+	[Alias("wp_area")]
+    public partial class wp_area : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public int? pid { get; set; }
+        public int? sort { get; set; }
+    }
+
+	[Alias("wp_article")]
+    public partial class wp_article : IHasId<int> 
+    {
+        //[Alias("Id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string title { get; set; }
+        public DateTime? start_time { get; set; }
+        public DateTime? end_time { get; set; }
+        public string image { get; set; }
+        public string content { get; set; }
+        public int? is_delete { get; set; }
+    }
+
+	[Alias("wp_article_new")]
+    public partial class wp_article_new : IHasId<int> 
+    {
+        //[Alias("Id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string title { get; set; }
+        public string image { get; set; }
+        public string author { get; set; }
+        public string content { get; set; }
+        public DateTime? cTime { get; set; }
+        public int? count { get; set; }
+        public int? type_id { get; set; }
+        public string type_name { get; set; }
+    }
+
+	[Alias("wp_article_style")]
+    public partial class wp_article_style : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? group_id { get; set; }
+        public string style { get; set; }
+    }
+
+	[Alias("wp_article_style_group")]
+    public partial class wp_article_style_group : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string group_name { get; set; }
+        public string desc { get; set; }
+    }
+
+	[Alias("wp_article_type_new")]
+    public partial class wp_article_type_new : IHasId<int> 
+    {
+        //[Alias("Id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string name { get; set; }
+    }
+
+	[Alias("wp_ask")]
+    public partial class wp_ask : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        public sbyte? keyword_type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string intro { get; set; }
+        public int? mTime { get; set; }
+        public uint? cover { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public string finish_tip { get; set; }
+        public string content { get; set; }
+        public string shop_address { get; set; }
+        public string appids { get; set; }
+        public string finish_button { get; set; }
+        public string card_id { get; set; }
+        public string appsecre { get; set; }
+        public string template { get; set; }
+    }
+
+	[Alias("wp_ask_answer")]
+    public partial class wp_ask_answer : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string answer { get; set; }
+        public string openid { get; set; }
+        public int? uid { get; set; }
+        public uint? question_id { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public uint? ask_id { get; set; }
+        public sbyte? is_correct { get; set; }
+        public int? times { get; set; }
+    }
+
+	[Alias("wp_ask_question")]
+    public partial class wp_ask_question : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string intro { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public sbyte? is_must { get; set; }
+        [Required]
+		[Alias("extra")]
+        public string extra { get; set; }
+        [Required]
+		[Alias("type")]
+        public string type { get; set; }
+        public uint? ask_id { get; set; }
+        public uint? sort { get; set; }
+        [Required]
+		[Alias("answer")]
+        public string answer { get; set; }
+        public sbyte? is_last { get; set; }
+        public int? wait_time { get; set; }
+        public int? percent { get; set; }
+        public int? answer_time { get; set; }
+    }
+
+	[Alias("wp_attachment")]
+    public partial class wp_attachment : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("type")]
+        public byte type { get; set; }
+        [Required]
+		[Alias("source")]
+        public uint source { get; set; }
+        [Required]
+		[Alias("record_id")]
+        public uint record_id { get; set; }
+        [Required]
+		[Alias("download")]
+        public uint download { get; set; }
+        [Required]
+		[Alias("size")]
+        public ulong size { get; set; }
+        [Required]
+		[Alias("dir")]
+        public uint dir { get; set; }
+        [Required]
+		[Alias("sort")]
+        public uint sort { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+        [Required]
+		[Alias("update_time")]
+        public uint update_time { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+    }
+
+	[Alias("wp_auth_extend")]
+    public partial class wp_auth_extend 
+    {
+        //[Alias("group_id")]
+        [Required]
+		[Alias("group_id")]
+        public string group_id { get; set; }
+        //[Alias("extend_id")]
+        [Required]
+		[Alias("extend_id")]
+        public string extend_id { get; set; }
+        //[Alias("type")]
+        [Required]
+		[Alias("type")]
+        public byte type { get; set; }
+    }
+
+	[Alias("wp_auth_group")]
+    public partial class wp_auth_group : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public uint? icon { get; set; }
+        public string description { get; set; }
+        public sbyte? status { get; set; }
+        public sbyte? type { get; set; }
+        public string rules { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public sbyte? is_default { get; set; }
+        public string qr_code { get; set; }
+        public int? wechat_group_id { get; set; }
+        public string wechat_group_name { get; set; }
+        public int? wechat_group_count { get; set; }
+        public sbyte? is_del { get; set; }
+    }
+
+	[Alias("wp_auth_group_access")]
+    public partial class wp_auth_group_access 
+    {
+        public int? uid { get; set; }
+        [Required]
+		[Alias("group_id")]
+        public string group_id { get; set; }
+    }
+
+	[Alias("wp_auth_rule")]
+    public partial class wp_auth_rule : IHasId<string> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public string Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        [Required]
+		[Alias("condition")]
+        public string condition { get; set; }
+        public string group { get; set; }
+    }
+
+	[Alias("wp_auto_reply")]
+    public partial class wp_auto_reply : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        public string msg_type { get; set; }
+        public string content { get; set; }
+        public int? group_id { get; set; }
+        public uint? image_id { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? image_material { get; set; }
+        public int? voice_id { get; set; }
+        public int? video_id { get; set; }
+    }
+
+	[Alias("wp_business_card")]
+    public partial class wp_business_card : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public string truename { get; set; }
+        public string position { get; set; }
+        public string mobile { get; set; }
+        public string company { get; set; }
+        public string department { get; set; }
+        public string service { get; set; }
+        public string company_url { get; set; }
+        public string address { get; set; }
+        public string telephone { get; set; }
+        public string Email { get; set; }
+        public string wechat { get; set; }
+        public string qq { get; set; }
+        public string weibo { get; set; }
+        public string tag { get; set; }
+        public string wishing { get; set; }
+        public string interest { get; set; }
+        public string personal_url { get; set; }
+        public string intro { get; set; }
+        public uint? headface { get; set; }
+        public string permission { get; set; }
+        public string template { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_business_card_collect")]
+    public partial class wp_business_card_collect : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? from_uid { get; set; }
+        public int? to_uid { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_business_card_column")]
+    public partial class wp_business_card_column : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string type { get; set; }
+        public string cate_id { get; set; }
+        public string title { get; set; }
+        public string url { get; set; }
+        public int? sort { get; set; }
+        public int? business_card_id { get; set; }
+        public int? uid { get; set; }
+    }
+
+	[Alias("wp_buy_log")]
+    public partial class wp_buy_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public float? pay { get; set; }
+        public int? sn_id { get; set; }
+        public string pay_type { get; set; }
+        public int? branch_id { get; set; }
+        public int? member_id { get; set; }
+        public int? cTime { get; set; }
+        public string token { get; set; }
+        public int? manager_id { get; set; }
+    }
+
+	[Alias("wp_card_coupons")]
+    public partial class wp_card_coupon : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public sbyte? give_type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public int? end_date { get; set; }
+        [Required]
+		[Alias("start_date")]
+        public int start_date { get; set; }
+        [Required]
+		[Alias("content")]
+        public string content { get; set; }
+        public int? cTime { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_card_custom")]
+    public partial class wp_card_custom : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? cTime { get; set; }
+        public int? score { get; set; }
+        public int? coupon_id { get; set; }
+        public sbyte? is_show { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public string title { get; set; }
+        public sbyte? type { get; set; }
+        public string content { get; set; }
+        public int? member { get; set; }
+        public sbyte? is_birthday { get; set; }
+        public sbyte? before_day { get; set; }
+    }
+
+	[Alias("wp_card_level")]
+    public partial class wp_card_level : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string level { get; set; }
+        public int? score { get; set; }
+        public int? recharge { get; set; }
+        public int? discount { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_card_marketing")]
+    public partial class wp_card_marketing : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public sbyte? status { get; set; }
+        public string type { get; set; }
+        public string give_type { get; set; }
+        public int? give { get; set; }
+        public int? condition { get; set; }
+        public int? branch_id { get; set; }
+        public int? grade { get; set; }
+        public int? exchange_count { get; set; }
+        public sbyte? open_give_rule { get; set; }
+        public sbyte? enjoy_power { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_card_member")]
+    public partial class wp_card_member : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string number { get; set; }
+        public int? cTime { get; set; }
+        public string phone { get; set; }
+        public string username { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+        public int? recharge { get; set; }
+        public sbyte? status { get; set; }
+        public int? birthday { get; set; }
+        public string address { get; set; }
+        public int? level { get; set; }
+        public int? sex { get; set; }
+    }
+
+	[Alias("wp_card_notice")]
+    public partial class wp_card_notice : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? cTime { get; set; }
+        [Required]
+		[Alias("content")]
+        public string content { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string token { get; set; }
+        public uint? img { get; set; }
+        public string grade { get; set; }
+        public int? to_uid { get; set; }
+    }
+
+	[Alias("wp_card_privilege")]
+    public partial class wp_card_privilege : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string grade { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public string intro { get; set; }
+        public string token { get; set; }
+        public sbyte? enable { get; set; }
+    }
+
+	[Alias("wp_card_recharge")]
+    public partial class wp_card_recharge : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? cTime { get; set; }
+        public string goods_ids { get; set; }
+        public sbyte? is_all_goods { get; set; }
+        public sbyte? is_mult { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public string title { get; set; }
+    }
+
+	[Alias("wp_card_recharge_condition")]
+    public partial class wp_card_recharge_condition : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public decimal? money_param { get; set; }
+        public sbyte? money { get; set; }
+        public int? reward_id { get; set; }
+        public int? sort { get; set; }
+        public decimal? condition { get; set; }
+        public sbyte? score { get; set; }
+        public int? score_param { get; set; }
+        public sbyte? shop_coupon { get; set; }
+        public int? shop_coupon_param { get; set; }
+    }
+
+	[Alias("wp_card_reward")]
+    public partial class wp_card_reward : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? cTime { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public string title { get; set; }
+        public sbyte? type { get; set; }
+        public int? score { get; set; }
+        public int? coupon_id { get; set; }
+        public sbyte? is_show { get; set; }
+        public string content { get; set; }
+    }
+
+	[Alias("wp_card_score")]
+    public partial class wp_card_score : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? cTime { get; set; }
+        public int? num_limit { get; set; }
+        public int? coupon_id { get; set; }
+        public int? score_limit { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public string title { get; set; }
+        public string member { get; set; }
+        public int? coupon_type { get; set; }
+        public uint? cover_id { get; set; }
+    }
+
+	[Alias("wp_card_vouchers")]
+    public partial class wp_card_voucher : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string content { get; set; }
+        public string code { get; set; }
+        public string appsecre { get; set; }
+        public string openid { get; set; }
+        public string card_id { get; set; }
+        public string balance { get; set; }
+        public uint? cover { get; set; }
+        public uint? background { get; set; }
+        public string title { get; set; }
+        public string button_color { get; set; }
+        public string head_bg_color { get; set; }
+        public uint? shop_logo { get; set; }
+        public string shop_name { get; set; }
+        public string more_button { get; set; }
+        public string template { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_channel")]
+    public partial class wp_channel : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("pid")]
+        public uint pid { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("url")]
+        public string url { get; set; }
+        [Required]
+		[Alias("sort")]
+        public uint sort { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+        [Required]
+		[Alias("update_time")]
+        public uint update_time { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        [Required]
+		[Alias("target")]
+        public byte target { get; set; }
+    }
+
+	[Alias("wp_city")]
+    public partial class wp_city : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("city")]
+        public string city { get; set; }
+        public string manager_uids { get; set; }
+        public int? cTime { get; set; }
+        public int? logo { get; set; }
+    }
+
+	[Alias("wp_cms")]
+    public partial class wp_cm : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public uint? img { get; set; }
+        public string content { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_comment")]
+    public partial class wp_comment : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string aim_table { get; set; }
+        public int? aim_id { get; set; }
+        public int? cTime { get; set; }
+        public int? follow_id { get; set; }
+        public string content { get; set; }
+        public sbyte? is_audit { get; set; }
+        public int? uid { get; set; }
+    }
+
+	[Alias("wp_common_category")]
+    public partial class wp_common_category : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public uint? icon { get; set; }
+        public uint? pid { get; set; }
+        public string path { get; set; }
+        public string module { get; set; }
+        public uint? sort { get; set; }
+        public sbyte? is_show { get; set; }
+        public string intro { get; set; }
+        public string token { get; set; }
+        public string code { get; set; }
+    }
+
+	[Alias("wp_common_category_group")]
+    public partial class wp_common_category_group : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public byte? level { get; set; }
+    }
+
+	[Alias("wp_config")]
+    public partial class wp_config : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("type")]
+        public byte type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("group")]
+        public byte group { get; set; }
+        [Required]
+		[Alias("extra")]
+        public string extra { get; set; }
+        [Required]
+		[Alias("remark")]
+        public string remark { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+        [Required]
+		[Alias("update_time")]
+        public uint update_time { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        [Required]
+		[Alias("value")]
+        public string value { get; set; }
+        [Required]
+		[Alias("sort")]
+        public ushort sort { get; set; }
+    }
+
+	[Alias("wp_coupon")]
+    public partial class wp_coupon : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public uint? background { get; set; }
+        public string keyword { get; set; }
+        public string use_tips { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string intro { get; set; }
+        public int? end_time { get; set; }
+        public uint? cover { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public int? start_time { get; set; }
+        public string end_tips { get; set; }
+        public uint? end_img { get; set; }
+        public uint? num { get; set; }
+        public uint? max_num { get; set; }
+        public string follower_condtion { get; set; }
+        public uint? credit_conditon { get; set; }
+        public uint? credit_bug { get; set; }
+        public string addon_condition { get; set; }
+        public uint? collect_count { get; set; }
+        public uint? view_count { get; set; }
+        public string addon { get; set; }
+        public string shop_uid { get; set; }
+        public int? use_count { get; set; }
+        public string pay_password { get; set; }
+        public string empty_prize_tips { get; set; }
+        public string start_tips { get; set; }
+        public string more_button { get; set; }
+        public int? over_time { get; set; }
+        public int? use_start_time { get; set; }
+        public string shop_name { get; set; }
+        public uint? shop_logo { get; set; }
+        public string head_bg_color { get; set; }
+        public string button_color { get; set; }
+        public string template { get; set; }
+        public string member { get; set; }
+        public int? is_del { get; set; }
+    }
+
+	[Alias("wp_coupon_shop")]
+    public partial class wp_coupon_shop : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string name { get; set; }
+        public string address { get; set; }
+        public string phone { get; set; }
+        public string gps { get; set; }
+        public int? coupon_id { get; set; }
+        public string token { get; set; }
+        public int? manager_id { get; set; }
+        public string open_time { get; set; }
+        public uint? img { get; set; }
+    }
+
+	[Alias("wp_coupon_shop_link")]
+    public partial class wp_coupon_shop_link : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? coupon_id { get; set; }
+        public int? shop_id { get; set; }
+    }
+
+	[Alias("wp_credit_config")]
+    public partial class wp_credit_config : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string name { get; set; }
+        public int? mTime { get; set; }
+        public string experience { get; set; }
+        public string score { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_credit_data")]
+    public partial class wp_credit_datum : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public string credit_name { get; set; }
+        public int? experience { get; set; }
+        public int? score { get; set; }
+        public int? cTime { get; set; }
+        public int? admin_uid { get; set; }
+        public string token { get; set; }
+        public string credit_title { get; set; }
+    }
+
+	[Alias("wp_custom_menu")]
+    public partial class wp_custom_menu : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? pid { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("from")]
+        public string from { get; set; }
+        [Required]
+		[Alias("type")]
+        public string type { get; set; }
+        public sbyte? sort { get; set; }
+        [Required]
+		[Alias("token")]
+        public string token { get; set; }
+        public int? rule_id { get; set; }
+        public string material { get; set; }
+        public string url { get; set; }
+        public string keyword { get; set; }
+        public string appid { get; set; }
+        public string pagepath { get; set; }
+        public string appurl { get; set; }
+    }
+
+	[Alias("wp_custom_menu_rule")]
+    public partial class wp_custom_menu_rule : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? tag_id { get; set; }
+        public sbyte? sex { get; set; }
+        public sbyte? os { get; set; }
+        public int? city { get; set; }
+        public int? province { get; set; }
+        public int? country { get; set; }
+        public string lang { get; set; }
+        [Required]
+		[Alias("token")]
+        public string token { get; set; }
+        public string menuid { get; set; }
+    }
+
+	[Alias("wp_custom_reply_mult")]
+    public partial class wp_custom_reply_mult : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string keyword { get; set; }
+        public sbyte? keyword_type { get; set; }
+        public string mult_ids { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_custom_reply_news")]
+    public partial class wp_custom_reply_news : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        public sbyte? keyword_type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string intro { get; set; }
+        public uint? cate_id { get; set; }
+        public uint? cover { get; set; }
+        public string content { get; set; }
+        public int? cTime { get; set; }
+        public uint? sort { get; set; }
+        public uint? view_count { get; set; }
+        public string token { get; set; }
+        public string jump_url { get; set; }
+        public string author { get; set; }
+        public string show_type { get; set; }
+        public string is_show { get; set; }
+    }
+
+	[Alias("wp_custom_reply_text")]
+    public partial class wp_custom_reply_text : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string keyword { get; set; }
+        public sbyte? keyword_type { get; set; }
+        public string content { get; set; }
+        public uint? view_count { get; set; }
+        public uint? sort { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_custom_sendall")]
+    public partial class wp_custom_sendall : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string ToUserName { get; set; }
+        public string FromUserName { get; set; }
+        public int? cTime { get; set; }
+        public string msgType { get; set; }
+        public int? manager_id { get; set; }
+        public string content { get; set; }
+        public string media_id { get; set; }
+        public int? is_send { get; set; }
+        public int? uid { get; set; }
+        public string news_group_id { get; set; }
+        public string video_title { get; set; }
+        public string video_description { get; set; }
+        public string video_thumb { get; set; }
+        public int? voice_id { get; set; }
+        public int? image_id { get; set; }
+        public int? video_id { get; set; }
+        public int? send_type { get; set; }
+        public string send_opends { get; set; }
+        public int? group_id { get; set; }
+        public int? diff { get; set; }
+    }
+
+	[Alias("wp_customer")]
+    public partial class wp_customer : IHasId<ulong> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public ulong Id { get; set; }
+        [Required]
+		[Alias("userid")]
+        public ulong userid { get; set; }
+        public string name { get; set; }
+        public string sex { get; set; }
+        public string mobile { get; set; }
+        public string tel { get; set; }
+        public string email { get; set; }
+        public string company { get; set; }
+        public string job { get; set; }
+        public string address { get; set; }
+        public string website { get; set; }
+        public string qq { get; set; }
+        public string weixin { get; set; }
+        public string yixin { get; set; }
+        public string weibo { get; set; }
+        public string laiwang { get; set; }
+        public string remark { get; set; }
+        [Required]
+		[Alias("origin")]
+        public ulong origin { get; set; }
+        [Required]
+		[Alias("originName")]
+        public string originName { get; set; }
+        [Required]
+		[Alias("status")]
+        public byte status { get; set; }
+        [Required]
+		[Alias("createUser")]
+        public string createUser { get; set; }
+        [Required]
+		[Alias("createTime")]
+        public uint createTime { get; set; }
+        [Required]
+		[Alias("groupId")]
+        public string groupId { get; set; }
+        public string groupName { get; set; }
+        public string group { get; set; }
+    }
+
+	[Alias("wp_debug_log")]
+    public partial class wp_debug_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string data { get; set; }
+        public string data_post { get; set; }
+        public string cTime_format { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_docs")]
+    public partial class wp_doc : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string url { get; set; }
+        public int? cTime { get; set; }
+        public int? download_count { get; set; }
+        public uint? file_id { get; set; }
+    }
+
+	[Alias("wp_draw_follow_log")]
+    public partial class wp_draw_follow_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? follow_id { get; set; }
+        public int? sports_id { get; set; }
+        public int? count { get; set; }
+        public int? cTime { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_error_log")]
+    public partial class wp_error_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string urls { get; set; }
+        public string os { get; set; }
+        public string php { get; set; }
+        public string mysql { get; set; }
+        public string web { get; set; }
+        public string sapi { get; set; }
+        public int? port { get; set; }
+        public string key { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_exam")]
+    public partial class wp_exam : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        [Required]
+		[Alias("keyword_type")]
+        public sbyte keyword_type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("intro")]
+        public string intro { get; set; }
+        public int? mTime { get; set; }
+        [Required]
+		[Alias("cover")]
+        public uint cover { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        [Required]
+		[Alias("finish_tip")]
+        public string finish_tip { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+    }
+
+	[Alias("wp_exam_answer")]
+    public partial class wp_exam_answer : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string answer { get; set; }
+        public string openid { get; set; }
+        public int? uid { get; set; }
+        public uint? question_id { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public uint? exam_id { get; set; }
+        public uint? score { get; set; }
+    }
+
+	[Alias("wp_exam_question")]
+    public partial class wp_exam_question : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("intro")]
+        public string intro { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public sbyte? is_must { get; set; }
+        [Required]
+		[Alias("extra")]
+        public string extra { get; set; }
+        [Required]
+		[Alias("type")]
+        public string type { get; set; }
+        public uint? exam_id { get; set; }
+        [Required]
+		[Alias("sort")]
+        public uint sort { get; set; }
+        [Required]
+		[Alias("score")]
+        public uint score { get; set; }
+        [Required]
+		[Alias("answer")]
+        public string answer { get; set; }
+    }
+
+	[Alias("wp_feedback")]
+    public partial class wp_feedback : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string username { get; set; }
+        public string product { get; set; }
+        public string from { get; set; }
+        public string area { get; set; }
+        public int? score { get; set; }
+        public sbyte? is_dev { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_file")]
+    public partial class wp_file : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("savename")]
+        public string savename { get; set; }
+        [Required]
+		[Alias("savepath")]
+        public string savepath { get; set; }
+        [Required]
+		[Alias("ext")]
+        public string ext { get; set; }
+        [Required]
+		[Alias("mime")]
+        public string mime { get; set; }
+        [Required]
+		[Alias("size")]
+        public uint size { get; set; }
+        public string md5 { get; set; }
+        [Required]
+		[Alias("sha1")]
+        public string sha1 { get; set; }
+        [Required]
+		[Alias("location")]
+        public byte location { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+    }
+
+	[Alias("wp_forms")]
+    public partial class wp_form : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string finish_tip { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public string password { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string intro { get; set; }
+        public int? mTime { get; set; }
+        public uint? cover { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        public sbyte? can_edit { get; set; }
+        public string content { get; set; }
+        public string jump_url { get; set; }
+        public string template { get; set; }
+    }
+
+	[Alias("wp_forms_attribute")]
+    public partial class wp_forms_attribute : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("type")]
+        public string type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public int? mTime { get; set; }
+        public string extra { get; set; }
+        public string value { get; set; }
+        public string token { get; set; }
+        public string name { get; set; }
+        public string remark { get; set; }
+        public sbyte? is_must { get; set; }
+        public string validate_rule { get; set; }
+        public uint? sort { get; set; }
+        public string error_info { get; set; }
+        public uint? forms_id { get; set; }
+        public sbyte? is_show { get; set; }
+    }
+
+	[Alias("wp_forms_value")]
+    public partial class wp_forms_value : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public string openid { get; set; }
+        public uint? forms_id { get; set; }
+        public string value { get; set; }
+        public int? cTime { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_forum")]
+    public partial class wp_forum : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public int? uid { get; set; }
+        public string content { get; set; }
+        public int? cTime { get; set; }
+        public string attach { get; set; }
+        public int? is_top { get; set; }
+        public sbyte? cid { get; set; }
+        public uint? view_count { get; set; }
+        public uint? reply_count { get; set; }
+    }
+
+	[Alias("wp_guess")]
+    public partial class wp_guess : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string desc { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public int? create_time { get; set; }
+        public uint? guess_count { get; set; }
+        public string token { get; set; }
+        public string template { get; set; }
+        public uint? cover { get; set; }
+    }
+
+	[Alias("wp_guess_log")]
+    public partial class wp_guess_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public uint? user_id { get; set; }
+        public uint? guess_id { get; set; }
+        public string token { get; set; }
+        public string optionIds { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_guess_option")]
+    public partial class wp_guess_option : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? guess_id { get; set; }
+        public string name { get; set; }
+        public uint? image { get; set; }
+        public int? order { get; set; }
+        public uint? guess_count { get; set; }
+    }
+
+	[Alias("wp_hooks")]
+    public partial class wp_hook : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("description")]
+        public string description { get; set; }
+        [Required]
+		[Alias("type")]
+        public byte type { get; set; }
+        [Required]
+		[Alias("update_time")]
+        public uint update_time { get; set; }
+        public string addons { get; set; }
+    }
+
+	[Alias("wp_huodong")]
+    public partial class wp_huodong : IHasId<int> 
+    {
+        //[Alias("Id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string title { get; set; }
+        public string content { get; set; }
+        public string image { get; set; }
+        public DateTime? oper_time { get; set; }
+        public DateTime? start_time { get; set; }
+        public DateTime? end_time { get; set; }
+        public int? count { get; set; }
+        public int? is_need_userinfo { get; set; }
+        public int? is_delete { get; set; }
+    }
+
+	[Alias("wp_huodong_record")]
+    public partial class wp_huodong_record : IHasId<int> 
+    {
+        //[Alias("Id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? huodong_id { get; set; }
+        public int? user_id { get; set; }
+        public string user_name { get; set; }
+        public string user_phone { get; set; }
+        public DateTime? oper_time { get; set; }
+        public string remark { get; set; }
+    }
+
+	[Alias("wp_import")]
+    public partial class wp_import : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("attach")]
+        public uint attach { get; set; }
+    }
+
+	[Alias("wp_invite")]
+    public partial class wp_invite : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        public sbyte? keyword_type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("intro")]
+        public string intro { get; set; }
+        public int? mTime { get; set; }
+        [Required]
+		[Alias("cover")]
+        public uint cover { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public int? experience { get; set; }
+        [Required]
+		[Alias("num")]
+        public int num { get; set; }
+        [Required]
+		[Alias("coupon_id")]
+        public string coupon_id { get; set; }
+        public int? coupon_num { get; set; }
+        public int? receive_num { get; set; }
+        [Required]
+		[Alias("content")]
+        public string content { get; set; }
+        public string template { get; set; }
+    }
+
+	[Alias("wp_invite_code")]
+    public partial class wp_invite_code : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string openid { get; set; }
+        public string code { get; set; }
+    }
+
+	[Alias("wp_invite_user")]
+    public partial class wp_invite_user : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string token { get; set; }
+        public int? uid { get; set; }
+        public int? invite_id { get; set; }
+        public int? invite_num { get; set; }
+        public int? invite_uid { get; set; }
+    }
+
+	[Alias("wp_join_count")]
+    public partial class wp_join_count : IHasId<int> 
+    {
+        public int? follow_id { get; set; }
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? aim_id { get; set; }
+        public int? count { get; set; }
+    }
+
+	[Alias("wp_keyword")]
+    public partial class wp_keyword : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        public string token { get; set; }
+        [Required]
+		[Alias("addon")]
+        public string addon { get; set; }
+        [Required]
+		[Alias("aim_id")]
+        public uint aim_id { get; set; }
+        public int? cTime { get; set; }
+        public uint? keyword_length { get; set; }
+        public sbyte? keyword_type { get; set; }
+        public string extra_text { get; set; }
+        public int? extra_int { get; set; }
+        public int? request_count { get; set; }
+    }
+
+	[Alias("wp_lottery_games")]
+    public partial class wp_lottery_game : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string game_type { get; set; }
+        public string status { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public int? day_attend_limit { get; set; }
+        public int? attend_limit { get; set; }
+        public int? day_win_limit { get; set; }
+        public int? win_limit { get; set; }
+        public int? day_winners_count { get; set; }
+        public string url { get; set; }
+        public string remark { get; set; }
+        public string keyword { get; set; }
+        public int? attend_num { get; set; }
+        public string token { get; set; }
+        public int? manager_id { get; set; }
+        public string test_award { get; set; }
+    }
+
+	[Alias("wp_lottery_games_award_link")]
+    public partial class wp_lottery_games_award_link : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? award_id { get; set; }
+        public int? games_id { get; set; }
+        public string grade { get; set; }
+        public int? num { get; set; }
+        public int? max_count { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_lottery_prize_list")]
+    public partial class wp_lottery_prize_list : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? sports_id { get; set; }
+        public string award_id { get; set; }
+        public int? award_num { get; set; }
+        public int? uid { get; set; }
+    }
+
+	[Alias("wp_lucky_follow")]
+    public partial class wp_lucky_follow : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? draw_id { get; set; }
+        public int? sport_id { get; set; }
+        public int? award_id { get; set; }
+        public int? follow_id { get; set; }
+        public string address { get; set; }
+        public int? num { get; set; }
+        public sbyte? state { get; set; }
+        public int? zjtime { get; set; }
+        public int? djtime { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+        public string aim_table { get; set; }
+        public string remark { get; set; }
+        public string scan_code { get; set; }
+    }
+
+	[Alias("wp_lzwg_activities")]
+    public partial class wp_lzwg_activity : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string remark { get; set; }
+        public uint? logo_img { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public string get_prize_tip { get; set; }
+        public string no_prize_tip { get; set; }
+        public int? ctime { get; set; }
+        public int? uid { get; set; }
+        public int? lottery_number { get; set; }
+        public string comment_status { get; set; }
+        public int? get_prize_count { get; set; }
+    }
+
+	[Alias("wp_lzwg_activities_vote")]
+    public partial class wp_lzwg_activities_vote : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? lzwg_id { get; set; }
+        public string lzwg_type { get; set; }
+        public int? vote_id { get; set; }
+        public string vote_type { get; set; }
+        public int? vote_limit { get; set; }
+    }
+
+	[Alias("wp_lzwg_coupon")]
+    public partial class wp_lzwg_coupon : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public decimal? money { get; set; }
+        public string name { get; set; }
+        public decimal? condition { get; set; }
+        public string intro { get; set; }
+        public uint? img { get; set; }
+        public string sn_str { get; set; }
+    }
+
+	[Alias("wp_lzwg_coupon_receive")]
+    public partial class wp_lzwg_coupon_receive : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? follow_id { get; set; }
+        public int? coupon_id { get; set; }
+        public string sn_id { get; set; }
+        public int? cTime { get; set; }
+        public int? aim_id { get; set; }
+        public string aim_table { get; set; }
+    }
+
+	[Alias("wp_lzwg_coupon_sn")]
+    public partial class wp_lzwg_coupon_sn : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? coupon_id { get; set; }
+        public string sn { get; set; }
+        public int? is_use { get; set; }
+        public int? is_get { get; set; }
+    }
+
+	[Alias("wp_lzwg_log")]
+    public partial class wp_lzwg_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? lzwg_id { get; set; }
+        public int? follow_id { get; set; }
+        public int? count { get; set; }
+    }
+
+	[Alias("wp_lzwg_vote")]
+    public partial class wp_lzwg_vote : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string keyword { get; set; }
+        public string title { get; set; }
+        public string description { get; set; }
+        public uint? picurl { get; set; }
+        public string type { get; set; }
+        public int? start_date { get; set; }
+        public int? end_date { get; set; }
+        public sbyte? is_img { get; set; }
+        public uint? vote_count { get; set; }
+        public int? cTime { get; set; }
+        public int? mTime { get; set; }
+        public string token { get; set; }
+        public string template { get; set; }
+        public int? uid { get; set; }
+        public string vote_type { get; set; }
+    }
+
+	[Alias("wp_lzwg_vote_log")]
+    public partial class wp_lzwg_vote_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public uint? vote_id { get; set; }
+        public int? user_id { get; set; }
+        public string token { get; set; }
+        public string options { get; set; }
+        public int? cTime { get; set; }
+        public int? activity_id { get; set; }
+    }
+
+	[Alias("wp_lzwg_vote_option")]
+    public partial class wp_lzwg_vote_option : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("vote_id")]
+        public uint vote_id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        public uint? image { get; set; }
+        public uint? opt_count { get; set; }
+        public uint? order { get; set; }
+    }
+
+	[Alias("wp_manager")]
+    public partial class wp_manager : IHasId<int> 
+    {
+        //[Alias("uid")]
+        [Required]
+		[Alias("uid")]
+        public int Id { get; set; }
+        public sbyte? has_public { get; set; }
+        public uint? headface_url { get; set; }
+        public string GammaAppId { get; set; }
+        public string GammaSecret { get; set; }
+        public string copy_right { get; set; }
+        public string tongji_code { get; set; }
+        public uint? website_logo { get; set; }
+    }
+
+	[Alias("wp_material_file")]
+    public partial class wp_material_file : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("file_id")]
+        public int file_id { get; set; }
+        public string cover_url { get; set; }
+        public string media_id { get; set; }
+        public string wechat_url { get; set; }
+        public int? cTime { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public int? type { get; set; }
+        public string introduction { get; set; }
+        public int? is_use { get; set; }
+        public int? aim_id { get; set; }
+        public string aim_table { get; set; }
+    }
+
+	[Alias("wp_material_image")]
+    public partial class wp_material_image : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? cover_id { get; set; }
+        public string cover_url { get; set; }
+        public string media_id { get; set; }
+        public string wechat_url { get; set; }
+        public int? cTime { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? is_use { get; set; }
+        public int? aim_id { get; set; }
+        public string aim_table { get; set; }
+    }
+
+	[Alias("wp_material_news")]
+    public partial class wp_material_news : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string author { get; set; }
+        public uint? cover_id { get; set; }
+        public string intro { get; set; }
+        public string content { get; set; }
+        public string link { get; set; }
+        public int? group_id { get; set; }
+        public string thumb_media_id { get; set; }
+        public string media_id { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? cTime { get; set; }
+        public string url { get; set; }
+        public int? is_use { get; set; }
+        public int? aim_id { get; set; }
+        public string aim_table { get; set; }
+        public int? update_time { get; set; }
+    }
+
+	[Alias("wp_material_text")]
+    public partial class wp_material_text : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string content { get; set; }
+        public string token { get; set; }
+        public int? uid { get; set; }
+        public int? is_use { get; set; }
+        public int? aim_id { get; set; }
+        public string aim_table { get; set; }
+    }
+
+	[Alias("wp_menu")]
+    public partial class wp_menu : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public sbyte? menu_type { get; set; }
+        public string pid { get; set; }
+        public string title { get; set; }
+        public sbyte? url_type { get; set; }
+        public string addon_name { get; set; }
+        public string url { get; set; }
+        public string target { get; set; }
+        public sbyte? is_hide { get; set; }
+        public int? sort { get; set; }
+        public sbyte? place { get; set; }
+    }
+
+	[Alias("wp_message")]
+    public partial class wp_message : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string bind_keyword { get; set; }
+        public string preview_openids { get; set; }
+        public int? group_id { get; set; }
+        public sbyte? type { get; set; }
+        public string media_id { get; set; }
+        public sbyte? send_type { get; set; }
+        public string send_openids { get; set; }
+        public string msg_id { get; set; }
+        public string content { get; set; }
+        public string msgtype { get; set; }
+        public string token { get; set; }
+        public int? appmsg_id { get; set; }
+        public int? voice_id { get; set; }
+        public int? video_id { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_model")]
+    public partial class wp_model : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public byte? need_pk { get; set; }
+        public string field_sort { get; set; }
+        public string list_grid { get; set; }
+        public ushort? list_row { get; set; }
+        public string search_key { get; set; }
+        public string engine_type { get; set; }
+        public string addon { get; set; }
+        public string file_md5 { get; set; }
+    }
+
+	[Alias("wp_online_count")]
+    public partial class wp_online_count 
+    {
+        public int? publicid { get; set; }
+        public string addon { get; set; }
+        public int? aim_id { get; set; }
+        public long? time { get; set; }
+        public int? count { get; set; }
+    }
+
+	[Alias("wp_payment")]
+    public partial class wp_payment : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("out_trade_no")]
+        public string out_trade_no { get; set; }
+        [Required]
+		[Alias("total_fee")]
+        public int total_fee { get; set; }
+        [Required]
+		[Alias("appid")]
+        public string appid { get; set; }
+        public string token { get; set; }
+        public string openid { get; set; }
+        [Required]
+		[Alias("callback")]
+        public string callback { get; set; }
+        public string prepay_id { get; set; }
+        public string code_url { get; set; }
+        public string return_code { get; set; }
+        public string return_msg { get; set; }
+        public string result_code { get; set; }
+        public string err_code_des { get; set; }
+        [Required]
+		[Alias("cTime")]
+        public int cTime { get; set; }
+        public string param { get; set; }
+        public string res_data { get; set; }
+        public sbyte? is_pay { get; set; }
+        public string after_pay_res { get; set; }
+    }
+
+	[Alias("wp_payment_order")]
+    public partial class wp_payment_order : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("from")]
+        public string from { get; set; }
+        public string orderName { get; set; }
+        [Required]
+		[Alias("single_orderid")]
+        public string single_orderid { get; set; }
+        public decimal? price { get; set; }
+        [Required]
+		[Alias("token")]
+        public string token { get; set; }
+        [Required]
+		[Alias("wecha_id")]
+        public string wecha_id { get; set; }
+        [Required]
+		[Alias("paytype")]
+        public string paytype { get; set; }
+        [Required]
+		[Alias("showwxpaytitle")]
+        public sbyte showwxpaytitle { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        public int? aim_id { get; set; }
+        public int? uid { get; set; }
+    }
+
+	[Alias("wp_payment_scan")]
+    public partial class wp_payment_scan : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("appid")]
+        public string appid { get; set; }
+        [Required]
+		[Alias("callback")]
+        public string callback { get; set; }
+        [Required]
+		[Alias("product_id")]
+        public string product_id { get; set; }
+        public string out_trade_no { get; set; }
+        public int? total_fee { get; set; }
+        [Required]
+		[Alias("cTime")]
+        public int cTime { get; set; }
+        public string product { get; set; }
+        public string shorturl_res { get; set; }
+        public string order_param { get; set; }
+        public string order_data { get; set; }
+        public string order_res { get; set; }
+    }
+
+	[Alias("wp_payment_set")]
+    public partial class wp_payment_set : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string token { get; set; }
+        public int? ctime { get; set; }
+        public string wxappid { get; set; }
+        public string wxpaysignkey { get; set; }
+        public string wxappsecret { get; set; }
+        public string zfbname { get; set; }
+        public string pid { get; set; }
+        public string key { get; set; }
+        public string partnerid { get; set; }
+        public string partnerkey { get; set; }
+        public string wappartnerid { get; set; }
+        public string wappartnerkey { get; set; }
+        public string wxpartnerkey { get; set; }
+        public string wxpartnerid { get; set; }
+        public string quick_security_key { get; set; }
+        public string quick_merid { get; set; }
+        public string quick_merabbr { get; set; }
+        public int? shop_id { get; set; }
+        public string wxmchid { get; set; }
+        public uint? wx_cert_pem { get; set; }
+        public uint? wx_key_pem { get; set; }
+        public int? shop_pay_score { get; set; }
+    }
+
+	[Alias("wp_picture")]
+    public partial class wp_picture : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("path")]
+        public string path { get; set; }
+        [Required]
+		[Alias("url")]
+        public string url { get; set; }
+        public int? category_id { get; set; }
+        [Required]
+		[Alias("md5")]
+        public string md5 { get; set; }
+        [Required]
+		[Alias("sha1")]
+        public string sha1 { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+        public string token { get; set; }
+        public sbyte? system { get; set; }
+    }
+
+	[Alias("wp_picture_category")]
+    public partial class wp_picture_category : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string name { get; set; }
+        public int? ctime { get; set; }
+        public string token { get; set; }
+        public sbyte? system { get; set; }
+    }
+
+	[Alias("wp_plugin")]
+    public partial class wp_plugin : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string description { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        public string config { get; set; }
+        public string author { get; set; }
+        public string version { get; set; }
+        [Required]
+		[Alias("create_time")]
+        public uint create_time { get; set; }
+        [Required]
+		[Alias("has_adminlist")]
+        public byte has_adminlist { get; set; }
+        public int? cate_id { get; set; }
+        public sbyte? is_show { get; set; }
+    }
+
+	[Alias("wp_prize_address")]
+    public partial class wp_prize_address : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string address { get; set; }
+        public string mobile { get; set; }
+        public string turename { get; set; }
+        public int? uid { get; set; }
+        public string remark { get; set; }
+        public int? prizeid { get; set; }
+    }
+
+	[Alias("wp_qr_admin")]
+    public partial class wp_qr_admin : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("action_name")]
+        public string action_name { get; set; }
+        public int? group_id { get; set; }
+        public string tag_ids { get; set; }
+        public string qr_code { get; set; }
+        public string material { get; set; }
+        public string mult_pic { get; set; }
+    }
+
+	[Alias("wp_qr_code")]
+    public partial class wp_qr_code : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("qr_code")]
+        public string qr_code { get; set; }
+        [Required]
+		[Alias("addon")]
+        public string addon { get; set; }
+        [Required]
+		[Alias("aim_id")]
+        public uint aim_id { get; set; }
+        public int? cTime { get; set; }
+        public string token { get; set; }
+        public string action_name { get; set; }
+        public string extra_text { get; set; }
+        public int? extra_int { get; set; }
+        public int? request_count { get; set; }
+        public int? scene_id { get; set; }
+        public int? expire_seconds { get; set; }
+    }
+
+	[Alias("wp_real_prize")]
+    public partial class wp_real_prize : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string prize_name { get; set; }
+        public string prize_conditions { get; set; }
+        public int? prize_count { get; set; }
+        public string prize_image { get; set; }
+        public string token { get; set; }
+        public sbyte? prize_type { get; set; }
+        public string use_content { get; set; }
+        public string prize_title { get; set; }
+        public string fail_content { get; set; }
+        public string template { get; set; }
+    }
+
+	[Alias("wp_recharge_log")]
+    public partial class wp_recharge_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public float? recharge { get; set; }
+        public int? branch_id { get; set; }
+        //[Alias("operator")]
+        public string @operator { get; set; }
+        public int? cTime { get; set; }
+        public string token { get; set; }
+        public int? member_id { get; set; }
+        public int? manager_id { get; set; }
+        public sbyte? type { get; set; }
+        public string remark { get; set; }
+        public int? uid { get; set; }
+    }
+
+	[Alias("wp_redbag")]
+    public partial class wp_redbag : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string mch_id { get; set; }
+        public string sub_mch_id { get; set; }
+        public string wxappid { get; set; }
+        public string nick_name { get; set; }
+        public string send_name { get; set; }
+        public int? total_amount { get; set; }
+        public int? min_value { get; set; }
+        public int? max_value { get; set; }
+        public int? total_num { get; set; }
+        public string wishing { get; set; }
+        public string act_name { get; set; }
+        public string remark { get; set; }
+        public uint? logo_imgurl { get; set; }
+        public string share_content { get; set; }
+        public string share_url { get; set; }
+        public uint? share_imgurl { get; set; }
+        public int? collect_count { get; set; }
+        public int? collect_amount { get; set; }
+        public sbyte? collect_limit { get; set; }
+        public string partner_key { get; set; }
+        public string template { get; set; }
+        public string token { get; set; }
+        public int? uid { get; set; }
+        public string act_remark { get; set; }
+    }
+
+	[Alias("wp_redbag_follow")]
+    public partial class wp_redbag_follow : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? redbag_id { get; set; }
+        public int? follow_id { get; set; }
+        public int? amount { get; set; }
+        public int? cTime { get; set; }
+        public string status { get; set; }
+        public string reason { get; set; }
+        public int? Rcv_time { get; set; }
+        public int? Send_time { get; set; }
+        public int? Refund_time { get; set; }
+        public string extra { get; set; }
+    }
+
+	[Alias("wp_redbag_recode")]
+    public partial class wp_redbag_recode : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("wxappid")]
+        public string wxappid { get; set; }
+        [Required]
+		[Alias("re_openid")]
+        public string re_openid { get; set; }
+        [Required]
+		[Alias("total_amount")]
+        public int total_amount { get; set; }
+        public string mch_billno { get; set; }
+        [Required]
+		[Alias("cTime")]
+        public int cTime { get; set; }
+        public sbyte? status { get; set; }
+        public int? wait_time { get; set; }
+        public string more_param { get; set; }
+        public string log_md5 { get; set; }
+        public string remark { get; set; }
+        public int? act_id { get; set; }
+        public string act_mod { get; set; }
+    }
+
+	[Alias("wp_request_log")]
+    public partial class wp_request_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("md5")]
+        public string md5 { get; set; }
+        [Required]
+		[Alias("url")]
+        public string url { get; set; }
+        public string param { get; set; }
+        public string res { get; set; }
+        public string error_code { get; set; }
+        public string msg { get; set; }
+        public string server_ip { get; set; }
+        [Required]
+		[Alias("cTime")]
+        public int cTime { get; set; }
+    }
+
+	[Alias("wp_reserve")]
+    public partial class wp_reserve : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public string password { get; set; }
+        public string jump_url { get; set; }
+        public string content { get; set; }
+        public string finish_tip { get; set; }
+        public sbyte? can_edit { get; set; }
+        public string intro { get; set; }
+        public int? mTime { get; set; }
+        public uint? cover { get; set; }
+        public string template { get; set; }
+        public sbyte? status { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public sbyte? pay_online { get; set; }
+    }
+
+	[Alias("wp_reserve_attribute")]
+    public partial class wp_reserve_attribute : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public sbyte? is_show { get; set; }
+        public uint? reserve_id { get; set; }
+        public string error_info { get; set; }
+        public uint? sort { get; set; }
+        public string validate_rule { get; set; }
+        public sbyte? is_must { get; set; }
+        public string remark { get; set; }
+        public string token { get; set; }
+        public string value { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public int? mTime { get; set; }
+        public string extra { get; set; }
+        [Required]
+		[Alias("type")]
+        public string type { get; set; }
+    }
+
+	[Alias("wp_reserve_option")]
+    public partial class wp_reserve_option : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? reserve_id { get; set; }
+        public string name { get; set; }
+        public decimal? money { get; set; }
+        public int? max_limit { get; set; }
+        public int? init_count { get; set; }
+        public int? join_count { get; set; }
+    }
+
+	[Alias("wp_reserve_value")]
+    public partial class wp_reserve_value : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public uint? reserve_id { get; set; }
+        public string value { get; set; }
+        public int? cTime { get; set; }
+        public string openid { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+        public int? is_check { get; set; }
+        public int? is_pay { get; set; }
+    }
+
+	[Alias("wp_score_exchange_log")]
+    public partial class wp_score_exchange_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? card_score_id { get; set; }
+        public string token { get; set; }
+        public int? uid { get; set; }
+        public int? ctime { get; set; }
+    }
+
+	[Alias("wp_servicer")]
+    public partial class wp_servicer : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("uid")]
+        public int uid { get; set; }
+        [Required]
+		[Alias("truename")]
+        public string truename { get; set; }
+        [Required]
+		[Alias("mobile")]
+        public string mobile { get; set; }
+        public string role { get; set; }
+        public int? enable { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_share_log")]
+    public partial class wp_share_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public int? sTime { get; set; }
+        public string token { get; set; }
+        public int? score { get; set; }
+    }
+
+	[Alias("wp_shop_address")]
+    public partial class wp_shop_address : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public string truename { get; set; }
+        public string mobile { get; set; }
+        public string city { get; set; }
+        public string address { get; set; }
+        public sbyte? is_use { get; set; }
+    }
+
+	[Alias("wp_shop_coupon")]
+    public partial class wp_shop_coupon : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public int? num { get; set; }
+        public decimal? money { get; set; }
+        public decimal? money_max { get; set; }
+        public sbyte? is_money_rand { get; set; }
+        public decimal? order_money { get; set; }
+        public string limit_num { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public sbyte? limit_goods { get; set; }
+        public string limit_goods_ids { get; set; }
+        public sbyte? is_market_price { get; set; }
+        public string content { get; set; }
+        public sbyte? status { get; set; }
+        public int? collect_count { get; set; }
+        public int? use_count { get; set; }
+        public int? manager_id { get; set; }
+        public string token { get; set; }
+        public int? cTime { get; set; }
+        public string member { get; set; }
+        public string type { get; set; }
+        public int? is_del { get; set; }
+    }
+
+	[Alias("wp_shop_vote")]
+    public partial class wp_shop_vote : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string select_type { get; set; }
+        public int? multi_num { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public string remark { get; set; }
+        public string token { get; set; }
+        public int? manager_id { get; set; }
+        public sbyte? is_verify { get; set; }
+    }
+
+	[Alias("wp_shop_vote_log")]
+    public partial class wp_shop_vote_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? vote_id { get; set; }
+        public int? option_id { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+        public int? ctime { get; set; }
+    }
+
+	[Alias("wp_shop_vote_option")]
+    public partial class wp_shop_vote_option : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string truename { get; set; }
+        public uint? image { get; set; }
+        public int? uid { get; set; }
+        public string manifesto { get; set; }
+        public string introduce { get; set; }
+        public int? ctime { get; set; }
+        public int? vote_id { get; set; }
+        public int? opt_count { get; set; }
+        public string token { get; set; }
+        public int? number { get; set; }
+    }
+
+	[Alias("wp_signin_log")]
+    public partial class wp_signin_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("score")]
+        public int score { get; set; }
+        public string token { get; set; }
+        public uint? sTime { get; set; }
+        [Required]
+		[Alias("uid")]
+        public string uid { get; set; }
+    }
+
+	[Alias("wp_smalltools")]
+    public partial class wp_smalltool : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public sbyte? tooltype { get; set; }
+        public string keyword { get; set; }
+        public int? cTime { get; set; }
+        public string toolname { get; set; }
+        public string tooldes { get; set; }
+        public string toolnum { get; set; }
+        public sbyte? toolstate { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_sms")]
+    public partial class wp_sm : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string from_type { get; set; }
+        public string code { get; set; }
+        public string smsId { get; set; }
+        public string phone { get; set; }
+        public int? cTime { get; set; }
+        public int? status { get; set; }
+        public int? plat_type { get; set; }
+    }
+
+	[Alias("wp_sn_code")]
+    public partial class wp_sn_code : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string sn { get; set; }
+        public int? uid { get; set; }
+        public int? cTime { get; set; }
+        public sbyte? is_use { get; set; }
+        public int? use_time { get; set; }
+        public string addon { get; set; }
+        public uint? target_id { get; set; }
+        public uint? prize_id { get; set; }
+        public sbyte? status { get; set; }
+        public string prize_title { get; set; }
+        public string token { get; set; }
+        public sbyte? can_use { get; set; }
+        public string server_addr { get; set; }
+        public int? admin_uid { get; set; }
+    }
+
+	[Alias("wp_sport_award")]
+    public partial class wp_sport_award : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        [Required]
+		[Alias("img")]
+        public int img { get; set; }
+        public float? price { get; set; }
+        public string explain { get; set; }
+        public string award_type { get; set; }
+        public int? count { get; set; }
+        public uint? sort { get; set; }
+        public int? score { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+        public string coupon_id { get; set; }
+        public float? money { get; set; }
+        public string aim_table { get; set; }
+    }
+
+	[Alias("wp_sports")]
+    public partial class wp_sport : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string home_team { get; set; }
+        public string visit_team { get; set; }
+        public int? start_time { get; set; }
+        public string score { get; set; }
+        public string content { get; set; }
+        public int? countdown { get; set; }
+        public int? drum_count { get; set; }
+        public int? drum_follow_count { get; set; }
+        public int? home_team_support_count { get; set; }
+        public int? visit_team_support_count { get; set; }
+        public int? home_team_drum_count { get; set; }
+        public int? visit_team_drum_count { get; set; }
+        public int? yaotv_count { get; set; }
+        public int? draw_count { get; set; }
+        public sbyte? is_finish { get; set; }
+        public int? yaotv_follow_count { get; set; }
+        public int? draw_follow_count { get; set; }
+        public sbyte? comment_status { get; set; }
+    }
+
+	[Alias("wp_sports_drum")]
+    public partial class wp_sports_drum : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? sports_id { get; set; }
+        public int? team_id { get; set; }
+        public int? follow_id { get; set; }
+        public int? drum_count { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_sports_join")]
+    public partial class wp_sports_join 
+    {
+        public int? follow_id { get; set; }
+        public int? sports_id { get; set; }
+        public int? time { get; set; }
+    }
+
+	[Alias("wp_sports_support")]
+    public partial class wp_sports_support : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? sports_id { get; set; }
+        public int? team_id { get; set; }
+        public int? follow_id { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_sports_team")]
+    public partial class wp_sports_team : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public uint? logo { get; set; }
+        public string intro { get; set; }
+        public int? pid { get; set; }
+        public int? sort { get; set; }
+    }
+
+	[Alias("wp_store")]
+    public partial class wp_store : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public int? uid { get; set; }
+        public string content { get; set; }
+        public int? cTime { get; set; }
+        public string attach { get; set; }
+        public int? is_top { get; set; }
+        public sbyte? cid { get; set; }
+        public uint? view_count { get; set; }
+        public uint? img_1 { get; set; }
+        public uint? img_2 { get; set; }
+        public uint? img_3 { get; set; }
+        public uint? img_4 { get; set; }
+        public uint? download_count { get; set; }
+    }
+
+	[Alias("wp_sucai")]
+    public partial class wp_sucai : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string name { get; set; }
+        public string status { get; set; }
+        public int? cTime { get; set; }
+        public string url { get; set; }
+        public string type { get; set; }
+        public string detail { get; set; }
+        public string reason { get; set; }
+        public int? create_time { get; set; }
+        public int? checked_time { get; set; }
+        public string source { get; set; }
+        public int? source_id { get; set; }
+        public int? wechat_id { get; set; }
+        public int? uid { get; set; }
+    }
+
+	[Alias("wp_sucai_template")]
+    public partial class wp_sucai_template : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public string token { get; set; }
+        public string addons { get; set; }
+        public string template { get; set; }
+    }
+
 	[Alias("wp_survey")]
     public partial class wp_survey : IHasId<uint> 
     {
-        [Alias("id")]
+        //[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -220,7 +3203,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_survey_answer")]
     public partial class wp_survey_answer : IHasId<uint> 
     {
-        [Alias("id")]
+        //[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? cTime { get; set; }
@@ -235,7 +3218,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_survey_question")]
     public partial class wp_survey_question : IHasId<uint> 
     {
-        [Alias("id")]
+        //[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -253,10 +3236,166 @@ namespace sanfengli.Model.WeiXin
         public uint? sort { get; set; }
     }
 
+	[Alias("wp_system_notice")]
+    public partial class wp_system_notice : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string content { get; set; }
+        public int? create_time { get; set; }
+    }
+
+	[Alias("wp_test_answer")]
+    public partial class wp_test_answer : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string answer { get; set; }
+        public string openid { get; set; }
+        public int? uid { get; set; }
+        public uint? question_id { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public uint? test_id { get; set; }
+        public uint? score { get; set; }
+    }
+
+	[Alias("wp_test_question")]
+    public partial class wp_test_question : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("intro")]
+        public string intro { get; set; }
+        public uint? cTime { get; set; }
+        public string token { get; set; }
+        public sbyte? is_must { get; set; }
+        [Required]
+		[Alias("extra")]
+        public string extra { get; set; }
+        public string type { get; set; }
+        public uint? test_id { get; set; }
+        [Required]
+		[Alias("sort")]
+        public uint sort { get; set; }
+    }
+
+	[Alias("wp_tool")]
+    public partial class wp_tool : IHasId<int> 
+    {
+        //[Alias("uid")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string nickname { get; set; }
+        public string password { get; set; }
+        public string truename { get; set; }
+        public string mobile { get; set; }
+        public string email { get; set; }
+        public sbyte? sex55 { get; set; }
+        public string headimgurl { get; set; }
+        public string city { get; set; }
+        public string province { get; set; }
+        public string country { get; set; }
+        public string language { get; set; }
+        public int? score { get; set; }
+        public int? experience { get; set; }
+        public string unionid { get; set; }
+        public int? login_count { get; set; }
+        public string reg_ip { get; set; }
+        public int? reg_time { get; set; }
+        public string last_login_ip { get; set; }
+        public int? last_login_time { get; set; }
+        public sbyte? status { get; set; }
+        public sbyte? is_init { get; set; }
+        public sbyte? is_audit { get; set; }
+        public int? subscribe_time { get; set; }
+        public string remark { get; set; }
+        public int? groupid { get; set; }
+        public sbyte? come_from { get; set; }
+        public string login_name { get; set; }
+        public sbyte? level { get; set; }
+        public string membership { get; set; }
+        public string test { get; set; }
+        public int? yyy { get; set; }
+    }
+
+	[Alias("wp_transfers_recode")]
+    public partial class wp_transfers_recode : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        //[Alias(" mch_appid")]
+        [Required]
+		[Alias("_mch_appid")]
+        public string _mch_appid { get; set; }
+        [Required]
+		[Alias("openid")]
+        public string openid { get; set; }
+        [Required]
+		[Alias("amount")]
+        public int amount { get; set; }
+        public string partner_trade_no { get; set; }
+        [Required]
+		[Alias("cTime")]
+        public int cTime { get; set; }
+        public sbyte? status { get; set; }
+        public int? wait_time { get; set; }
+        public string more_param { get; set; }
+        public string log_md5 { get; set; }
+        public string remark { get; set; }
+        public int? act_id { get; set; }
+        public string act_mod { get; set; }
+    }
+
+	[Alias("wp_update_score_log")]
+    public partial class wp_update_score_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? score { get; set; }
+        public int? branch_id { get; set; }
+        //[Alias("operator")]
+        public string @operator { get; set; }
+        public int? cTime { get; set; }
+        public string token { get; set; }
+        public int? member_id { get; set; }
+        public int? manager_id { get; set; }
+    }
+
+	[Alias("wp_update_version")]
+    public partial class wp_update_version : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("version")]
+        public uint version { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string description { get; set; }
+        public int? create_date { get; set; }
+        public uint? download_count { get; set; }
+        [Required]
+		[Alias("package")]
+        public string package { get; set; }
+    }
+
 	[Alias("wp_user")]
     public partial class wp_user : IHasId<int> 
     {
-        [Alias("uid")]
+        //[Alias("uid")]
         [AutoIncrement]
         public int Id { get; set; }
         public string nickname { get; set; }
@@ -289,6 +3428,642 @@ namespace sanfengli.Model.WeiXin
         public int? manager_id { get; set; }
         public sbyte? level { get; set; }
         public string membership { get; set; }
+        public string openid { get; set; }
+    }
+
+	[Alias("wp_user_follow")]
+    public partial class wp_user_follow : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? uid { get; set; }
+        public int? publicid { get; set; }
+        public int? follow_id { get; set; }
+        public string url { get; set; }
+    }
+
+	[Alias("wp_user_tag")]
+    public partial class wp_user_tag : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_user_tag_link")]
+    public partial class wp_user_tag_link : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? uid { get; set; }
+        public int? tag_id { get; set; }
+    }
+
+	[Alias("wp_visit_log")]
+    public partial class wp_visit_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? publicid { get; set; }
+        public string module_name { get; set; }
+        public string controller_name { get; set; }
+        public string action_name { get; set; }
+        public string uid { get; set; }
+        public string ip { get; set; }
+        public string brower { get; set; }
+        public string param { get; set; }
+        public string referer { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_vote")]
+    public partial class wp_vote : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string description { get; set; }
+        public uint? picurl { get; set; }
+        public string type { get; set; }
+        public int? start_date { get; set; }
+        public int? end_date { get; set; }
+        public sbyte? is_img { get; set; }
+        public uint? vote_count { get; set; }
+        public int? cTime { get; set; }
+        public int? mTime { get; set; }
+        public string token { get; set; }
+        public string template { get; set; }
+    }
+
+	[Alias("wp_vote_log")]
+    public partial class wp_vote_log : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public uint? vote_id { get; set; }
+        public int? user_id { get; set; }
+        public string token { get; set; }
+        public string options { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_vote_option")]
+    public partial class wp_vote_option : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public uint? vote_id { get; set; }
+        [Required]
+		[Alias("name")]
+        public string name { get; set; }
+        public uint? image { get; set; }
+        public uint? opt_count { get; set; }
+        public uint? order { get; set; }
+    }
+
+	[Alias("wp_vote_record")]
+    public partial class wp_vote_record : IHasId<int> 
+    {
+        //[Alias("Id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? vote_detail_id { get; set; }
+        public int? vote_user_id { get; set; }
+        public DateTime? oper_time { get; set; }
+        public string ip { get; set; }
+    }
+
+	[Alias("wp_wei_shop")]
+    public partial class wp_wei_shop : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string content { get; set; }
+    }
+
+	[Alias("wp_wei_test")]
+    public partial class wp_wei_test : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        public string sex { get; set; }
+        public string content { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_weiba")]
+    public partial class wp_weiba : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string cid { get; set; }
+        public string weiba_name { get; set; }
+        public int? uid { get; set; }
+        public int? ctime { get; set; }
+        public uint? logo { get; set; }
+        public string intro { get; set; }
+        public sbyte? who_can_post { get; set; }
+        public sbyte? who_can_reply { get; set; }
+        public int? follower_count { get; set; }
+        public int? thread_count { get; set; }
+        public string admin_uid { get; set; }
+        public sbyte? recommend { get; set; }
+        public sbyte? status { get; set; }
+        public sbyte? is_del { get; set; }
+        public string notify { get; set; }
+        public string avatar_big { get; set; }
+        public string avatar_middle { get; set; }
+        public int? new_count { get; set; }
+        public DateTime? new_day { get; set; }
+        public string info { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_weiba_apply")]
+    public partial class wp_weiba_apply : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("follower_uid")]
+        public int follower_uid { get; set; }
+        [Required]
+		[Alias("weiba_id")]
+        public int weiba_id { get; set; }
+        [Required]
+		[Alias("type")]
+        public sbyte type { get; set; }
+        public string reason { get; set; }
+        [Required]
+		[Alias("status")]
+        public sbyte status { get; set; }
+        [Required]
+		[Alias("manager_uid")]
+        public int manager_uid { get; set; }
+        public int? city { get; set; }
+    }
+
+	[Alias("wp_weiba_blacklist")]
+    public partial class wp_weiba_blacklist : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("weiba_id")]
+        public int weiba_id { get; set; }
+        [Required]
+		[Alias("uid")]
+        public int uid { get; set; }
+        [Required]
+		[Alias("cTime")]
+        public int cTime { get; set; }
+    }
+
+	[Alias("wp_weiba_category")]
+    public partial class wp_weiba_category : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string name { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_weiba_event")]
+    public partial class wp_weiba_event : IHasId<int> 
+    {
+        //[Alias("event_id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? uid { get; set; }
+        public int? post_id { get; set; }
+        public int? cover { get; set; }
+        public int? start_time { get; set; }
+        public int? end_time { get; set; }
+        public int? deadline { get; set; }
+        public string area { get; set; }
+        public string address { get; set; }
+        public int? max { get; set; }
+        public int? join_count { get; set; }
+        public int? share_img { get; set; }
+        public string share_title { get; set; }
+        public string share_desc { get; set; }
+        public int? ctime { get; set; }
+        public sbyte? is_del { get; set; }
+        public int? city { get; set; }
+    }
+
+	[Alias("wp_weiba_event_attr")]
+    public partial class wp_weiba_event_attr : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? event_id { get; set; }
+        public string type { get; set; }
+        public string label { get; set; }
+        public string extra { get; set; }
+        public string default_value { get; set; }
+        public sbyte? is_must { get; set; }
+        public int? sort { get; set; }
+        public string name { get; set; }
+    }
+
+	[Alias("wp_weiba_event_user")]
+    public partial class wp_weiba_event_user : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? uid { get; set; }
+        public int? event_id { get; set; }
+        public string name { get; set; }
+        public string phone { get; set; }
+        public string value { get; set; }
+        public int? ctime { get; set; }
+        public sbyte? is_refuse { get; set; }
+    }
+
+	[Alias("wp_weiba_favorite")]
+    public partial class wp_weiba_favorite : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("uid")]
+        public int uid { get; set; }
+        [Required]
+		[Alias("post_id")]
+        public int post_id { get; set; }
+        [Required]
+		[Alias("weiba_id")]
+        public int weiba_id { get; set; }
+        [Required]
+		[Alias("post_uid")]
+        public int post_uid { get; set; }
+        [Required]
+		[Alias("favorite_time")]
+        public int favorite_time { get; set; }
+    }
+
+	[Alias("wp_weiba_follow")]
+    public partial class wp_weiba_follow : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("weiba_id")]
+        public int weiba_id { get; set; }
+        [Required]
+		[Alias("follower_uid")]
+        public int follower_uid { get; set; }
+        [Required]
+		[Alias("level")]
+        public sbyte level { get; set; }
+    }
+
+	[Alias("wp_weiba_log")]
+    public partial class wp_weiba_log : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("weiba_id")]
+        public int weiba_id { get; set; }
+        [Required]
+		[Alias("uid")]
+        public int uid { get; set; }
+        [Required]
+		[Alias("type")]
+        public string type { get; set; }
+        [Required]
+		[Alias("content")]
+        public string content { get; set; }
+        [Required]
+		[Alias("ctime")]
+        public int ctime { get; set; }
+    }
+
+	[Alias("wp_weiba_post")]
+    public partial class wp_weiba_post : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? weiba_id { get; set; }
+        public int? post_uid { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        [Required]
+		[Alias("content")]
+        public string content { get; set; }
+        public int? post_time { get; set; }
+        public int? reply_count { get; set; }
+        public int? read_count { get; set; }
+        public string last_reply_uid { get; set; }
+        public int? last_reply_time { get; set; }
+        public sbyte? digest { get; set; }
+        public sbyte? top { get; set; }
+        //[Alias("lock")]
+        public sbyte? @lock { get; set; }
+        public sbyte? recommend { get; set; }
+        public int? recommend_time { get; set; }
+        public sbyte? is_del { get; set; }
+        public int? reply_all_count { get; set; }
+        public string attach { get; set; }
+        public int? praise { get; set; }
+        public sbyte? from { get; set; }
+        public int? top_time { get; set; }
+        public sbyte? is_index { get; set; }
+        public uint? index_img { get; set; }
+        public int? is_index_time { get; set; }
+        public string img_ids { get; set; }
+        public int? tag_id { get; set; }
+        public int? index_order { get; set; }
+        public sbyte? is_event { get; set; }
+        public sbyte? globle_recommend { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_weiba_post_digg")]
+    public partial class wp_weiba_post_digg : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("uid")]
+        public int uid { get; set; }
+        [Required]
+		[Alias("post_id")]
+        public int post_id { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_weiba_post_share_logs")]
+    public partial class wp_weiba_post_share_log : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public int? post_id { get; set; }
+        public int? uid { get; set; }
+        public string type { get; set; }
+    }
+
+	[Alias("wp_weiba_reply")]
+    public partial class wp_weiba_reply : IHasId<int> 
+    {
+        //[Alias("reply_id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("weiba_id")]
+        public int weiba_id { get; set; }
+        [Required]
+		[Alias("post_id")]
+        public int post_id { get; set; }
+        [Required]
+		[Alias("post_uid")]
+        public int post_uid { get; set; }
+        [Required]
+		[Alias("uid")]
+        public int uid { get; set; }
+        [Required]
+		[Alias("to_reply_id")]
+        public int to_reply_id { get; set; }
+        [Required]
+		[Alias("to_uid")]
+        public int to_uid { get; set; }
+        [Required]
+		[Alias("ctime")]
+        public int ctime { get; set; }
+        [Required]
+		[Alias("content")]
+        public string content { get; set; }
+        public sbyte? is_del { get; set; }
+        [Required]
+		[Alias("comment_id")]
+        public int comment_id { get; set; }
+        [Required]
+		[Alias("storey")]
+        public int storey { get; set; }
+        [Required]
+		[Alias("attach_id")]
+        public int attach_id { get; set; }
+        [Required]
+		[Alias("digg_count")]
+        public int digg_count { get; set; }
+    }
+
+	[Alias("wp_weiba_reply_digg")]
+    public partial class wp_weiba_reply_digg : IHasId<int> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        [Required]
+		[Alias("uid")]
+        public int uid { get; set; }
+        [Required]
+		[Alias("row_id")]
+        public int row_id { get; set; }
+        public int? cTime { get; set; }
+    }
+
+	[Alias("wp_weiba_tag")]
+    public partial class wp_weiba_tag : IHasId<int> 
+    {
+        [Required]
+		[Alias("weiba_id")]
+        public int weiba_id { get; set; }
+        //[Alias("tag_id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string name { get; set; }
+        public int? city { get; set; }
+    }
+
+	[Alias("wp_weisite_category")]
+    public partial class wp_weisite_category : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public uint? icon { get; set; }
+        public string url { get; set; }
+        public sbyte? is_show { get; set; }
+        public string token { get; set; }
+        public int? sort { get; set; }
+        public int? pid { get; set; }
+        public string template { get; set; }
+    }
+
+	[Alias("wp_weisite_cms")]
+    public partial class wp_weisite_cm : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        [Required]
+		[Alias("keyword")]
+        public string keyword { get; set; }
+        public sbyte? keyword_type { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public string intro { get; set; }
+        public uint? cate_id { get; set; }
+        public uint? cover { get; set; }
+        public string content { get; set; }
+        public int? cTime { get; set; }
+        public uint? sort { get; set; }
+        public uint? view_count { get; set; }
+    }
+
+	[Alias("wp_weisite_footer")]
+    public partial class wp_weisite_footer : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string url { get; set; }
+        [Required]
+		[Alias("title")]
+        public string title { get; set; }
+        public sbyte? pid { get; set; }
+        public sbyte? sort { get; set; }
+        public string token { get; set; }
+        public uint? icon { get; set; }
+    }
+
+	[Alias("wp_weisite_slideshow")]
+    public partial class wp_weisite_slideshow : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string title { get; set; }
+        [Required]
+		[Alias("img")]
+        public uint img { get; set; }
+        public string url { get; set; }
+        public sbyte? is_show { get; set; }
+        public int? sort { get; set; }
+        public string token { get; set; }
+        public string cate_id { get; set; }
+    }
+
+	[Alias("wp_weixin_message")]
+    public partial class wp_weixin_message : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string ToUserName { get; set; }
+        public string FromUserName { get; set; }
+        public int? CreateTime { get; set; }
+        public string MsgType { get; set; }
+        public string MsgId { get; set; }
+        public string Content { get; set; }
+        public string PicUrl { get; set; }
+        public string MediaId { get; set; }
+        public string Format { get; set; }
+        public string ThumbMediaId { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string Url { get; set; }
+        public sbyte? collect { get; set; }
+        public sbyte? deal { get; set; }
+        public sbyte? is_read { get; set; }
+        public sbyte? type { get; set; }
+        public int? is_material { get; set; }
+    }
+
+	[Alias("wp_wish_card")]
+    public partial class wp_wish_card : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string send_name { get; set; }
+        public string receive_name { get; set; }
+        public string content { get; set; }
+        public int? create_time { get; set; }
+        public string template { get; set; }
+        public string template_cate { get; set; }
+        public int? read_count { get; set; }
+        public string mid { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_wish_card_content")]
+    public partial class wp_wish_card_content : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public int? content_cate_id { get; set; }
+        public string content { get; set; }
+        public string content_cate { get; set; }
+        public string token { get; set; }
+    }
+
+	[Alias("wp_wish_card_content_cate")]
+    public partial class wp_wish_card_content_cate : IHasId<uint> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public uint Id { get; set; }
+        public string content_cate_name { get; set; }
+        public string token { get; set; }
+        public uint? content_cate_icon { get; set; }
+    }
+
+	[Alias("wp_xdlog")]
+    public partial class wp_xdlog : IHasId<long> 
+    {
+        //[Alias("id")]
+        [AutoIncrement]
+        public long Id { get; set; }
+        [Required]
+		[Alias("userid_int")]
+        public int userid_int { get; set; }
+        public string biztitle { get; set; }
+        [Required]
+		[Alias("biztype")]
+        public int biztype { get; set; }
+        public long? opttime { get; set; }
+        public long? xd { get; set; }
+        public long? sceneid { get; set; }
+        public string remark { get; set; }
     }
 
 }

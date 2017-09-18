@@ -20,7 +20,7 @@ namespace sanfengli.Bll.WeChatMp
                     var query = db.From<mpmateriallib>()
                                 .OrderByDescending(e => e.UpdateTime)
                                 .Take(count)
-                                .Select(s => s.MType == type);
+                                .Where(s => s.MType == type);
                     return db.Select(query);
                 }
             }
@@ -29,6 +29,28 @@ namespace sanfengli.Bll.WeChatMp
                 LogHandler.Error(ex);
                 return null;
             }
+        }
+
+        public bool SyncMpData(List<mpmateriallib> listDto)
+        {
+            bool result = false;
+            try
+            {
+                if (listDto != null && listDto.Count > 0)
+                {
+
+                    listDto.ForEach(s =>
+                    {
+                        InsertItem(s);
+                    });
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+            return result;
         }
     }
 }

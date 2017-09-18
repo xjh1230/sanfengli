@@ -1,4 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MenuManager.aspx.cs" Inherits="sanfengli.Web.Wx.MenuManager" %>
+
+<include file="Home@Public/head" />	
 <!DOCTYPE html>
 <html lang="en">
 <head>

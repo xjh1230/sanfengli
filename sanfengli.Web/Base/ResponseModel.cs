@@ -10,5 +10,7 @@ namespace sanfengli.Web.Base
         public bool IsSuccess { get; set; }
         public string Msg { get; set; }
         public object Data { get; set; }
+
+        public int Count { get; set; }
     }
 }
