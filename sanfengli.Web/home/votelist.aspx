@@ -77,6 +77,9 @@
                 opacity: 1;
             }
         }
+        #search{
+            float: right;  height: 22px;width: 40px;border-left: 1px solid #eee;margin-top: -32px;background: url(/img/search.png) no-repeat center center / 20px 20px;
+        }
     </style>
 </head>
 
@@ -93,10 +96,10 @@
                         <a href="javascript:;" class="open"></a>
                     </div>
                 </div>
+                <br />
                 <div>
-                    <label class="item-label">请输入参赛者编号</label>
-                    <input type="text" class="am-form-field" id="search_id" />
-                    <a id="search">搜索</a>
+                    <input type="text" class="am-form-field" placeholder="请输入参赛者编号" id="search_id" />
+                    <a id="search" ></a>
                 </div>
             </div>
             <div class="option_list">

@@ -33,7 +33,7 @@ namespace sanfengli.Web.Base
         {
             try
             {
-                if (1 == 1) {
+                if (BaseClass.IsTest) {
 
                 }
                 else

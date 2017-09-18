@@ -78,6 +78,13 @@
                 opacity: 1;
             }
         }
+        body{text-align:center} 
+        .none-info{
+            margin:0 auto;
+            color:#ff0000;
+            font-size: 20px;
+            margin-top: 179px;
+        }
     </style>
 </head>
 
@@ -89,6 +96,8 @@
                 <a class="back" href="javascript:;" onclick="history.back()"></a>
                 <span>投票详情</span>
             </div>
+            <%if (option != null)
+                {%>
             <div class="option_user">
                 <img src="<%=option.ImagePath %>">
                 <p>
@@ -99,26 +108,32 @@
                 <p>总票数:<%=option.opt_count %></p>
 
                 <%if (option.IsVoteCurrent)
-                    {%>
+    {%>
                 <a class='detail_btn has_vote'><em class="zan"></em>已投票</a>
                 <% }
-                    else if (option.IsVote)
-                    {%>
+    else if (option.IsVote)
+    {%>
                 <a class='detail_btn over_btn'><em class="zan"></em>已投完</a>
                 <% }
-                    else
-                    {%>
+    else
+    {%>
                 <a class="detail_btn" onclick="vote_join(<%=option.Id %>,<%=option.vote_id %>,<%=uid %>,this);"><em class="zan"></em>投TA 一票</a>
                 <%} %>
             </div>
             <div class="option_content">
                 <h6>
                     <img src="../img/smile.png">微笑宣言</h6>
-                <p>黑夜里 我最美</p>
+                <p><%=option.manifesto %></p>
                 <h6>
                     <img src="../img/remark.png">选手介绍</h6>
-                <p>有钱的孤独人</p>
+                <p><%=option.introduce %></p>
             </div>
+            <% }
+                else {%>
+            <div class="none-info">
+            <p>未找到该选手信息<a onclick="history.back()">点击返回</a></p>
+                </div>
+               <% }%>
         </div>
     </div>
 

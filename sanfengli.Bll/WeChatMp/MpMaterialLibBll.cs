@@ -41,7 +41,7 @@ namespace sanfengli.Bll.WeChatMp
 
                     listDto.ForEach(s =>
                     {
-                        InsertItem(s);
+                        SaveModel(s);
                     });
                     result = true;
                 }
@@ -51,6 +51,27 @@ namespace sanfengli.Bll.WeChatMp
                 return false;
             }
             return result;
+        }
+
+        public bool SaveModel(mpmateriallib model)
+        {
+            using (var db = DbFactory.OpenDbConnection())
+            {
+                var tmp = db.Select<mpmateriallib>(s => s.MediaId == model.MediaId).FirstOrDefault();
+                if (tmp == null)
+                {
+                    return db.Insert(model) > 0;
+                }
+                else
+                {
+                    tmp.MName = model.MName;
+                    tmp.MType = model.MType;
+                    tmp.MUrl = model.MUrl;
+                    tmp.NewsContent = model.NewsContent;
+                    tmp.UpdateTime = DateTime.Now;
+                    return db.Update(tmp) > 0;
+                }
+            }
         }
     }
 }

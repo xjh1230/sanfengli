@@ -35,7 +35,7 @@ namespace sanfengli.Web.home
             url = Request.Url.ToString();
             if (vote == null || option == null)
             {
-                Response.Redirect("votelist.aspx?vote_id=" + vote_id);
+                //Response.Redirect("votelist.aspx?vote_id=" + vote_id);
             }
             else
             {

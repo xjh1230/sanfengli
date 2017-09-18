@@ -9,10 +9,11 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using BitAuto.Utils;
+using sanfengli.Web.Base;
 
 namespace sanfengli.Web.admin.ajax
 {
-    public partial class export : System.Web.UI.Page
+    public partial class export :PageBase
     {
         protected void Page_Load(object sender, EventArgs e)
         {

@@ -42,7 +42,7 @@ input{ vertical-align:middle;outline: 0}
 .f-right{float:right}
 
 
-.wrapper{ width:1025px; padding:10px 20px;font-family:"Microsoft Yahei";}
+.wrapper{ width:966px; padding:10px 20px;font-family:"Microsoft Yahei";}
 p.title{ font-size:16px; color:#333; }
 .main-tit{margin-top:20px}
 .btn{display: inline-block;width:130px;height:28px;line-height:28px;background: #1565C0;color: #fff; text-align: center;cursor: pointer;vertical-align: middle;-ms-transition:all .2s linear ;-moz-transition:all .2s linear ;-webkit-transition: all .2s linear;transition:all .2s linear ;}

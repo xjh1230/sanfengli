@@ -15,6 +15,7 @@ namespace sanfengli.Common
         public static readonly string cfg_dir_upImg = ConfigurationManager.AppSettings["cfg_dir_upImg"];
 
         public static readonly bool IsNeedWeiXin = ConfigurationManager.AppSettings["IsNeedWeiXin"] == "1";
+        public static readonly bool IsTest = ConfigurationManager.AppSettings["IsTest"] == "1";
 
         public static readonly string Login_Cookie = ConfigurationManager.AppSettings["Cookie_Prefix"] + "ScanLoginKey";
         public static long ConvertDataTimeToLong(DateTime dt)

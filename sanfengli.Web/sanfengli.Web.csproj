@@ -173,8 +173,8 @@
     <Content Include="admin\ajax\feedbackHandler.aspx" />
     <Content Include="admin\article\index.html" />
     <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css" />
-    <Content Include="admin\article\static\js\app.b29a1749241a9bb041d4.js" />
-    <Content Include="admin\article\static\js\manifest.e3b60ff2ce0ae2e76685.js" />
+    <Content Include="admin\article\static\js\app.bc341899626cb2922c40.js" />
+    <Content Include="admin\article\static\js\manifest.9d2971a9ca76581c8a19.js" />
     <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js" />
     <Content Include="admin\feedbackcontent.aspx" />
     <Content Include="admin\feedbackmgr.aspx" />
@@ -790,8 +790,8 @@
     <Content Include="home\static\js\vendor.88f3694f64345e07f54a.js.map" />
     <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css.map" />
     <Content Include="admin\article\static\fonts\element-icons.b02bdc1.ttf" />
-    <Content Include="admin\article\static\js\app.b29a1749241a9bb041d4.js.map" />
-    <Content Include="admin\article\static\js\manifest.e3b60ff2ce0ae2e76685.js.map" />
+    <Content Include="admin\article\static\js\app.bc341899626cb2922c40.js.map" />
+    <Content Include="admin\article\static\js\manifest.9d2971a9ca76581c8a19.js.map" />
     <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
