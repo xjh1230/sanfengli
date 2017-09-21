@@ -61,19 +61,37 @@
                 opacity: 1;
             }
         }
+        
+         .am-btn-danger{
+            width:23.5rem;
+        }
+         .fixed_bg {
+            position: fixed;
+            z-index: -1;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background: url(/img/bg2.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+         .am-breadcrumb{
+             margin-bottom:-1rem;
+         }
     </style>
 </head>
 <body class="am-with-fixed-navbar">
     <div class="am-g">
+        <div class="fixed_bg"></div>
         <section>
             <ol class="am-breadcrumb">
-                <li class="am-active">随手拍上传</li>
+                <li class="am-active">参加投票</li>
             </ol>
             <div class="am-paragraph am-paragraph-default">
                 <article class="am-article">
-                    <div class="am-article-hd">
-                        <h1 class="am-article-title">随手拍上传</h1>
-                    </div>
+                   <%-- <div class="am-article-hd">
+                        <h1 class="am-article-title">参加投票</h1>
+                    </div>--%>
                     <hr data-am-widget="divider" class="am-divider am-divider-default am-no-layout">
                     <div class="am-article-bd  ">
                         <div class="am-form-group am-form-file">
@@ -119,6 +137,8 @@
     <script src="../Scripts/upload/amazeui.ie8polyfill.min.js"></script>
     <script src="../Scripts/upload/amazeui.widgets.helper.min.js"></script>
     <script src="../Scripts/upload/h5_upload.js"></script>
+    <script src="../Scripts/spin.js"></script>
+    <script src="../Scripts/messageBox.js"></script>
     <div style="display: none">
     </div>
     <div id="cli_dialog_div"></div>
@@ -139,13 +159,16 @@
                 //    var data = $.parseJSON(res);
                 //    alert(data.Msg);
                 //})
+                openShadow();
+                setTimeout(function () { closeShadow() }, 3000);
                 $.ajax({
                     url: "ajax/uploadHandler.aspx",
                     type: "POST",
                     data: { op: "joinvote", src: src, introduce: introduce, openId: '<%=openId%>', manifesto: manifesto, voteId:<%=voteId%>,token:'<%=model==null?"":model.token%>'},
                     dataType: "json",
                     success: function (data) {
-                        alert(data.Msg);
+                        $.messageBox(data.Msg);
+                        closeShadow();
                     },
                 });
             }

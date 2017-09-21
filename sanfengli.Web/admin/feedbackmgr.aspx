@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="feedbackmgr.aspx.cs" Inherits="sanfengli.Web.admin.feedbackmgr" %>
 
 <!DOCTYPE html>
-<include file="Home@Public/head" />	
+<include file="Home@Public/head" />
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -42,6 +42,20 @@
     <div class="mask">
     </div>
     <script>
+        //删除
+        function deleteModel(id) {
+            if (confirm("确认要删除吗？")) {
+                $.post('ajax/feedbackHandler.aspx?op=delete', { id: id }, function (data) {
+                    res = $.parseJSON(data);
+                    alert(res.Msg);
+                    if (res.IsSuccess) {
+                        window.location.reload();
+                    } 
+                })
+            } else {
+                alert(1);
+            }
+        }
         $(function () {
 
             $("#loadingPage").load('feedbackcontent.aspx');
@@ -66,6 +80,7 @@
                 $('.pop-box2').fadeIn(200);
                 $('.mask').fadeIn(200);
             })
+
             //备注关闭事件
             $(document).on('click', '.pop-close', function () {
                 $(this).parent().fadeOut(200)
@@ -119,6 +134,8 @@
                 }
             })
         });
+
+
         //查询
         function getFeedback() {
             $("#loadingPage").html("<div style='text-align:center;width:100%'>正在加载，请稍后...</div>");

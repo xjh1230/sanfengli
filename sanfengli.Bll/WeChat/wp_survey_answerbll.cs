@@ -14,9 +14,8 @@ namespace sanfengli.Bll.WeChat
 {
     public class wp_survey_answerbll : BaseBll<wp_survey_answer>
     {
-        public List<full_wp_survey_answer> GetListBySurveyId(int survey_id, out int count, int pageIndex = 1, int pageSize = 20)
+        public List<wp_survey_answer> GetListBySurveyId(int survey_id, out int count, int pageIndex = 1, int pageSize = 20)
         {
-            List<full_wp_survey_answer> list = new List<full_wp_survey_answer>();
             List<wp_survey_answer> tmp = new List<wp_survey_answer>();
             try
             {
@@ -25,20 +24,9 @@ namespace sanfengli.Bll.WeChat
                 count = ScalarSql<int>(sqlCount, null);
                 using (var db = DbFactory.OpenDbConnection())
                 {
-                    string sqlList = $"select min(nickname),min(headimgurl),min(oper_time),min(survey_id),uid from wp_survey_answer where survey_id={survey_id}   GROUP BY uid LIMIT {(pageIndex - 1) * pageSize},{pageSize} ;";
+                    string sqlList = $"select * from   	wp_survey_answer where survey_id={survey_id}   GROUP BY uid LIMIT {(pageIndex - 1) * pageSize},{pageSize} ;";
 
                     tmp = db.Select<wp_survey_answer>(sqlList);
-                    if (tmp != null && tmp.Count > 0)
-                    {
-                        tmp.ForEach(s =>
-                        {
-                            full_wp_survey_answer model = new full_wp_survey_answer();
-                            model.wp_survey_answer = s;
-                            model.list = GetListBySurveyIdAndUsrtId((int)s.survey_id, (int)s.uid);
-                            list.Add(model);
-                        });
-
-                    }
                 }
 
             }
@@ -47,7 +35,7 @@ namespace sanfengli.Bll.WeChat
                 count = 0;
                 tmp = new List<wp_survey_answer>();
             }
-            return list;
+            return tmp;
         }
 
 
@@ -100,12 +88,32 @@ namespace sanfengli.Bll.WeChat
 		group_concat(q.type SEPARATOR '^') as types,
 		s.keyword as '问卷关键字', s.title as '问卷标题',u.nickname as '用户昵称'
 from wp_survey_answer a
-join wp_survey s on a.survey_id = s.id
-join wp_survey_question q on a.question_id = q.id
-join wp_user u on a.uid = u.uid
+left join wp_survey_question q on a.question_id = q.id
+left join wp_user u on a.uid = u.uid
+left join wp_survey s on a.survey_id = s.id
 where a.survey_id={survey_id}
 GROUP BY a.uid
 ORDER BY q.sort";
+                dt = helper.ExecuteDataTable(sql);
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return dt;
+        }
+
+        public DataTable GetAnswerBySurveyId(int uid, int survey_id)
+        {
+            DataTable dt = new DataTable();
+
+            try
+            {
+                MySqlHelper helper = new MySqlHelper(DbConn.WeiXin);
+                string sql = $@"select a.answer,q.title,q.extra,q.type  from wp_survey_answer a
+                                    join wp_survey_question q
+                                    on a.question_id=q.id
+                                    where a.uid={uid} and a.survey_id={survey_id}";
                 dt = helper.ExecuteDataTable(sql);
             }
             catch (Exception ex)

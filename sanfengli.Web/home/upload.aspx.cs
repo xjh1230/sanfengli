@@ -13,7 +13,7 @@ namespace sanfengli.Web.home
 
         public upload()
         {
-            this.IsNeedUserInfo = false;
+            this.IsNeedUserInfo = true;
         }
         //System.Web.UI.Page
         //public string openId = "o_7F30X3iijkdt0zsNQrxuGpOL8U";

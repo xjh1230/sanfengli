@@ -13,7 +13,7 @@ using System.Web.UI.WebControls;
 
 namespace sanfengli.Web.home
 {
-    public partial class infolist : PageBaseHome
+    public partial class infolist : System.Web.UI.Page
     {
         public int type;
         public string typename = "";
@@ -22,10 +22,10 @@ namespace sanfengli.Web.home
         public bool IsData;
         public List<list_info> list;
         public List<wp_article_type_new> list_type;
-        public infolist()
-        {
-            this.IsNeedUserInfo = false;
-        }
+        //public infolist()
+        //{
+        //    this.IsNeedUserInfo = false;
+        //}
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +43,7 @@ namespace sanfengli.Web.home
             switch ((InfoTypeEnum)type)
             {
                 case InfoTypeEnum.文章列表:
-                    int type_id = RequestHelper.GetQueryInt("article_type", 1);
+                    int type_id = RequestHelper.GetQueryInt("article_type", 5);
                     count = 0;
                     wp_article_new query = new wp_article_new();
                     query.type_id = type_id;
@@ -72,7 +72,7 @@ namespace sanfengli.Web.home
                 case InfoTypeEnum.问卷列表:
                     var survey_list = new Bll.WeChat.wp_surveybll().GetList(new Model.WeiXin.wp_survey(), out count, false, pageIndex, pageSize);
                     list = list_info.Instance.GetFromSurvey(survey_list);
-                    url = $"{BaseClass.CurrentDomin}index.php?s=/w16/Survey/Wap/index/id/11";
+                    url = $"{BaseClass.CurrentDomin}index.php?s=/w16/Survey/Wap/index/id/";
                     break;
                 default:
                     break;

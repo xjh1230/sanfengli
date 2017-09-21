@@ -12,6 +12,8 @@ namespace sanfengli.Common
 
         public static readonly string CssDomin = ConfigurationManager.AppSettings["CssDomin"];
         public static readonly string CurrentDomin = ConfigurationManager.AppSettings["CurrentDomin"];
+
+        public static readonly string BaseDomin= ConfigurationManager.AppSettings["BaseDomin"];
         public static readonly string cfg_dir_upImg = ConfigurationManager.AppSettings["cfg_dir_upImg"];
 
         public static readonly bool IsNeedWeiXin = ConfigurationManager.AppSettings["IsNeedWeiXin"] == "1";

@@ -18,7 +18,7 @@ namespace sanfengli.Web.admin.ajax
         protected void Page_Load(object sender, EventArgs e)
         {
             string type = RequestHelper.GetQueryString("type");
-            int id = RequestHelper.GetQueryInt("id", 11);
+            int id = RequestHelper.GetQueryInt("id", 0);
 
             DataTable dt = new DataTable();
             MemoryStream ms;

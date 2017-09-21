@@ -70,7 +70,7 @@
 <body>
 
     <div class="bread-t" style="box-shadow: 0px 3px 3px #B7B1B1; margin: 0 0 0.475rem 0; padding: 0.375rem 0 0.4rem 0.375rem;">
-        <div> <span style="color:#ccc"><%=typename%></span> &gt; </div>
+        <div> <span style="color:#ccc"><%=typename%></span></div>
 
         <%if (type == (int)InfoTypeEnum.文章列表)
             {%>

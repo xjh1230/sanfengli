@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
     <meta name="viewport" content="width=device-width, minimum-scale=0.1, maximum-scale=1.0, user-scalable=yes">
     <title><%=model==null?"文章信息":model.name %></title>
+  
 </head>
 <body>
     <%if (model == null)
@@ -23,9 +24,11 @@
         else
         {%>
     <h1><%=model.title %></h1>
+    <p><%=((DateTime)model.cTime).ToString("yyyy-MM-dd HH:mm:ss") %></p>
     <hr />
     <div>
         <%=model.content %>
+       
     </div>
     <%} %>
 </body>

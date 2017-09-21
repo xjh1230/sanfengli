@@ -2,6 +2,7 @@
 using Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using sanfengli.Common;
 using sanfengli.Model.Dto;
 using sanfengli.Model.WeiXin;
 using sanfengli.Mvc.Models;
@@ -42,6 +43,14 @@ namespace sanfengli.Mvc.Controllers
             var list = new Bll.WeChat.wp_article_newbll().GetList(query, out count, model.page, model.size);
             if (list != null && list.Count > 0)
             {
+                list.ForEach(s =>
+                {
+                    s.type_name = new Bll.WeChat.wp_article_type_newbll().GetItem((int)s.type_id).name;
+                    s.url = $"{BaseClass.BaseDomin}home/infodetail.aspx?id={s.Id}";
+                });
+            }
+            if (list != null && list.Count > 0)
+            {
                 responseModel.IsSuccess = true;
                 responseModel.Data = list;
                 responseModel.TotalCount = count;
@@ -60,6 +69,14 @@ namespace sanfengli.Mvc.Controllers
         }
 
 
+        public JsonResult delete(wp_article_new model)
+        {
+            BaseOutput responseModel = new BaseOutput();
+            //model.cTime = DateTime.Now;
+            responseModel.IsSuccess = new Bll.WeChat.wp_article_newbll().DeleteModel(model.Id);
+            responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
+            return Json(responseModel);
+        }
         public JsonResult addType(wp_article_type_new model)
         {
             BaseOutput responseModel = new BaseOutput();

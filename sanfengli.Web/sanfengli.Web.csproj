@@ -95,6 +95,7 @@
       <HintPath>..\packages\Bitauto.Mall.Aop.1.0.9\lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -171,13 +172,15 @@
     <Content Include="admin\ajax\acticleHandler.aspx" />
     <Content Include="admin\ajax\export.aspx" />
     <Content Include="admin\ajax\feedbackHandler.aspx" />
+    <Content Include="admin\answerdetail.aspx" />
     <Content Include="admin\article\index.html" />
     <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css" />
-    <Content Include="admin\article\static\js\app.bc341899626cb2922c40.js" />
-    <Content Include="admin\article\static\js\manifest.9d2971a9ca76581c8a19.js" />
+    <Content Include="admin\article\static\js\app.75609cf59edda233c62f.js" />
+    <Content Include="admin\article\static\js\manifest.9309dd95b5e8d17f5e27.js" />
     <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js" />
     <Content Include="admin\feedbackcontent.aspx" />
     <Content Include="admin\feedbackmgr.aspx" />
+    <Content Include="admin\surveyanswer.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\datetimepicker\css\bootstrap.css" />
@@ -775,6 +778,7 @@
     <Content Include="Scripts\upload\common.js" />
     <Content Include="Scripts\upload\h5_upload.js" />
     <Content Include="Scripts\upload\hm.js" />
+    <Content Include="Scripts\validate.js" />
     <Content Include="Scripts\vote.js" />
     <Content Include="test.aspx" />
     <Content Include="Wx\AutoReply.aspx" />
@@ -790,8 +794,8 @@
     <Content Include="home\static\js\vendor.88f3694f64345e07f54a.js.map" />
     <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css.map" />
     <Content Include="admin\article\static\fonts\element-icons.b02bdc1.ttf" />
-    <Content Include="admin\article\static\js\app.bc341899626cb2922c40.js.map" />
-    <Content Include="admin\article\static\js\manifest.9d2971a9ca76581c8a19.js.map" />
+    <Content Include="admin\article\static\js\app.75609cf59edda233c62f.js.map" />
+    <Content Include="admin\article\static\js\manifest.9309dd95b5e8d17f5e27.js.map" />
     <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
@@ -867,6 +871,13 @@
     <Compile Include="admin\ajax\feedbackHandler.aspx.designer.cs">
       <DependentUpon>feedbackHandler.aspx</DependentUpon>
     </Compile>
+    <Compile Include="admin\answerdetail.aspx.cs">
+      <DependentUpon>answerdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\answerdetail.aspx.designer.cs">
+      <DependentUpon>answerdetail.aspx</DependentUpon>
+    </Compile>
     <Compile Include="admin\feedbackcontent.aspx.cs">
       <DependentUpon>feedbackcontent.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -880,6 +891,13 @@
     </Compile>
     <Compile Include="admin\feedbackmgr.aspx.designer.cs">
       <DependentUpon>feedbackmgr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\surveyanswer.aspx.cs">
+      <DependentUpon>surveyanswer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\surveyanswer.aspx.designer.cs">
+      <DependentUpon>surveyanswer.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />

@@ -67,5 +67,20 @@ namespace sanfengli.Bll.WeChat
                 return false;
             }
         }
+
+        public bool DeleteModel(int id)
+        {
+            try
+            {
+                using (var db = DbFactory.OpenDbConnection())
+                {
+                    return db.Delete<wp_article_new>(s => s.Id == id) > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+            }
+            return false;
+        }
     }
 }

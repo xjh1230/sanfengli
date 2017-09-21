@@ -83,10 +83,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Dto\full_wp_survey.cs" />
+    <Compile Include="WeiXin\wp_article_new.cs" />
     <Compile Include="WeiXin\wp_article_type_new.cs" />
     <Compile Include="WeiXin\wp_reserve.cs" />
     <Compile Include="WeiXin\wp_shop_vote_option.cs" />
     <Compile Include="WeiXin\wp_survey.cs" />
+    <Compile Include="WeiXin\wp_survey_answer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">

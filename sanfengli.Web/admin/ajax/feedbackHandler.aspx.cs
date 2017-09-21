@@ -33,6 +33,21 @@ namespace sanfengli.Web.admin.ajax
                         responseModel.IsSuccess = new Bll.WeChat.FeedBackBll().UpdateRemarkById(editId, remark);
                         responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
                         break;
+                    #endregion
+                    #region 删除
+                    case "delete":
+                        int id = RequestHelper.GetFormInt("id", 0);
+                        if (id <= 0)
+                        {
+                            responseModel.IsSuccess = false;
+                            responseModel.Msg = "请输入有效ID";
+                        }
+                        else
+                        {
+                            responseModel.IsSuccess = new Bll.WeChat.FeedBackBll().DeleteById(id);
+                            responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
+                        }
+                        break;
                         #endregion
                 }
             }

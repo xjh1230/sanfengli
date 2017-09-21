@@ -61,14 +61,19 @@
                 opacity: 1;
             }
         }
+
+        .am-article-hd {
+            margin-top: 14px;
+        }
+        .am-btn-danger{
+            width:23.5rem;
+        }
     </style>
 </head>
 <body class="am-with-fixed-navbar">
     <div class="am-g">
         <section>
-            <ol class="am-breadcrumb">
-                <li class="am-active">随手拍上传</li>
-            </ol>
+
             <div class="am-paragraph am-paragraph-default">
                 <article class="am-article">
                     <div class="am-article-hd">
@@ -78,7 +83,7 @@
                     <div class="am-article-bd  ">
                         <div class="am-form-group am-form-file">
                             <button type="button" class="am-btn am-btn-danger am-btn-sm">
-                                <i class="am-icon-cloud-upload"></i>选择要上传的文件
+                                <i class="am-icon-cloud-upload"></i>选择要上传的图片
 			
                             </button>
                             <input id="upload" data-path="feedback" type="file" name="fileImage" accept="image/*;" capture="camera">
@@ -99,7 +104,7 @@
                     </div>
                     <label class="item-label"><span class="need_flag">*</span>联系方式</label>
                     <div class="controls">
-                        <input type="text" class="am-form-field" id="phone" />
+                        <input type="tel" class="am-form-field" id="phone" data-validatetype="number"  maxlength="11"/>
                     </div>
 
 
@@ -124,6 +129,9 @@
     <script src="../Scripts/upload/amazeui.ie8polyfill.min.js"></script>
     <script src="../Scripts/upload/amazeui.widgets.helper.min.js"></script>
     <script src="../Scripts/upload/h5_upload.js"></script>
+    <script src="../Scripts/messageBox.js"></script>
+    <script src="../Scripts/spin.js"></script>
+    <script src="../Scripts/validate.js"></script>
     <div style="display: none">
     </div>
     <div id="cli_dialog_div"></div>
@@ -132,7 +140,6 @@
 <script>
     $(function () {
         $('#subFeedback').on('click', function () {
-            alert("开始提交");
             var src = encodeURI($('#image_src').val());
             var content = encodeURI($('#feed_content').val());
             var name = encodeURI($('#name').val());
@@ -144,13 +151,16 @@
                 //    var data = $.parseJSON(res);
                 //    alert(data.Msg);
                 //})
+                openShadow();
+                setTimeout(function () { closeShadow() }, 3000);
                 $.ajax({
                     url: "ajax/uploadHandler.aspx",
                     type: "POST",
                     data: { op: "save", src: src, content: content, openId: '<%=openId%>', name: name, phone: phone },
                     dataType: "json",
                     success: function (data) {
-                        alert(data.Msg);
+                        $.messageBox(data.Msg);
+                        closeShadow();
                     },
                 });
             }

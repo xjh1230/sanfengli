@@ -117,11 +117,11 @@ namespace sanfengli.Model.Dto
                 {
                     list_info model = new list_info();
                     model.id = (uint)s.Id;
-                    model.title = s.name;
+                    model.title = s.title;
                     model.create_time = DateTimeHelper.GetDateString((DateTime)s.cTime);
                     model.count = 0;
                     model.img = s.image;
-                    model.desc = s.title;
+                    model.desc = s.name;
                     result.Add(model);
                 });
             }

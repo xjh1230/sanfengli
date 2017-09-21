@@ -1,6 +1,22 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="feedbackcontent.aspx.cs" Inherits="sanfengli.Web.admin.feedbackcontent" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="surveyanswer.aspx.cs" Inherits="sanfengli.Web.admin.surveyanswer" %>
 
-<div class="form_box_w">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>问卷数据管理</title>
+    <link href="../Content/style.css" rel="stylesheet" />
+    <script src="../Scripts/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+     <div class="wrapper">
+        <div class="config-custom">
+            <h2>问卷数据管理</h2>
+          
+        </div>
+        <div id="loadingPage">
+            <div class="form_box_w">
     <div class="form_top_w">
         <span class="putout">找到<%=pageInfo.TotalCount%>条数据</span>
         <p class="pageInfo">
@@ -18,17 +34,13 @@
     <table class="list">
         <tbody>
             <tr>
-                <th width="60">序号
+                <th width="200">OpenId
                 </th>
-                <th width="200">反馈图片
+                <th width="150">用户昵称
                 </th>
-                <th width="200">反馈内容
+                <th width="150">手机号
                 </th>
-                <th width="100">姓名
-                </th>
-                <th width="100">电话
-                </th>
-                <th width="100">反馈时间
+                <th width="100">参与时间
                 </th>
                 <th>操作
                 </th>
@@ -37,24 +49,18 @@
                 {
                     foreach (var model in list)
                     { %>
-            <tr data-id="<%=model.Id %>" data-remark="<%=model.remark %>" data-userid="<%=model %>">
-                <td><%= model.Id %>
+            <tr data-id="<%=model.Id %>"  >
+             
+                <td><%= model.openid %>
                 </td>
-                <td>
-                    <a target="_blank" href="<%=model.Image %>">
-                        <img src="<%= model.Image %>"></a>
+                <td><%= model.NickName %>
                 </td>
-                <td><%= model.Content %>
-                </td>
-                <td><%= model.name %>
-                </td>
-                <td><%= model.phone %>
+                <td><%= model.mobile %>
                 </td>
                  <td><%= model.CreateOn %>
                 </td>
                 <td>
-                    <a href="javascript:;" class="copy">备注</a>
-                     <a href="javascript:;" onclick="deleteModel(<%=model.Id %>)">删除</a>
+                    <a href="<%=model.Url %>" class="copy">回答内容</a>
                 </td>
             </tr>
 
@@ -76,3 +82,7 @@
         </p>
     </div>
 </div>
+        </div>
+    </div>
+</body>
+</html>

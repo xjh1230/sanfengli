@@ -77,8 +77,26 @@
                 opacity: 1;
             }
         }
-        #search{
-            float: right;  height: 22px;width: 40px;border-left: 1px solid #eee;margin-top: -32px;background: url(/img/search.png) no-repeat center center / 20px 20px;
+
+        #search {
+            float: right;
+            height: 22px;
+            width: 40px;
+            border-left: 1px solid #eee;
+            margin-top: -32px;
+            background: url(/img/search.png) no-repeat center center / 20px 20px;
+        }
+
+        .option_list {
+            margin-bottom: 39px;
+        }
+
+        .btn_join {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            margin-top: 10px;
+            z-index:10;
         }
     </style>
 </head>
@@ -99,7 +117,7 @@
                 <br />
                 <div>
                     <input type="text" class="am-form-field" placeholder="请输入参赛者编号" id="search_id" />
-                    <a id="search" ></a>
+                    <a id="search"></a>
                 </div>
             </div>
             <div class="option_list">
@@ -142,7 +160,7 @@
             </div>
             <%if (is_validity)
                 {%>
-            <div><a class="detail_btn" href="http://sanfengli.koalajoy.com/home/joinvote.aspx?voteId=<%=vote.Id %>">我要参加</a></div>
+            <div><a class="detail_btn btn_join" href="http://sanfengli.koalajoy.com/home/joinvote.aspx?voteId=<%=vote.Id %>">我要参加</a></div>
             <%} %>
         </div>
     </div>

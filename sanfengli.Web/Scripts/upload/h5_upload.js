@@ -17,7 +17,8 @@ var demo_h5_upload_ops = {
             formData.append("fileImage", $("#upload")[0].files[0]);
             formData.append("op", "uploadImg");
             formData.append("path", path);
-            
+            openShadow();
+            setTimeout(function () { closeShadow() }, 3000);
             $.ajax({
                 url: "/home/ajax/uploadHandler.aspx?op=uploadImg&path=" + path,
                 type: "POST",
@@ -27,6 +28,7 @@ var demo_h5_upload_ops = {
                 // 告诉jQuery不要去设置Content-Type请求头
                 contentType: false,
                 success: function (res) {
+                    closeShadow();
                     data = $.parseJSON(res);
                     if (data.IsSuccess) {
                         $(".img_wrap").attr("src", data.Msg);
@@ -34,7 +36,7 @@ var demo_h5_upload_ops = {
                         $(".img_wrap").show();
                         //$('#upload-btn').css("display", "none");
                     } else {
-                        alert(data.Msg, "error");
+                        $.messageBox(data.Msg, "error");
                     }
                 }
             });

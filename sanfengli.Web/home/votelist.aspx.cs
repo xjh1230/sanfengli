@@ -23,7 +23,7 @@ namespace sanfengli.Web.home
         protected void Page_Load(object sender, EventArgs e)
         {
             vote_id = RequestHelper.GetQueryInt("vote_id", 0);
-            vote_id = 4;
+            //vote_id = 4;
             int count = RequestHelper.GetQueryInt("count", 20);
             is_validity = false;
             vote = new Bll.WeChat.wp_shop_votebll().GetItem(vote_id);
