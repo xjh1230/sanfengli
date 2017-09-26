@@ -1,0 +1,16 @@
+ 
+
+
+
+<script language="javascript" src="WdatePicker.js"></script>
+
+<asp:TextBox ID="AddTime" CssClass="Input Wdate" runat="server" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'});"></asp:TextBox>
+
+
+设置开始时间小于结束时间demo--------------------
+
+<input type="text" class="w190 Wdate" name="PB_StartTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',maxDate:'#F{$dp.$D(\'PB_EndTime\')}'});" runat="server" id="PB_StartTime" />
+
+<input type="text" class="w190 Wdate" name="PB_EndTime" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd',minDate:'#F{$dp.$D(\'PB_StartTime\')}'});"  runat="server" id="PB_EndTime" />
+
+设置开始时间小于结束时间demo--------------------

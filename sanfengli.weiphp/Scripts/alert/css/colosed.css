@@ -1,0 +1,32 @@
+﻿@charset "utf-8";
+/* CSS Document 
+body{font-family:"微软雅黑",Arial, Helvetica, sans-serif; font-size: 12px;font-style: normal; line-height: 22px; font-weight: normal; font-variant: normal; color:#666;}
+body,ul,dl,dd,dt,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,img,td,div,input{margin:0;padding:0;}
+table{ border-collapse:collapse; border-spacing:0;}
+a{ outline-style:none; color:#666; text-decoration:none; border:0px;}
+a:hover{ text-decoration:none; color:#019248;}
+input,select,textarea{font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#666}
+img{border:0;}
+li{list-style-type:none; vertical-align:0}
+.hidden{display:none;}
+.fleft{float:left}
+.fright{float:right}
+.fleft_impt{ float:left!important;}
+.pr{ position:relative;}
+.pa{ position:absolute}
+.clear{ clear:both; height:0; line-height:0; overflow:hidden; font-size:0;}*/
+.cd_osdbg{ background:url(../images/ln_bgare.png); width:100%; height:100%; position:fixed; z-index:9999; left:0px; top:0px;}
+.cd_tck{ background:#fff;behavior:url(pie.htc);z-index:1000;-moz-border-radius:7px; -webkit-border-radius:7px; border-radius:7px;position:fixed; z-index:10000; left:50%; margin-left:-240px; top:20%;}
+.cd_prd{ position:relative; padding:40px; width:400px;}
+.cd_btn{ cursor:pointer; background:url(../images/x.png) no-repeat center center; position:absolute; right:-15px; top:-15px; display:block; width:40px; height:40px;}
+.cd_prd h1{ text-align:center; font-size:18px; line-height:24px; text-align:center; color:#717171;}
+.cd_taipt{ width:200px; margin:10px auto; position:relative; padding-left:80px;}
+.cd_taipt span{ line-height:22px; padding-right:3px; font-size:12px; color:#717171; position:absolute; display:block; width:80px; text-align:right; left:0px; top:0px;}
+.cd_taipt input{ height:20px; border:1px solid #ccc; width:100%;}
+.cd_taipt p{ display:none; color:#F00;}
+.span_btn{ margin-top:35px; text-align:center;}
+.span_btn a{ margin:0 10px; padding:10px 20px; min-width:80px; color:#fff; font-size:14px;behavior:url(pie.htc);-moz-border-radius:3px; -webkit-border-radius:3px; border-radius:3px;cursor:pointer}
+.btn1_alink_btn{ background:#d1d1d1;}
+.btn2_alink_btn{ background:#dd6a54;}
+.span_btn a:hover{color:#fff}
+.span_btn a:link{text-decoration:none}
