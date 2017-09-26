@@ -22,25 +22,62 @@
                         <span class="c-tit">姓名：</span>
                         <input type="text" name="name" class="inputxt custom-online" />
                     </li>
+                    <li>
+                        <span class="c-tit">分类：</span>
+                        <select id="type" class="inputxt" name="typeId" style="min-width: 172px;">
+                             <option value="0">所有</option>
+                            <%if (listType != null && listType.Count > 0)
+                                {
+                                    foreach (var item in listType)
+                                    { %>
+                            <option value="<%=item.Id %>"><%=item.Name %></option>
+                            <% }
+                                } %>
+                        </select>
+                    </li>
                     <li style="text-align: right;">
                         <a class="btn btn-save" href="javascript:getFeedback();">查询</a>
+                        <a class="btn btn-save" href="javascript:addType();">新增分类</a>
                     </li>
                 </ul>
             </form>
         </div>
         <div id="loadingPage">
         </div>
-    </div>
+        <div class="mask">
+        </div>
+        <div class="pop pop_box2 procedure_pop">
+            <div class="pop_close">
+                ×
+            </div>
+            <div class="pop_con">
+                <p class="txt">
+                    添加分类
+                </p>
+                <div class="desc">
 
-    <div class="pop-box2">
-        <span class="pop-close">x</span>
-        <textarea id="remark"></textarea>
-        <div class="main-tit add-custom h-center">
-            <span class="btn" id="saveRemark" data-canclick="true">保存</span>
+                    <p>
+                        <label>
+                            分类名</label>
+                        <input type="text" class="input-box" placeholder="请输入分类名"
+                            maxlength="15" id="typeName" />
+                    </p>
+                </div>
+                <div class="btn-line">
+                    <a href="javascript:;" class="fill-btn">保存</a> <a href="javascript:;" class="stroke-btn">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="pop-box1">
+            <span class="pop-close">x</span>
+            <textarea id="remark"></textarea>
+            <div class="main-tit add-custom h-center">
+                <span class="btn" id="saveRemark" data-canclick="true">保存</span>
+            </div>
         </div>
     </div>
-    <div class="mask">
-    </div>
+
+
     <script>
         //删除
         function deleteModel(id) {
@@ -50,12 +87,18 @@
                     alert(res.Msg);
                     if (res.IsSuccess) {
                         window.location.reload();
-                    } 
+                    }
                 })
             } else {
                 alert(1);
             }
         }
+
+        function addType() {
+            $('.pop_box2').show();
+            $('.mask').fadeIn(200);
+        }
+
         $(function () {
 
             $("#loadingPage").load('feedbackcontent.aspx');
@@ -77,7 +120,7 @@
                 $('#remark').val(Remark);
                 $('#saveRemark').data('id', currId);
                 $('#saveRemark').data('remark', Remark);
-                $('.pop-box2').fadeIn(200);
+                $('.pop-box1').fadeIn(200);
                 $('.mask').fadeIn(200);
             })
 
@@ -122,7 +165,7 @@
                                     }
                                 });
                                 $this.data('remark', remark);
-                                $('.pop-box2').fadeOut(200);
+                                $('.pop-box1').fadeOut(200);
                                 $('.mask').fadeOut(200);
 
                             }
@@ -132,6 +175,37 @@
                         }
                     });
                 }
+            })
+            //新增分类
+            $('.fill-btn').on('click', function () {
+                var name = $('#typeName').val();
+                if (name != '') {
+                    $.post('ajax/feedbackHandler.aspx?op=addType', { typeName: name }, function (res) {
+                        var data = $.parseJSON(res);
+                        alert(data.Msg);
+                        if (data.IsSuccess) {
+                            window.location.reload();
+                            $('.pop_box1,.pop_box2').hide();
+                            $('.mask').fadeOut(200);
+                        }
+                    })
+
+                } else {
+                    alert("请输入有效值");
+                }
+
+            });
+
+            //提示弹层关闭
+            $('.pop_close').on('click', function () {
+                //            $(this).parent().hide();
+                $('.pop_box1,.pop_box2').hide();
+                $('.mask').fadeOut(200);
+            })
+            //提示弹层取消
+            $('.pop_box2 .stroke-btn').on('click', function () {
+                $('.pop_box1,.pop_box2').hide();
+                $('.mask').fadeOut(200);
             })
         });
 

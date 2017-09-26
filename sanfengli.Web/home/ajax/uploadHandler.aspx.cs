@@ -33,6 +33,10 @@ namespace sanfengli.Web.home.ajax
                         string name = HttpUtility.UrlDecode(RequestHelper.GetFormString("name"));
                         string phone = HttpUtility.UrlDecode(RequestHelper.GetFormString("phone"));
                         string content = HttpUtility.UrlDecode(RequestHelper.GetFormString("content"));
+                        string postion = HttpUtility.UrlDecode(RequestHelper.GetFormString("postion"));
+                        string addr = HttpUtility.UrlDecode(RequestHelper.GetFormString("addr"));
+                        int typeId = RequestHelper.GetFormInt("typeId", 1);
+                        string typeName = HttpUtility.UrlDecode(RequestHelper.GetFormString("typeName"));
                         string openId = RequestHelper.GetFormString("openId");
 
                         int userId = new Bll.WeChat.wp_userbll().GetUserIdByOpenId(openId);
@@ -51,6 +55,9 @@ namespace sanfengli.Web.home.ajax
                             model.UserId = userId;
                             model.name = name;
                             model.phone = phone;
+                            model.addr = postion + " " + addr;
+                            model.typeid = typeId;
+                            model.typename = typeName;
 
                             response.IsSuccess = new FeedBackBll().SaveItem(model);
                         }
@@ -60,7 +67,7 @@ namespace sanfengli.Web.home.ajax
                     catch (Exception ex)
                     {
                         response.IsSuccess = false;
-                        response.Msg = ex.Message;
+                        response.Msg = "信息输入有误,只能输入文字和数字";
                         LogHandler.Error(ex);
                     }
                     #endregion
@@ -82,6 +89,7 @@ namespace sanfengli.Web.home.ajax
                         string introduce = HttpUtility.UrlDecode(RequestHelper.GetFormString("introduce"));
                         string manifesto = HttpUtility.UrlDecode(RequestHelper.GetFormString("manifesto"));
                         int voteId = RequestHelper.GetFormInt("voteId", 0);
+                        string phone = RequestHelper.GetFormString("phone");
                         string token = RequestHelper.GetFormString("token");
                         string openId = RequestHelper.GetFormString("openId");
                         user = new Bll.WeChat.wp_userbll().GetUserInfoByOpenId(openId);
@@ -91,51 +99,62 @@ namespace sanfengli.Web.home.ajax
                         if (string.IsNullOrEmpty(src) || voteId == 0)
                         {
                             response.IsSuccess = false;
+                            response.Msg = "请上传图片";
                         }
                         else
                         {
-
-                            wp_picture pic = new wp_picture();
-                            pic.url = src;
-                            pic.path = src.Replace(Common.BaseClass.CurrentDomin, "/");
-                            pic.create_time = (uint)BaseClass.ConvertDataTimeToLong(DateTime.Now);
-                            pic.system = 0;
-                            pic.md5 = "";
-                            pic.sha1 = "";
-                            pic.status = 0;
-
-                            var pic_id = new Bll.WeChat.wp_picturebll().InsertItem(pic);
-
-                            if (pic_id > 0)
+                            int count = new Bll.WeChat.wp_shop_vote_optionbll().GetOptionCountByVoteId(voteId);
+                            wp_shop_vote vote = new Bll.WeChat.wp_shop_votebll().GetModel(voteId);
+                            if (vote == null || vote.count <= count)
                             {
-                                wp_shop_vote_option model = new wp_shop_vote_option();
-                                model.image = (uint)pic_id;
-                                model.vote_id = voteId;
-                                model.ctime = (int)pic.create_time;
-                                model.uid = userId;
-                                model.truename = user == null ? "匿名" : user.nickname;
-                                model.introduce = introduce;
-                                model.manifesto = manifesto;
-                                model.number = 0;
-                                model.token = token;
-                                model.opt_count = 0;
-                                response.IsSuccess = new wp_shop_vote_optionbll().InsertItem(model) > 0;
+                                response.IsSuccess = false;
+                                response.Msg = "当前报名人数已满";
                             }
                             else
                             {
-                                response.IsSuccess = false;
+                                wp_picture pic = new wp_picture();
+                                pic.url = src;
+                                pic.path = src.Replace(Common.BaseClass.CurrentDomin, "/");
+                                pic.create_time = (uint)BaseClass.ConvertDataTimeToLong(DateTime.Now);
+                                pic.system = 0;
+                                pic.md5 = "";
+                                pic.sha1 = "";
+                                pic.status = 0;
+
+                                var pic_id = new Bll.WeChat.wp_picturebll().InsertItem(pic);
+
+                                if (pic_id > 0)
+                                {
+                                    wp_shop_vote_option model = new wp_shop_vote_option();
+                                    model.image = (uint)pic_id;
+                                    model.vote_id = voteId;
+                                    model.ctime = (int)pic.create_time;
+                                    model.uid = userId;
+                                    model.truename = user == null ? "匿名" : user.nickname;
+                                    model.introduce = introduce;
+                                    model.manifesto = manifesto;
+                                    model.number = 0;
+                                    model.token = token;
+                                    model.opt_count = 0;
+                                    model.phone = phone;
+                                    model.option_status = 0;
+                                    model.phone = phone;
+                                    model.option_status = 0;
+                                    response.IsSuccess = new wp_shop_vote_optionbll().InsertItem(model) > 0;
+                                }
+                                else
+                                {
+                                    response.IsSuccess = false;
+                                }
+                                response.Msg = response.IsSuccess ? "成功" : "失败";
                             }
 
-
-
                         }
-
-                        response.Msg = response.IsSuccess ? "成功" : "失败";
                     }
                     catch (Exception ex)
                     {
                         response.IsSuccess = false;
-                        response.Msg = ex.Message;
+                        response.Msg = "失败，请重试";
                         LogHandler.Error(ex);
                     }
                     #endregion
@@ -160,6 +179,7 @@ namespace sanfengli.Web.home.ajax
                             }
                             else
                             {
+                                LogHandler.Info($"未找到用户uid:{uid}");
                                 response.Msg = "未找到用户";
                             }
 

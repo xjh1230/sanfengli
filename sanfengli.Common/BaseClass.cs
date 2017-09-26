@@ -20,6 +20,8 @@ namespace sanfengli.Common
         public static readonly bool IsTest = ConfigurationManager.AppSettings["IsTest"] == "1";
 
         public static readonly string Login_Cookie = ConfigurationManager.AppSettings["Cookie_Prefix"] + "ScanLoginKey";
+
+        public static readonly string OpenId_Cookie = "Cookie_PrefixOpenId";
         public static long ConvertDataTimeToLong(DateTime dt)
         {
             return (dt.ToUniversalTime().Ticks - 621355968000000000) / 10000000;

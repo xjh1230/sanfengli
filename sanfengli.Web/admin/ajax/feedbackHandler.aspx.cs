@@ -1,4 +1,5 @@
 ﻿using Common;
+using sanfengli.Model.WeiXin;
 using sanfengli.Web.Base;
 using System;
 using System.Collections.Generic;
@@ -47,6 +48,25 @@ namespace sanfengli.Web.admin.ajax
                             responseModel.IsSuccess = new Bll.WeChat.FeedBackBll().DeleteById(id);
                             responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
                         }
+                        break;
+                    #endregion
+                    #region MyRegion
+                    case "addType":
+                        string typeName = RequestHelper.GetFormString("typeName");
+                        if (!string.IsNullOrEmpty(typeName))
+                        {
+                            feedback_type model = new feedback_type();
+                            model.Name = typeName;
+                            responseModel.IsSuccess = new Bll.WeChat.feedback_typebll().SaveMode(model);
+                            responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
+                        }
+                        else
+                        {
+                            responseModel.IsSuccess = false;
+                            responseModel.Msg = "请输入有效值";
+                        }
+                       
+                      
                         break;
                         #endregion
                 }

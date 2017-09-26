@@ -139,6 +139,7 @@
     <Compile Include="WeChatMp\MpMenuLogBll.cs" />
     <Compile Include="WeChatMp\MsgReplyBll.cs" />
     <Compile Include="WeChatMp\WxEventTypeEnum.cs" />
+    <Compile Include="WeChat\feedback_typebll.cs" />
     <Compile Include="WeChat\wp_articlebll.cs" />
     <Compile Include="WeChat\wp_article_newbll.cs" />
     <Compile Include="WeChat\wp_article_type_newbll.cs" />

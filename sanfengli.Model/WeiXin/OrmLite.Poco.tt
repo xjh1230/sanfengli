@@ -86,10 +86,11 @@ if (priorProperyNames.Contains(col.PropertyName)) //Change duplicate style names
 }
 priorProperyNames.Add(col.PropertyName);
  if ((col.Name!=col.PropertyName) || (col.IsPK && UseIdAsPK)) { #>
-       // [Alias("<#=col.Name#>")]
+        //[Alias("<#=col.Name#>")]
 <# }  if (col.PropertyType == "string" && col.Size > 0) { #>
         [StringLength(<#=col.Size#>)]
 <# }  if (col.IsAutoIncrement) { #>
+		[Alias("<#=col.Name#>")]
         [AutoIncrement]
 <# }  if (col.IsComputed) { #>
                  [Compute]        

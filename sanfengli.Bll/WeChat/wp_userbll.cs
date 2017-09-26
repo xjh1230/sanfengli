@@ -67,14 +67,13 @@ namespace sanfengli.Bll.WeChat
         }
         public wp_user GetUserInfoByOpenId(string openId)
         {
-            wp_user model = new wp_user();
+            wp_user model = null;
             if (!string.IsNullOrEmpty(openId))
             {
                 string sql = $"select * from wp_user where openid='{openId}' LIMIT 0,1";
                 using (var db = DbFactory.OpenDbConnection())
                 {
                     model = db.Select<wp_user>(sql).FirstOrDefault();
-
                 }
             }
             return model;

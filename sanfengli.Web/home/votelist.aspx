@@ -2,7 +2,7 @@
 
 
 <!DOCTYPE html>
-<!-- saved from url=(0076)http://sanfengli.koalajoy.com/index.php?s=/w16/Vote/Wap/index/vote_id/4.html -->
+<!-- saved from url=(0076)http://sfl.sanfengli.cn/index.php?s=/w16/Vote/Wap/index/vote_id/4.html -->
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -98,6 +98,9 @@
             margin-top: 10px;
             z-index:10;
         }
+        .option_list{
+            min-height:450px;
+        }
     </style>
 </head>
 
@@ -160,14 +163,14 @@
             </div>
             <%if (is_validity)
                 {%>
-            <div><a class="detail_btn btn_join" href="http://sanfengli.koalajoy.com/home/joinvote.aspx?voteId=<%=vote.Id %>">我要参加</a></div>
+            <div><a class="detail_btn btn_join" href="joinvote.aspx?voteId=<%=vote.Id %>">我要参加</a></div>
             <%} %>
         </div>
     </div>
     <script type="text/javascript">
         var is_verify = '0';
 
-
+        var currentDomin = '<%=sanfengli.Common.BaseClass.CurrentDomin%>';
         function switchRemark(ele) {
             var remarkEle = $(ele);
             if (remarkEle.hasClass('vote_remark_open')) {
@@ -201,7 +204,7 @@
                 title: '<%=vote==null?"比赛投票":vote.title%>', // 分享标题
                 desc: '<%=vote==null?"比赛投票":vote.remark%>', // 分享描述
                 link: "<%=url%>", //分享的链接地址
-                imgUrl: "http://sanfengli.koalajoy.com/Addons/Vote/icon.png", // 分享图标
+                imgUrl: currentDomin+"Addons/Vote/icon.png", // 分享图标
                 type: 'link', // 分享类型,music、video或link，不填默认为link
                 dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                 success: function () {

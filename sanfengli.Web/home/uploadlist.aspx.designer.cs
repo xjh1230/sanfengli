@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace sanfengli.Web {
+namespace sanfengli.Web.home {
     
     
-    public partial class test {
+    public partial class uploadlist {
     }
 }

@@ -31,7 +31,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("adminmenu")]
     public partial class adminmenu : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -60,7 +61,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("cyactivitycontent")]
     public partial class cyactivitycontent : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
         [Required]
 		[Alias("Id")]
         public int Id { get; set; }
@@ -84,7 +85,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("feedback")]
     public partial class feedback : IHasId<long> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public long Id { get; set; }
         public int? UserId { get; set; }
@@ -93,13 +95,27 @@ namespace sanfengli.Model.WeiXin
         public DateTime? CreateOn { get; set; }
         public string name { get; set; }
         public string phone { get; set; }
+        public string addr { get; set; }
+        public int? typeid { get; set; }
+        public string typename { get; set; }
         public string remark { get; set; }
+    }
+
+	[Alias("feedback_type")]
+    public partial class feedback_type : IHasId<int> 
+    {
+        //[Alias("Id")]
+		[Alias("Id")]
+        [AutoIncrement]
+        public int Id { get; set; }
+        public string Name { get; set; }
     }
 
 	[Alias("mpeventreply")]
     public partial class mpeventreply : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -121,7 +137,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmateriallib")]
     public partial class mpmateriallib : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -137,7 +154,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmenulog")]
     public partial class mpmenulog : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string Content { get; set; }
@@ -148,7 +166,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmsgreply")]
     public partial class mpmsgreply : IHasId<int> 
     {
-       // [Alias("MsgId")]
+        //[Alias("MsgId")]
+		[Alias("MsgId")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -162,7 +181,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmsgreplycontent")]
     public partial class mpmsgreplycontent : IHasId<int> 
     {
-       // [Alias("ReplyId")]
+        //[Alias("ReplyId")]
         [Required]
 		[Alias("ReplyId")]
         public int Id { get; set; }
@@ -182,7 +201,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("mpmsgreplykeys")]
     public partial class mpmsgreplykey : IHasId<int> 
     {
-       // [Alias("KeyId")]
+        //[Alias("KeyId")]
         [Required]
 		[Alias("KeyId")]
         public int Id { get; set; }
@@ -202,7 +221,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_action")]
     public partial class wp_action : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -230,7 +250,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_action_log")]
     public partial class wp_action_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -262,7 +283,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_addon_category")]
     public partial class wp_addon_category : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? icon { get; set; }
@@ -273,7 +295,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_addons")]
     public partial class wp_addon : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -303,7 +326,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_admin_log")]
     public partial class wp_admin_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -316,7 +340,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_analysis")]
     public partial class wp_analysi : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? sports_id { get; set; }
@@ -330,7 +355,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_api")]
     public partial class wp_api : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -350,7 +376,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_api_access_token")]
     public partial class wp_api_access_token : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string appid { get; set; }
@@ -362,7 +389,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_api_param")]
     public partial class wp_api_param : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -382,7 +410,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_apps")]
     public partial class wp_app : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -410,7 +439,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_apps_auth")]
     public partial class wp_apps_auth : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -428,7 +458,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_apps_check")]
     public partial class wp_apps_check : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -443,11 +474,11 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_apps_follow")]
     public partial class wp_apps_follow 
     {
-       // [Alias("openid")]
+        //[Alias("openid")]
         [Required]
 		[Alias("openid")]
         public string openid { get; set; }
-       // [Alias("token")]
+        //[Alias("token")]
         [Required]
 		[Alias("token")]
         public string token { get; set; }
@@ -460,7 +491,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_apps_group")]
     public partial class wp_apps_group : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -470,7 +502,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_apps_link")]
     public partial class wp_apps_link : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -482,7 +515,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_area")]
     public partial class wp_area : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -493,7 +527,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_article")]
     public partial class wp_article : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string name { get; set; }
@@ -508,7 +543,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_article_new")]
     public partial class wp_article_new : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string name { get; set; }
@@ -525,7 +561,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_article_style")]
     public partial class wp_article_style : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? group_id { get; set; }
@@ -535,7 +572,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_article_style_group")]
     public partial class wp_article_style_group : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string group_name { get; set; }
@@ -545,7 +583,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_article_type_new")]
     public partial class wp_article_type_new : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string name { get; set; }
@@ -554,7 +593,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_ask")]
     public partial class wp_ask : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -582,7 +622,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_ask_answer")]
     public partial class wp_ask_answer : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string answer { get; set; }
@@ -599,7 +640,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_ask_question")]
     public partial class wp_ask_question : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -629,7 +671,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_attachment")]
     public partial class wp_attachment : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -671,15 +714,15 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_auth_extend")]
     public partial class wp_auth_extend 
     {
-       // [Alias("group_id")]
+        //[Alias("group_id")]
         [Required]
 		[Alias("group_id")]
         public string group_id { get; set; }
-       // [Alias("extend_id")]
+        //[Alias("extend_id")]
         [Required]
 		[Alias("extend_id")]
         public string extend_id { get; set; }
-       // [Alias("type")]
+        //[Alias("type")]
         [Required]
 		[Alias("type")]
         public byte type { get; set; }
@@ -688,7 +731,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_auth_group")]
     public partial class wp_auth_group : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -719,7 +763,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_auth_rule")]
     public partial class wp_auth_rule : IHasId<string> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public string Id { get; set; }
         [Required]
@@ -740,7 +785,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_auto_reply")]
     public partial class wp_auto_reply : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -760,7 +806,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_business_card")]
     public partial class wp_business_card : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -791,7 +838,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_business_card_collect")]
     public partial class wp_business_card_collect : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? from_uid { get; set; }
@@ -802,7 +850,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_business_card_column")]
     public partial class wp_business_card_column : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string type { get; set; }
@@ -817,7 +866,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_buy_log")]
     public partial class wp_buy_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public float? pay { get; set; }
@@ -833,7 +883,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_coupons")]
     public partial class wp_card_coupon : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public sbyte? give_type { get; set; }
@@ -854,7 +905,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_custom")]
     public partial class wp_card_custom : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? manager_id { get; set; }
@@ -876,7 +928,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_level")]
     public partial class wp_card_level : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string level { get; set; }
@@ -889,7 +942,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_marketing")]
     public partial class wp_card_marketing : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -911,7 +965,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_member")]
     public partial class wp_card_member : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string number { get; set; }
@@ -931,7 +986,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_notice")]
     public partial class wp_card_notice : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? cTime { get; set; }
@@ -950,7 +1006,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_privilege")]
     public partial class wp_card_privilege : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -965,7 +1022,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_recharge")]
     public partial class wp_card_recharge : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? manager_id { get; set; }
@@ -982,7 +1040,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_recharge_condition")]
     public partial class wp_card_recharge_condition : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public decimal? money_param { get; set; }
@@ -999,7 +1058,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_reward")]
     public partial class wp_card_reward : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? manager_id { get; set; }
@@ -1018,7 +1078,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_score")]
     public partial class wp_card_score : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? manager_id { get; set; }
@@ -1038,7 +1099,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_card_vouchers")]
     public partial class wp_card_voucher : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string content { get; set; }
@@ -1063,7 +1125,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_channel")]
     public partial class wp_channel : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1095,7 +1158,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_city")]
     public partial class wp_city : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -1109,7 +1173,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_cms")]
     public partial class wp_cm : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1123,7 +1188,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_comment")]
     public partial class wp_comment : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string aim_table { get; set; }
@@ -1138,7 +1204,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_common_category")]
     public partial class wp_common_category : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string name { get; set; }
@@ -1159,7 +1226,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_common_category_group")]
     public partial class wp_common_category_group : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1176,7 +1244,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_config")]
     public partial class wp_config : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1217,7 +1286,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_coupon")]
     public partial class wp_coupon : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? background { get; set; }
@@ -1263,7 +1333,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_coupon_shop")]
     public partial class wp_coupon_shop : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string name { get; set; }
@@ -1280,7 +1351,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_coupon_shop_link")]
     public partial class wp_coupon_shop_link : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? coupon_id { get; set; }
@@ -1290,7 +1362,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_credit_config")]
     public partial class wp_credit_config : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1306,7 +1379,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_credit_data")]
     public partial class wp_credit_datum : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -1322,7 +1396,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_custom_menu")]
     public partial class wp_custom_menu : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? pid { get; set; }
@@ -1351,7 +1426,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_custom_menu_rule")]
     public partial class wp_custom_menu_rule : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? tag_id { get; set; }
@@ -1370,7 +1446,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_custom_reply_mult")]
     public partial class wp_custom_reply_mult : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string keyword { get; set; }
@@ -1382,7 +1459,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_custom_reply_news")]
     public partial class wp_custom_reply_news : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1409,7 +1487,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_custom_reply_text")]
     public partial class wp_custom_reply_text : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string keyword { get; set; }
@@ -1423,7 +1502,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_custom_sendall")]
     public partial class wp_custom_sendall : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string ToUserName { get; set; }
@@ -1451,7 +1531,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_customer")]
     public partial class wp_customer : IHasId<ulong> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public ulong Id { get; set; }
         [Required]
@@ -1497,7 +1578,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_debug_log")]
     public partial class wp_debug_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string data { get; set; }
@@ -1509,7 +1591,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_docs")]
     public partial class wp_doc : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -1522,7 +1605,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_draw_follow_log")]
     public partial class wp_draw_follow_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? follow_id { get; set; }
@@ -1536,7 +1620,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_error_log")]
     public partial class wp_error_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string urls { get; set; }
@@ -1553,7 +1638,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_exam")]
     public partial class wp_exam : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1584,7 +1670,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_exam_answer")]
     public partial class wp_exam_answer : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string answer { get; set; }
@@ -1600,7 +1687,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_exam_question")]
     public partial class wp_exam_question : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1633,7 +1721,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_feedback")]
     public partial class wp_feedback : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string username { get; set; }
@@ -1648,7 +1737,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_file")]
     public partial class wp_file : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1684,7 +1774,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_forms")]
     public partial class wp_form : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string finish_tip { get; set; }
@@ -1709,7 +1800,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_forms_attribute")]
     public partial class wp_forms_attribute : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1735,7 +1827,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_forms_value")]
     public partial class wp_forms_value : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -1749,7 +1842,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_forum")]
     public partial class wp_forum : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1768,7 +1862,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_guess")]
     public partial class wp_guess : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -1785,7 +1880,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_guess_log")]
     public partial class wp_guess_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? user_id { get; set; }
@@ -1798,7 +1894,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_guess_option")]
     public partial class wp_guess_option : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? guess_id { get; set; }
@@ -1811,7 +1908,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_hooks")]
     public partial class wp_hook : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1832,7 +1930,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_huodong")]
     public partial class wp_huodong : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string name { get; set; }
@@ -1850,7 +1949,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_huodong_record")]
     public partial class wp_huodong_record : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? huodong_id { get; set; }
@@ -1864,7 +1964,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_import")]
     public partial class wp_import : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1875,7 +1976,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_invite")]
     public partial class wp_invite : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1912,7 +2014,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_invite_code")]
     public partial class wp_invite_code : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string openid { get; set; }
@@ -1922,7 +2025,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_invite_user")]
     public partial class wp_invite_user : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string token { get; set; }
@@ -1936,7 +2040,8 @@ namespace sanfengli.Model.WeiXin
     public partial class wp_join_count : IHasId<int> 
     {
         public int? follow_id { get; set; }
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? aim_id { get; set; }
@@ -1946,7 +2051,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_keyword")]
     public partial class wp_keyword : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -1970,7 +2076,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lottery_games")]
     public partial class wp_lottery_game : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -1995,7 +2102,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lottery_games_award_link")]
     public partial class wp_lottery_games_award_link : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? award_id { get; set; }
@@ -2009,7 +2117,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lottery_prize_list")]
     public partial class wp_lottery_prize_list : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? sports_id { get; set; }
@@ -2021,7 +2130,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lucky_follow")]
     public partial class wp_lucky_follow : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? draw_id { get; set; }
@@ -2043,7 +2153,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_activities")]
     public partial class wp_lzwg_activity : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -2063,7 +2174,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_activities_vote")]
     public partial class wp_lzwg_activities_vote : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? lzwg_id { get; set; }
@@ -2076,7 +2188,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_coupon")]
     public partial class wp_lzwg_coupon : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -2091,7 +2204,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_coupon_receive")]
     public partial class wp_lzwg_coupon_receive : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? follow_id { get; set; }
@@ -2105,7 +2219,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_coupon_sn")]
     public partial class wp_lzwg_coupon_sn : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? coupon_id { get; set; }
@@ -2117,7 +2232,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_log")]
     public partial class wp_lzwg_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? lzwg_id { get; set; }
@@ -2128,7 +2244,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_vote")]
     public partial class wp_lzwg_vote : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string keyword { get; set; }
@@ -2151,7 +2268,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_vote_log")]
     public partial class wp_lzwg_vote_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? vote_id { get; set; }
@@ -2165,7 +2283,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_lzwg_vote_option")]
     public partial class wp_lzwg_vote_option : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2182,7 +2301,7 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_manager")]
     public partial class wp_manager : IHasId<int> 
     {
-       // [Alias("uid")]
+        //[Alias("uid")]
         [Required]
 		[Alias("uid")]
         public int Id { get; set; }
@@ -2198,7 +2317,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_material_file")]
     public partial class wp_material_file : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2223,7 +2343,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_material_image")]
     public partial class wp_material_image : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? cover_id { get; set; }
@@ -2241,7 +2362,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_material_news")]
     public partial class wp_material_news : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -2266,7 +2388,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_material_text")]
     public partial class wp_material_text : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string content { get; set; }
@@ -2280,7 +2403,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_menu")]
     public partial class wp_menu : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public sbyte? menu_type { get; set; }
@@ -2298,7 +2422,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_message")]
     public partial class wp_message : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string bind_keyword { get; set; }
@@ -2321,7 +2446,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_model")]
     public partial class wp_model : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2353,7 +2479,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_payment")]
     public partial class wp_payment : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2388,7 +2515,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_payment_order")]
     public partial class wp_payment_order : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2421,7 +2549,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_payment_scan")]
     public partial class wp_payment_scan : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2448,7 +2577,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_payment_set")]
     public partial class wp_payment_set : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string token { get; set; }
@@ -2478,7 +2608,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_picture")]
     public partial class wp_picture : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2507,7 +2638,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_picture_category")]
     public partial class wp_picture_category : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string name { get; set; }
@@ -2519,7 +2651,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_plugin")]
     public partial class wp_plugin : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2548,7 +2681,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_prize_address")]
     public partial class wp_prize_address : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string address { get; set; }
@@ -2562,7 +2696,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_qr_admin")]
     public partial class wp_qr_admin : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2578,7 +2713,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_qr_code")]
     public partial class wp_qr_code : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2603,7 +2739,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_real_prize")]
     public partial class wp_real_prize : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string prize_name { get; set; }
@@ -2621,12 +2758,13 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_recharge_log")]
     public partial class wp_recharge_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public float? recharge { get; set; }
         public int? branch_id { get; set; }
-       // [Alias("operator")]
+        //[Alias("operator")]
         public string @operator { get; set; }
         public int? cTime { get; set; }
         public string token { get; set; }
@@ -2640,7 +2778,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_redbag")]
     public partial class wp_redbag : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string mch_id { get; set; }
@@ -2672,7 +2811,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_redbag_follow")]
     public partial class wp_redbag_follow : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? redbag_id { get; set; }
@@ -2690,7 +2830,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_redbag_recode")]
     public partial class wp_redbag_recode : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2718,7 +2859,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_request_log")]
     public partial class wp_request_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2740,7 +2882,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_reserve")]
     public partial class wp_reserve : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2766,7 +2909,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_reserve_attribute")]
     public partial class wp_reserve_attribute : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public sbyte? is_show { get; set; }
@@ -2791,7 +2935,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_reserve_option")]
     public partial class wp_reserve_option : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? reserve_id { get; set; }
@@ -2805,7 +2950,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_reserve_value")]
     public partial class wp_reserve_value : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? reserve_id { get; set; }
@@ -2821,7 +2967,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_score_exchange_log")]
     public partial class wp_score_exchange_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? card_score_id { get; set; }
@@ -2833,7 +2980,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_servicer")]
     public partial class wp_servicer : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2853,7 +3001,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_share_log")]
     public partial class wp_share_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -2865,7 +3014,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_shop_address")]
     public partial class wp_shop_address : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -2879,7 +3029,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_shop_coupon")]
     public partial class wp_shop_coupon : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -2909,7 +3060,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_shop_vote")]
     public partial class wp_shop_vote : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -2921,12 +3073,16 @@ namespace sanfengli.Model.WeiXin
         public string token { get; set; }
         public int? manager_id { get; set; }
         public sbyte? is_verify { get; set; }
+        [Required]
+		[Alias("count")]
+        public int count { get; set; }
     }
 
 	[Alias("wp_shop_vote_log")]
     public partial class wp_shop_vote_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? vote_id { get; set; }
@@ -2939,7 +3095,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_shop_vote_option")]
     public partial class wp_shop_vote_option : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string truename { get; set; }
@@ -2952,12 +3109,15 @@ namespace sanfengli.Model.WeiXin
         public int? opt_count { get; set; }
         public string token { get; set; }
         public int? number { get; set; }
+        public string phone { get; set; }
+        public sbyte? option_status { get; set; }
     }
 
 	[Alias("wp_signin_log")]
     public partial class wp_signin_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -2973,7 +3133,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_smalltools")]
     public partial class wp_smalltool : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public sbyte? tooltype { get; set; }
@@ -2989,7 +3150,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sms")]
     public partial class wp_sm : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string from_type { get; set; }
@@ -3004,7 +3166,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sn_code")]
     public partial class wp_sn_code : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string sn { get; set; }
@@ -3026,7 +3189,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sport_award")]
     public partial class wp_sport_award : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3051,7 +3215,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sports")]
     public partial class wp_sport : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string home_team { get; set; }
@@ -3077,7 +3242,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sports_drum")]
     public partial class wp_sports_drum : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? sports_id { get; set; }
@@ -3098,7 +3264,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sports_support")]
     public partial class wp_sports_support : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? sports_id { get; set; }
@@ -3110,7 +3277,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sports_team")]
     public partial class wp_sports_team : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -3123,7 +3291,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_store")]
     public partial class wp_store : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3146,7 +3315,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sucai")]
     public partial class wp_sucai : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string name { get; set; }
@@ -3167,7 +3337,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_sucai_template")]
     public partial class wp_sucai_template : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -3179,7 +3350,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_survey")]
     public partial class wp_survey : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3203,7 +3375,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_survey_answer")]
     public partial class wp_survey_answer : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? cTime { get; set; }
@@ -3218,7 +3391,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_survey_question")]
     public partial class wp_survey_question : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3239,7 +3413,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_system_notice")]
     public partial class wp_system_notice : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -3250,7 +3425,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_test_answer")]
     public partial class wp_test_answer : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string answer { get; set; }
@@ -3266,7 +3442,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_test_question")]
     public partial class wp_test_question : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3291,7 +3468,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_tool")]
     public partial class wp_tool : IHasId<int> 
     {
-       // [Alias("uid")]
+        //[Alias("uid")]
+		[Alias("uid")]
         [AutoIncrement]
         public int Id { get; set; }
         public string nickname { get; set; }
@@ -3330,10 +3508,11 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_transfers_recode")]
     public partial class wp_transfers_recode : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
-       // [Alias(" mch_appid")]
+        //[Alias(" mch_appid")]
         [Required]
 		[Alias("_mch_appid")]
         public string _mch_appid { get; set; }
@@ -3359,12 +3538,13 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_update_score_log")]
     public partial class wp_update_score_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? score { get; set; }
         public int? branch_id { get; set; }
-       // [Alias("operator")]
+        //[Alias("operator")]
         public string @operator { get; set; }
         public int? cTime { get; set; }
         public string token { get; set; }
@@ -3375,7 +3555,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_update_version")]
     public partial class wp_update_version : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3395,7 +3576,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_user")]
     public partial class wp_user : IHasId<int> 
     {
-        [Alias("uid")]
+        //[Alias("uid")]
+		[Alias("uid")]
         [AutoIncrement]
         public int Id { get; set; }
         public string nickname { get; set; }
@@ -3434,7 +3616,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_user_follow")]
     public partial class wp_user_follow : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? uid { get; set; }
@@ -3446,7 +3629,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_user_tag")]
     public partial class wp_user_tag : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -3456,7 +3640,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_user_tag_link")]
     public partial class wp_user_tag_link : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? uid { get; set; }
@@ -3466,7 +3651,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_visit_log")]
     public partial class wp_visit_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? publicid { get; set; }
@@ -3484,7 +3670,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_vote")]
     public partial class wp_vote : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3509,7 +3696,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_vote_log")]
     public partial class wp_vote_log : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? vote_id { get; set; }
@@ -3522,7 +3710,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_vote_option")]
     public partial class wp_vote_option : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public uint? vote_id { get; set; }
@@ -3537,7 +3726,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_vote_record")]
     public partial class wp_vote_record : IHasId<int> 
     {
-       // [Alias("Id")]
+        //[Alias("Id")]
+		[Alias("Id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? vote_detail_id { get; set; }
@@ -3549,7 +3739,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_wei_shop")]
     public partial class wp_wei_shop : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -3559,7 +3750,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_wei_test")]
     public partial class wp_wei_test : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -3571,7 +3763,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba")]
     public partial class wp_weiba : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string cid { get; set; }
@@ -3600,7 +3793,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_apply")]
     public partial class wp_weiba_apply : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3625,7 +3819,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_blacklist")]
     public partial class wp_weiba_blacklist : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3642,7 +3837,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_category")]
     public partial class wp_weiba_category : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string name { get; set; }
@@ -3652,7 +3848,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_event")]
     public partial class wp_weiba_event : IHasId<int> 
     {
-       // [Alias("event_id")]
+        //[Alias("event_id")]
+		[Alias("event_id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? uid { get; set; }
@@ -3676,7 +3873,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_event_attr")]
     public partial class wp_weiba_event_attr : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? event_id { get; set; }
@@ -3692,7 +3890,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_event_user")]
     public partial class wp_weiba_event_user : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? uid { get; set; }
@@ -3707,7 +3906,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_favorite")]
     public partial class wp_weiba_favorite : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3730,7 +3930,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_follow")]
     public partial class wp_weiba_follow : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3747,7 +3948,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_log")]
     public partial class wp_weiba_log : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3770,7 +3972,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_post")]
     public partial class wp_weiba_post : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? weiba_id { get; set; }
@@ -3788,7 +3991,7 @@ namespace sanfengli.Model.WeiXin
         public int? last_reply_time { get; set; }
         public sbyte? digest { get; set; }
         public sbyte? top { get; set; }
-       // [Alias("lock")]
+        //[Alias("lock")]
         public sbyte? @lock { get; set; }
         public sbyte? recommend { get; set; }
         public int? recommend_time { get; set; }
@@ -3812,7 +4015,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_post_digg")]
     public partial class wp_weiba_post_digg : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3827,7 +4031,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_post_share_logs")]
     public partial class wp_weiba_post_share_log : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         public int? post_id { get; set; }
@@ -3838,7 +4043,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_reply")]
     public partial class wp_weiba_reply : IHasId<int> 
     {
-       // [Alias("reply_id")]
+        //[Alias("reply_id")]
+		[Alias("reply_id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3883,7 +4089,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weiba_reply_digg")]
     public partial class wp_weiba_reply_digg : IHasId<int> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public int Id { get; set; }
         [Required]
@@ -3901,7 +4108,8 @@ namespace sanfengli.Model.WeiXin
         [Required]
 		[Alias("weiba_id")]
         public int weiba_id { get; set; }
-       // [Alias("tag_id")]
+        //[Alias("tag_id")]
+		[Alias("tag_id")]
         [AutoIncrement]
         public int Id { get; set; }
         public string name { get; set; }
@@ -3911,7 +4119,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weisite_category")]
     public partial class wp_weisite_category : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3929,7 +4138,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weisite_cms")]
     public partial class wp_weisite_cm : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         [Required]
@@ -3951,7 +4161,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weisite_footer")]
     public partial class wp_weisite_footer : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string url { get; set; }
@@ -3967,7 +4178,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weisite_slideshow")]
     public partial class wp_weisite_slideshow : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string title { get; set; }
@@ -3984,7 +4196,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_weixin_message")]
     public partial class wp_weixin_message : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string ToUserName { get; set; }
@@ -4010,7 +4223,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_wish_card")]
     public partial class wp_wish_card : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string send_name { get; set; }
@@ -4027,7 +4241,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_wish_card_content")]
     public partial class wp_wish_card_content : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public int? content_cate_id { get; set; }
@@ -4039,7 +4254,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_wish_card_content_cate")]
     public partial class wp_wish_card_content_cate : IHasId<uint> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public uint Id { get; set; }
         public string content_cate_name { get; set; }
@@ -4050,7 +4266,8 @@ namespace sanfengli.Model.WeiXin
 	[Alias("wp_xdlog")]
     public partial class wp_xdlog : IHasId<long> 
     {
-       // [Alias("id")]
+        //[Alias("id")]
+		[Alias("id")]
         [AutoIncrement]
         public long Id { get; set; }
         [Required]

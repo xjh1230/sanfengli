@@ -18,7 +18,7 @@
     <table class="list">
         <tbody>
             <tr>
-                <th width="60">序号
+                <th width="60">所属分类
                 </th>
                 <th width="200">反馈图片
                 </th>
@@ -38,11 +38,18 @@
                     foreach (var model in list)
                     { %>
             <tr data-id="<%=model.Id %>" data-remark="<%=model.remark %>" data-userid="<%=model %>">
-                <td><%= model.Id %>
+                <td><%= model.typename %>
                 </td>
                 <td>
+                    <%if (string.IsNullOrEmpty(model.Image))
+                        {%>
+                        <img src="<%= model.Image %>">
+                        <%}
+                        else {%>
                     <a target="_blank" href="<%=model.Image %>">
                         <img src="<%= model.Image %>"></a>
+                        <%} %>
+                    
                 </td>
                 <td><%= model.Content %>
                 </td>
@@ -53,7 +60,7 @@
                  <td><%= model.CreateOn %>
                 </td>
                 <td>
-                    <a href="javascript:;" class="copy">备注</a>
+                    <a href="javascript:;" class="copy">回复</a>
                      <a href="javascript:;" onclick="deleteModel(<%=model.Id %>)">删除</a>
                 </td>
             </tr>

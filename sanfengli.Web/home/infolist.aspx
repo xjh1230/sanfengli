@@ -70,11 +70,11 @@
 <body>
 
     <div class="bread-t" style="box-shadow: 0px 3px 3px #B7B1B1; margin: 0 0 0.475rem 0; padding: 0.375rem 0 0.4rem 0.375rem;">
-        <div> <span style="color:#ccc"><%=typename%></span></div>
+        <div><span style="color: #ccc"><%=typename%></span></div>
 
         <%if (type == (int)InfoTypeEnum.文章列表)
             {%>
-        <div class="top-nav">
+        <div class="top-nav" style="display: none;">
             <dl class="animated  hide">
                 <dt class="triangle-bottom"></dt>
                 <%if (list_type != null && list_type.Count > 0)
@@ -86,7 +86,7 @@
                     } %>
             </dl>
         </div>
-    <%}%>
+        <%}%>
     </div>
 
     <div class="cont3 lxzs_cont">
@@ -99,7 +99,8 @@
                             {%>
                     <li>
                         <div class="li_list clearfix" style="padding: 0.25rem;">
-                            <a href="<%=item.url %>"><img src="<%=item.img %>" alt="" class="img1 fl"></a>
+                            <a href="<%=item.url %>">
+                                <img src="<%=item.img %>" alt="" class="img1 fl"></a>
                             <dl class="fl">
                                 <dt>
                                     <p><a href="<%=item.url %>"><%=item.title %></a></p>
@@ -108,13 +109,13 @@
                                     <p><a href="<%=item.url %>"><%=item.desc %></a></p>
                                 </dd>
                             </dl>
-                            <div style="position: absolute; left: 4.4rem; bottom: 0; "><%=item.create_time %></div>
-                           <%-- <div class="lxzx_ren"><i><%=item.count %></i></div>--%>
+                            <div style="position: absolute; left: 4.4rem; bottom: 0;"><%=item.create_time %></div>
+                            <%-- <div class="lxzx_ren"><i><%=item.count %></i></div>--%>
                         </div>
                     </li>
                     <%}
                         } %>
-                    <li style="display:none;">
+                    <li style="display: none;">
                         <div class="li_list clearfix" style="padding: 0.25rem;">
                             <img src="../img/app_no_pic.png" alt="" class="img1 fl">
                             <dl class="fl">
@@ -142,10 +143,9 @@
     <div class="hyh lxzs_b foot" id="more"><a href="?type=<%=type %>&pageIndex=<%=pageIndex+1 %>&pageSiz=<%=pageSize %>">点击查看更多&gt;&gt;</a></div>--%>
     <div class="foot" style="display: none;" id="yd-typeid">10</div>
     <div class="footer">
-
         <ul class="clearfix">
 
-            <li><a href="?type=<%=(int)InfoTypeEnum.文章列表 %>">
+            <li style="display: none;"><a href="?type=<%=(int)InfoTypeEnum.文章列表 %>">
                 <img src="../img/info.png"></a>
                 <a href="?type=<%=(int)InfoTypeEnum.文章列表 %>">
 
@@ -173,37 +173,39 @@
                 </a></li>
 
         </ul>
-
     </div>
-
-
     <script>
+        var isData = '<%=IsData%>' =='True';
+        var isArticle = '<%=IsArticle%>' =='True';
         $(function () {
 
-                $('.top-nav').on('click', function () {
-                    $('.animated').toggleClass('hide');
-                })
+            $('.top-nav').on('click', function () {
+                $('.animated').toggleClass('hide');
+            })
 
-                function change() {
-                    var font = document.documentElement.clientWidth / 360 * 20;
+            function change() {
+                var font = document.documentElement.clientWidth / 360 * 20;
 
-                    document.documentElement.style.fontSize = font + 'px';
+                document.documentElement.style.fontSize = font + 'px';
 
-                };
+            };
 
-                window.addEventListener('resize', change, false);
+            window.addEventListener('resize', change, false);
 
-                change();
-                <%if (IsData)
-            {%>
+            change();
+            if (isData) {
                 $('#none').hide();
                 $('#more').show();
-            <%}
-            else
-            {%>
+            } else {
                 $('#none').show();
                 $('#more').hide();
-            <%}%>
+            }
+            if (isArticle) {
+                $('.footer').hide();
+            } else {
+                $('.footer').show();
+            }
+
 
         });
 

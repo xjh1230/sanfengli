@@ -96,7 +96,7 @@
                 <a class="back" href="javascript:;" onclick="history.back()"></a>
                 <span>投票详情</span>
             </div>
-            <%if (option != null)
+            <%if (option != null&&option.option_status==1)
                 {%>
             <div class="option_user">
                 <img src="<%=option.ImagePath %>">
@@ -129,7 +129,11 @@
                 <p><%=option.introduce %></p>
             </div>
             <% }
-                else {%>
+                else if (option != null) {%>
+            <div class="none-info">
+            <p>投票正在审核中,请耐心等待<a onclick="history.back()">点击返回</a></p>
+                </div>
+                    <%}else{%>
             <div class="none-info">
             <p>未找到该选手信息<a onclick="history.back()">点击返回</a></p>
                 </div>
@@ -139,6 +143,7 @@
 
 </body>
 <script type="text/javascript">
+    var currentDomin = '<%=sanfengli.Common.BaseClass.CurrentDomin%>';
     document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
         WeixinJSBridge.call('hideToolbar');
     });
@@ -147,7 +152,7 @@
             title: '<%=vote.title%>', // 分享标题
             desc: '<%=vote.remark%>', // 分享描述
             link: "<%=url%>", //分享的链接地址
-            imgUrl: "http://sanfengli.koalajoy.com/Addons/Vote/icon.png", // 分享图标
+            imgUrl: currentDomin+"Addons/Vote/icon.png", // 分享图标
             type: 'link', // 分享类型,music、video或link，不填默认为link
             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
             success: function () {

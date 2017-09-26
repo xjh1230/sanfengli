@@ -26,6 +26,14 @@ namespace sanfengli.Bll.WeChat
             {
                 sqlwhere.Append($" AND name like '%{query.name}%'");
             }
+            if (query.typeid>0)
+            {
+                sqlwhere.Append($" AND typeid ={query.typeid}");
+            }
+            if (query.UserId > 0)
+            {
+                sqlwhere.Append($" AND UserId ={query.UserId}");
+            }
 
             try
             {
@@ -48,7 +56,7 @@ namespace sanfengli.Bll.WeChat
                 return list;
             }
         }
-
+        
         public bool UpdateRemarkById(int id, string remark)
         {
             string sql = $"update feedback set remark='{remark}' where id={id}";

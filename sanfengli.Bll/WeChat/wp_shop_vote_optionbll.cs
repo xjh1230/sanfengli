@@ -39,7 +39,7 @@ namespace sanfengli.Bll.WeChat
             List<wp_shop_vote_option> list = new List<wp_shop_vote_option>();
             try
             {
-                string sql = $"select * from wp_shop_vote_option where vote_id={vote_id} order by opt_count desc LIMIT 0 ,{count}";
+                string sql = $"select * from wp_shop_vote_option where option_status=1 and vote_id={vote_id} order by opt_count desc LIMIT 0 ,{count}";
                 using (var db = DbFactory.OpenDbConnection())
                 {
                     list = db.Select<wp_shop_vote_option>(sql);
@@ -50,6 +50,13 @@ namespace sanfengli.Bll.WeChat
                 return null;
             }
             return list;
+        }
+
+
+        public int GetOptionCountByVoteId(int voteId)
+        {
+            string sql = $"select count(1)  from wp_shop_vote_option where vote_id={voteId}";
+            return ScalarSql<int>(sql);
         }
 
         public bool AddVoteCount(int option_id, int count = 1)

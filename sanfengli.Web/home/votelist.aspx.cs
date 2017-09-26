@@ -20,6 +20,11 @@ namespace sanfengli.Web.home
         public bool is_validity;
         public int vote_id = 0;
         public string url;
+
+        public votelist()
+        {
+            this.IsNeedUserInfo = true;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             vote_id = RequestHelper.GetQueryInt("vote_id", 0);

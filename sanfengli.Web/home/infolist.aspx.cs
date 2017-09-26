@@ -19,7 +19,8 @@ namespace sanfengli.Web.home
         public string typename = "";
         public int pageIndex;
         public int pageSize;
-        public bool IsData;
+        public bool IsData;//是否有数据
+        public bool IsArticle;//是否是文章
         public List<list_info> list;
         public List<wp_article_type_new> list_type;
         //public infolist()
@@ -29,7 +30,8 @@ namespace sanfengli.Web.home
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            type = RequestHelper.GetQueryInt("type", 1);
+            type = RequestHelper.GetQueryInt("type", 2);
+            //type = type == 1 ? 2 : type;
             pageIndex = RequestHelper.GetQueryInt("pageIndex", 1);
             pageSize = RequestHelper.GetQueryInt("pageSize", 5000);
             pageSize = 5000;
@@ -43,6 +45,7 @@ namespace sanfengli.Web.home
             switch ((InfoTypeEnum)type)
             {
                 case InfoTypeEnum.文章列表:
+                    IsArticle = true;
                     int type_id = RequestHelper.GetQueryInt("article_type", 5);
                     count = 0;
                     wp_article_new query = new wp_article_new();
@@ -60,8 +63,15 @@ namespace sanfengli.Web.home
                     }
                     break;
                 case InfoTypeEnum.投票列表:
-                    var vote_list = new Bll.WeChat.wp_shop_votebll().GetList(new Model.WeiXin.wp_survey(), out count, pageIndex, pageSize);
+                    var vote_list = new Bll.WeChat.wp_shop_votebll().GetList(new Model.WeiXin.wp_shop_vote(), out count, pageIndex, pageSize);
                     list = list_info.Instance.GetFromShopVote(vote_list);
+                    if (list != null && list.Count > 0)
+                    {
+                        list.ForEach(s =>
+                        {
+                            s.img = "/img/vote.jpg";
+                        });
+                    }
                     url = $"{BaseClass.CurrentDomin}home/votelist.aspx?vote_id=";
                     break;
                 case InfoTypeEnum.活动列表:

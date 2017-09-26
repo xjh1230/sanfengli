@@ -16,7 +16,7 @@ namespace sanfengli.Web.home
 
         public votedetaile()
         {
-            this.IsNeedUserInfo = false;
+            this.IsNeedUserInfo = true;
         }
 
         public wp_shop_vote vote = new wp_shop_vote();
@@ -32,6 +32,7 @@ namespace sanfengli.Web.home
             option_id = RequestHelper.GetQueryInt("option_id", 0);
             vote = new Bll.WeChat.wp_shop_votebll().GetItem(vote_id);
             option = new Bll.WeChat.wp_shop_vote_optionbll().GetItem(option_id);
+           
             url = Request.Url.ToString();
             if (vote == null || option == null)
             {

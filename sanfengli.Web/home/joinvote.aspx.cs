@@ -33,7 +33,8 @@ namespace sanfengli.Web.home
                 var option = new Bll.WeChat.wp_shop_vote_optionbll().GetOptionByUid(voteId, uid);
                 if (option != null)
                 {
-                    Response.Redirect($"/index.php?s=/w16/Vote/Wap/option_detail.html&option_id={option.Id}&vote_id={option.vote_id}");
+                    //Response.Redirect($"/index.php?s=/w16/Vote/Wap/option_detail.html&option_id={option.Id}&vote_id={option.vote_id}");
+                    Response.Redirect($"votedetaile.aspx?vote_id={option.vote_id}&option_id={option.Id}");
                 }
             }
         }

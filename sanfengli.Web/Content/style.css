@@ -123,6 +123,8 @@ table.list th {
 .tables-box td{ height:30px; line-height:30px; color:#666; font-size:12px; text-align:center;}
 .roll{ height:150px; overflow-y:auto;}
 textarea{ width:100%; height:100px; resize:none;}
+
+/*页面弹层*/
 .mask {
     position: fixed;
     left: 50%;
@@ -130,12 +132,207 @@ textarea{ width:100%; height:100px; resize:none;}
     width: 3000px;
     height: 10000px;
     margin: 0 0 0 -1500px;
-    background: url(../img/mask.png);
+    background: url(/img/mask.png);
     z-index: 99;
     display: none
 }
+.pop {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    background-color: #fff;
+    font-family: "Micsoft Yahei", "微软雅黑";
+    display: none;
+    z-index: 100;
+}
 
+.pop_close {
+    position: absolute;
+    top: 7px;
+    right: 5px;
+    font-size: 28px;
+    color: #fff;
+    font-family: "simsun", "宋体";
+    cursor: pointer;
+}
 
+.pop a.fill-btn,
+.pop a.stroke-btn {
+    display: inline-block;
+    width: 138px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid #2597bc;
+    border-radius: 3px;
+}
+
+.pop a.fill-btn {
+    margin-right: 22px;
+    color: #fff;
+    background: #2597bc;
+}
+
+.pop a.stroke-btn {
+    color: #2597bc;
+}
+
+    .pop a.fill-btn:hover,
+    .pop a.stroke-btn:hover {
+        color: #fff;
+        background: #29a3cb;
+        border-color: #29a3cb;
+    }
+/*提示弹层*/
+.pop_box1 {
+    width: 480px;
+    height: 200px;
+    margin-left: -240px;
+    margin-top: -100px;
+}
+
+    .pop_box1 .pop_con h3 {
+        height: 36px;
+        line-height: 36px;
+        padding-left: 15px;
+        font-size: 16px;
+        color: #fff;
+        background: #2597bc;
+    }
+
+    .pop_box1 .pop-info {
+        padding: 0 10px;
+        text-align: center;
+    }
+
+        .pop_box1 .pop-info p {
+            font-size: 14px;
+            margin: 35px 0;
+            color: #666666;
+        }
+
+        .pop_box1 .pop-info a {
+            font-size: 16px;
+        }
+
+.warning_pop i.warning-icon,
+.success_pop i.finished-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin-right: 6px;
+    background-size: 100%;
+    vertical-align: middle;
+}
+
+.warning_pop i.warning-icon {
+    background-image: url(../images/warning.png);
+}
+
+.warning_pop {
+    height: 250px;
+    margin-top: -125px;
+}
+
+    .warning_pop p.total-num {
+        color: #ccc;
+    }
+
+        .warning_pop p.total-num span {
+            color: #2597bc;
+        }
+
+.tips-panel {
+    position: fixed;
+    z-index: 102;
+    left: 50%;
+    top: 50%;
+    width: 250px;
+    height: 50px;
+    margin: -35px 0 0 -135px;
+    padding: 10px;
+    line-height: 50px;
+    font-size: 18px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0, 0, 0, .6);
+    border-radius: 5px;
+    display: none;
+    opacity: 0;
+}
+/*导出弹层*/
+.pop_box2 {
+    width: 490px;
+    height: 240px;
+    margin-left: -245px;
+    margin-top: -120px;
+    border: 1px solid #797979;
+}
+
+    .pop_box2 .pop_close {
+        color: #333;
+    }
+
+    .pop_box2 .pop_con {
+        padding: 20px;
+    }
+
+        .pop_box2 .pop_con p.txt {
+            color: #333;
+            font-size: 16px;
+            text-align: center;
+        }
+
+    .pop_box2 .desc {
+        margin-top: 25px;
+        padding-left: 40px;
+    }
+
+        .pop_box2 .desc p {
+            margin-bottom: 13px;
+            font-size: 14px;
+            line-height: 22px;
+        }
+
+            .pop_box2 .desc p label {
+                margin-right: 15px;
+            }
+
+            .pop_box2 .desc p input.radio-box {
+                margin-right: 5px;
+                vertical-align: middle;
+            }
+
+            .pop_box2 .desc p input.input-box {
+                width: 218px;
+                height: 22px;
+                line-height: 22px;
+                text-indent: 8px;
+                color: #333;
+                border: 1px solid #999;
+            }
+
+            .pop_box2 .desc p span {
+                color: #ccc;
+                font-size: 12px;
+            }
+
+    .pop_box2 .btn-line {
+        margin-top: 45px;
+        text-align: center;
+    }
+
+    .pop_box2 a.fill-btn,
+    .pop_box2 a.stroke-btn {
+        width: 78px;
+        height: 24px;
+        line-height: 24px;
+    }
+
+.procedure_pop .btn-line {
+    margin-top: 25px;
+}
 
 
 

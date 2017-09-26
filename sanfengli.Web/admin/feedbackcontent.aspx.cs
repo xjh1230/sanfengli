@@ -38,6 +38,7 @@ namespace sanfengli.Web.admin
             Model.WeiXin.feedback model = new Model.WeiXin.feedback();
             model.Content = RequestHelper.GetQueryString("Content");
             model.name = RequestHelper.GetQueryString("name");
+            model.typeid = RequestHelper.GetQueryInt("typeId", 0);
             list = new Bll.WeChat.FeedBackBll().GetList(model, pageIndex, pageSize, out totalRecord);
             #region 分页信息
             pageInfo = new PageInfo();

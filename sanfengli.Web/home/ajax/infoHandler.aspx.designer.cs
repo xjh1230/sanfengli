@@ -7,9 +7,9 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace sanfengli.Web {
+namespace sanfengli.Web.home.ajax {
     
     
-    public partial class test {
+    public partial class infoHandler {
     }
 }

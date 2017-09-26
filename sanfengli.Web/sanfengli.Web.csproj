@@ -231,9 +231,11 @@
     <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
     <Content Include="Content\guo.css" />
     <Content Include="Content\mobile_module.css" />
+    <Content Include="Content\select2.min.css" />
     <Content Include="Content\shop_vote.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\uploadlist.css" />
     <Content Include="css\AdminLTE.min.css" />
     <Content Include="css\base.css" />
     <Content Include="css\basic.css" />
@@ -314,7 +316,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="home\ajax\infoHandler.aspx" />
     <Content Include="home\ajax\uploadHandler.aspx" />
+    <Content Include="home\articlelist.aspx" />
     <Content Include="home\index.html" />
     <Content Include="home\infodetail.aspx" />
     <Content Include="home\infolist.aspx" />
@@ -324,6 +328,7 @@
     <Content Include="home\static\js\manifest.61e8c6f5ae26f7c50ead.js" />
     <Content Include="home\static\js\vendor.88f3694f64345e07f54a.js" />
     <Content Include="home\upload.aspx" />
+    <Content Include="home\uploadlist.aspx" />
     <Content Include="home\votedetaile.aspx" />
     <Content Include="home\votelist.aspx" />
     <Content Include="img\64x64.gif" />
@@ -355,6 +360,7 @@
     <Content Include="img\blank_pic.png" />
     <Content Include="img\book.png" />
     <Content Include="img\button.png" />
+    <Content Include="img\calendar.jpg" />
     <Content Include="img\checking.png" />
     <Content Include="img\checking1.png" />
     <Content Include="img\check_fail.png" />
@@ -595,6 +601,8 @@
     <Content Include="img\iphone1.png" />
     <Content Include="img\iphone_head.png" />
     <Content Include="img\item_arrow.png" />
+    <Content Include="img\jia.png" />
+    <Content Include="img\jian.png" />
     <Content Include="img\jump_err.png" />
     <Content Include="img\jump_success.png" />
     <Content Include="img\keyboard-icon.png" />
@@ -677,6 +685,7 @@
     <Content Include="img\step.png" />
     <Content Include="img\success.png" />
     <Content Include="img\success_icon.png" />
+    <Content Include="img\suishoupai-banner.png" />
     <Content Include="img\tab_sign.png" />
     <Content Include="img\test.jpg" />
     <Content Include="img\test_sound.mp3" />
@@ -687,10 +696,17 @@
     <Content Include="img\top_logo.png" />
     <Content Include="img\top_nav_down.png" />
     <Content Include="img\tou.jpg" />
+    <Content Include="img\ttl_bg_s1.gif" />
+    <Content Include="img\ttl_bg_s2.gif" />
+    <Content Include="img\ttl_bg_s3.gif" />
+    <Content Include="img\ttl_bg_s4.gif" />
+    <Content Include="img\ttl_bg_s5.gif" />
+    <Content Include="img\ttl_s1.gif" />
     <Content Include="img\tv_icon.png" />
     <Content Include="img\user_center_shot.png" />
     <Content Include="img\user_icon.png" />
     <Content Include="img\view.png" />
+    <Content Include="img\vote.jpg" />
     <Content Include="img\vote.png" />
     <Content Include="img\vouchers.jpg" />
     <Content Include="img\weiphp_logo.png" />
@@ -724,6 +740,9 @@
     <Content Include="Scripts\daterangepicker.js" />
     <Content Include="Scripts\dialog.js" />
     <Content Include="Scripts\dialogpc.js" />
+    <Content Include="Scripts\elementui\index.css" />
+    <Content Include="Scripts\elementui\index.js" />
+    <Content Include="Scripts\elementui\vue.js" />
     <Content Include="Scripts\emoji-data.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery.dataTables.min.js" />
@@ -765,6 +784,7 @@
     <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
     <Content Include="Scripts\My97DatePicker\web.txt" />
     <Content Include="Scripts\prefixfree.min.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\Sortable.js" />
     <Content Include="Scripts\Sortable.min.js" />
     <Content Include="Scripts\spin.js" />
@@ -781,6 +801,7 @@
     <Content Include="Scripts\validate.js" />
     <Content Include="Scripts\vote.js" />
     <Content Include="test.aspx" />
+    <Content Include="test.html" />
     <Content Include="Wx\AutoReply.aspx" />
     <Content Include="Wx\MenuManager.aspx" />
     <Content Include="Wx\MsgReply.aspx" />
@@ -803,6 +824,7 @@
     <Content Include="Scripts\fonts\fontawesome-webfont.woff" />
     <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
     <Content Include="Scripts\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\elementui\fonts\element-icons.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -914,12 +936,26 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Handler\ActionHandler.cs" />
+    <Compile Include="home\ajax\infoHandler.aspx.cs">
+      <DependentUpon>infoHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ajax\infoHandler.aspx.designer.cs">
+      <DependentUpon>infoHandler.aspx</DependentUpon>
+    </Compile>
     <Compile Include="home\ajax\uploadHandler.aspx.cs">
       <DependentUpon>uploadHandler.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="home\ajax\uploadHandler.aspx.designer.cs">
       <DependentUpon>uploadHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\articlelist.aspx.cs">
+      <DependentUpon>articlelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\articlelist.aspx.designer.cs">
+      <DependentUpon>articlelist.aspx</DependentUpon>
     </Compile>
     <Compile Include="home\infodetail.aspx.cs">
       <DependentUpon>infodetail.aspx</DependentUpon>
@@ -948,6 +984,13 @@
     </Compile>
     <Compile Include="home\upload.aspx.designer.cs">
       <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\uploadlist.aspx.cs">
+      <DependentUpon>uploadlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\uploadlist.aspx.designer.cs">
+      <DependentUpon>uploadlist.aspx</DependentUpon>
     </Compile>
     <Compile Include="home\votedetaile.aspx.cs">
       <DependentUpon>votedetaile.aspx</DependentUpon>
