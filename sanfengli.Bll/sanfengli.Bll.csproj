@@ -47,7 +47,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="BitAuto.Utils">
-      <HintPath>..\..\..\sanfengliweb\lib\BitAuto.Utils.dll</HintPath>
+      <HintPath>..\lib\BitAuto.Utils.dll</HintPath>
     </Reference>
     <Reference Include="EPPlus, Version=4.1.0.0, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\packages\EPPlus.4.1.0\lib\net40\EPPlus.dll</HintPath>
