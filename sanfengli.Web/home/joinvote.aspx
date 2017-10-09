@@ -138,6 +138,10 @@
                     <div class="controls">
                         <input type="tel" class="am-form-field" id="phone" data-validatetype="number" maxlength="11" />
                     </div>
+                    <label class="item-label">地址</label>
+                   <div class="controls">
+                        <input type="text" class="am-form-field" id="addr" />
+                    </div>
 
 
                     <input type="hidden" name="name" id="image_src" />
@@ -177,6 +181,8 @@
             var introduce = encodeURI($('#introduce').val());
             //参赛宣言
             var manifesto = encodeURI($('#manifesto').val());
+            //地址
+            var addr = encodeURI($('#addr').val());
 
             var phone = $('#phone').val();
             if (src == '' && content == '') {
@@ -191,7 +197,7 @@
                 $.ajax({
                     url: "ajax/uploadHandler.aspx",
                     type: "POST",
-                    data: { op: "joinvote", src: src, phone: phone, introduce: introduce, openId: '<%=openId%>', manifesto: manifesto, voteId: vote_id, token:'<%=model==null?"":model.token%>' },
+                    data: { op: "joinvote", src: src, phone: phone, introduce: introduce, openId: '<%=openId%>', manifesto: manifesto, voteId: vote_id, addr:addr,token:'<%=model==null?"":model.token%>' },
                     dataType: "json",
                     success: function (data) {
                         closeShadow();

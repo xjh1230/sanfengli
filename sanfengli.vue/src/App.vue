@@ -17,6 +17,7 @@
             <el-button type="primary" v-on:click="load" icon="search">查询</el-button>
             <el-button type="primary" v-on:click="showEditForm(emptyruleForm)" icon="plus">新增文章</el-button>
             <el-button type="primary" v-on:click="editTypeVisible=true" icon="plus">新增分类</el-button>
+             <el-button type="primary" v-on:click="typeListLoad" icon="plus">分类列表</el-button>
           </el-form-item>
         </el-form>
       </el-col>
@@ -106,6 +107,18 @@
                 <el-button type="primary" @click="submitForm('ruleForm')" :loading="editFormLoading">确定</el-button>
               </div>
       </el-dialog>
+        <el-dialog  :visible="typeListVisible"> 
+         <el-form :model="typeForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" >
+                <h2>分类列表</h2>
+                  <el-form-item label="分类名" prop="name" required>
+                      <el-input v-model="typeForm.name"></el-input>
+                  </el-form-item>
+          </el-form>
+          <div slot="footer" class="dialog-footer">
+            <el-button @click="editTypeVisible = false">取消</el-button>
+            <el-button type="primary" @click="submitFormType('typeForm')" :loading="editFormTypeLoading">确定</el-button>
+          </div>
+      </el-dialog>
       <el-dialog  :visible="editTypeVisible"> 
          <el-form :model="typeForm" :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm" >
                 <h2>添加分类</h2>
@@ -160,6 +173,7 @@ export default {
       editFormLoading: false,
       editTypeVisible:false,
       editFormTypeLoading:false,
+      typeListVisible:false,
       ruleForm:{
             id:'',
             author:'',
@@ -222,6 +236,15 @@ export default {
             if (IsSuccess) {
               this.total = TotalCount;
               this.data = Data;
+            }
+          });
+      },
+      typeListLoad:function(){
+          server.post('/acticle/Getypes', {op:'gettypes'}, this).then(res => {
+            var tmp=res;
+            let { IsSuccess, Data } = res;
+            if(IsSuccess){
+              this.types = Data;
             }
           });
       },

@@ -30,6 +30,8 @@
                 </th>
                 <th width="100">反馈时间
                 </th>
+                 <th width="100">地址
+                </th>
                 <th>操作
                 </th>
             </tr>
@@ -58,6 +60,8 @@
                 <td><%= model.phone %>
                 </td>
                  <td><%= model.CreateOn %>
+                </td>
+                 <td><%= model.addr %>
                 </td>
                 <td>
                     <a href="javascript:;" class="copy">回复</a>

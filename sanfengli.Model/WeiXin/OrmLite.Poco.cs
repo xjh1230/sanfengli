@@ -3111,6 +3111,7 @@ namespace sanfengli.Model.WeiXin
         public int? number { get; set; }
         public string phone { get; set; }
         public sbyte? option_status { get; set; }
+        public string address { get; set; }
     }
 
 	[Alias("wp_signin_log")]

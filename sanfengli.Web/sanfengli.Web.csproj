@@ -175,11 +175,12 @@
     <Content Include="admin\answerdetail.aspx" />
     <Content Include="admin\article\index.html" />
     <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css" />
-    <Content Include="admin\article\static\js\app.75609cf59edda233c62f.js" />
-    <Content Include="admin\article\static\js\manifest.9309dd95b5e8d17f5e27.js" />
+    <Content Include="admin\article\static\js\app.0548d8a8802c63bb5ebf.js" />
+    <Content Include="admin\article\static\js\manifest.a191ec81428068c9de26.js" />
     <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js" />
     <Content Include="admin\feedbackcontent.aspx" />
     <Content Include="admin\feedbackmgr.aspx" />
+    <Content Include="admin\feedbacktype.aspx" />
     <Content Include="admin\surveyanswer.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -815,8 +816,8 @@
     <Content Include="home\static\js\vendor.88f3694f64345e07f54a.js.map" />
     <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css.map" />
     <Content Include="admin\article\static\fonts\element-icons.b02bdc1.ttf" />
-    <Content Include="admin\article\static\js\app.75609cf59edda233c62f.js.map" />
-    <Content Include="admin\article\static\js\manifest.9309dd95b5e8d17f5e27.js.map" />
+    <Content Include="admin\article\static\js\app.0548d8a8802c63bb5ebf.js.map" />
+    <Content Include="admin\article\static\js\manifest.a191ec81428068c9de26.js.map" />
     <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js.map" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
@@ -913,6 +914,13 @@
     </Compile>
     <Compile Include="admin\feedbackmgr.aspx.designer.cs">
       <DependentUpon>feedbackmgr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\feedbacktype.aspx.cs">
+      <DependentUpon>feedbacktype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\feedbacktype.aspx.designer.cs">
+      <DependentUpon>feedbacktype.aspx</DependentUpon>
     </Compile>
     <Compile Include="admin\surveyanswer.aspx.cs">
       <DependentUpon>surveyanswer.aspx</DependentUpon>

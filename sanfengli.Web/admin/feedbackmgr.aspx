@@ -37,6 +37,7 @@
                     </li>
                     <li style="text-align: right;">
                         <a class="btn btn-save" href="javascript:getFeedback();">查询</a>
+                         <a class="btn btn-save" href="javascript:listType();">分类列表</a>
                         <a class="btn btn-save" href="javascript:addType();">新增分类</a>
                     </li>
                 </ul>
@@ -66,6 +67,7 @@
                 <div class="btn-line">
                     <a href="javascript:;" class="fill-btn">保存</a> <a href="javascript:;" class="stroke-btn">取消</a>
                 </div>
+                <input type="hidden"  value="" id="typeId" />
             </div>
         </div>
         <div class="pop-box1">
@@ -79,7 +81,7 @@
 
 
     <script>
-        //删除
+        //删除反馈
         function deleteModel(id) {
             if (confirm("确认要删除吗？")) {
                 $.post('ajax/feedbackHandler.aspx?op=delete', { id: id }, function (data) {
@@ -89,18 +91,41 @@
                         window.location.reload();
                     }
                 })
-            } else {
-                alert(1);
-            }
+            } 
         }
 
+        function deleteType(id) {
+            if (confirm("确认要删除吗？")) {
+                $.post('ajax/feedbackHandler.aspx?op=deleteType', { id: id }, function (data) {
+                    res = $.parseJSON(data);
+                    alert(res.Msg);
+                    if (res.IsSuccess) {
+                        window.location.reload();
+                    }
+                })
+            }
+        }
+        //新增分类
         function addType() {
+            $('#typeId').val(0);
+            $('#typeName').val('');
+            $('.pop_box2').show();
+            $('.mask').fadeIn(200);
+        }
+        //修改分类
+        function editType(id, name) {
+            $('#typeId').val(id);
+            $('#typeName').val(name);
             $('.pop_box2').show();
             $('.mask').fadeIn(200);
         }
 
-        $(function () {
+        function listType() {
+            $("#loadingPage").load('feedbacktype.aspx');
+        }
 
+        $(function () {
+            jQuery("#loadingPage").html("<div style='text-align:center;width:100%'>正在加载，请稍后...</div>");
             $("#loadingPage").load('feedbackcontent.aspx');
 
 
@@ -112,6 +137,8 @@
                     return false;
                 }
             });
+
+
             //备注打开
             $(document).on('click', '.copy', function () {
 
@@ -179,8 +206,9 @@
             //新增分类
             $('.fill-btn').on('click', function () {
                 var name = $('#typeName').val();
+                var id = $('#typeId').val();
                 if (name != '') {
-                    $.post('ajax/feedbackHandler.aspx?op=addType', { typeName: name }, function (res) {
+                    $.post('ajax/feedbackHandler.aspx?op=editType', { typeName: name,typeId:id }, function (res) {
                         var data = $.parseJSON(res);
                         alert(data.Msg);
                         if (data.IsSuccess) {

@@ -50,13 +50,37 @@ namespace sanfengli.Web.admin.ajax
                         }
                         break;
                     #endregion
-                    #region MyRegion
-                    case "addType":
-                        string typeName = RequestHelper.GetFormString("typeName");
-                        if (!string.IsNullOrEmpty(typeName))
+                    #region 添加分类
+                    //case "addType":
+                    //    string typeName = RequestHelper.GetFormString("typeName");
+                    //    if (!string.IsNullOrWhiteSpace(typeName))
+                    //    {
+                    //        feedback_type model = new feedback_type();
+                    //        model.Name = typeName;
+                    //        responseModel.IsSuccess = new Bll.WeChat.feedback_typebll().SaveMode(model);
+                    //        responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
+                    //    }
+                    //    else
+                    //    {
+                    //        responseModel.IsSuccess = false;
+                    //        responseModel.Msg = "请输入有效值";
+                    //    }
+
+
+                    //    break;
+                    #endregion
+                    #region 编辑分类
+                    case "editType":
+                        string editTypeName = RequestHelper.GetFormString("typeName");
+                        int editTypeId = RequestHelper.GetFormInt("typeId", 0);
+                        if (!string.IsNullOrWhiteSpace(editTypeName))
                         {
                             feedback_type model = new feedback_type();
-                            model.Name = typeName;
+                            if (editTypeId > 0)
+                            {
+                                model.Id = editTypeId;
+                            }
+                            model.Name = editTypeName;
                             responseModel.IsSuccess = new Bll.WeChat.feedback_typebll().SaveMode(model);
                             responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
                         }
@@ -65,8 +89,23 @@ namespace sanfengli.Web.admin.ajax
                             responseModel.IsSuccess = false;
                             responseModel.Msg = "请输入有效值";
                         }
-                       
-                      
+
+
+                        break;
+                    #endregion
+                    #region 删除分类
+                    case "deleteType":
+                        int typeid = RequestHelper.GetFormInt("id", 0);
+                        if (typeid <= 0)
+                        {
+                            responseModel.IsSuccess = false;
+                            responseModel.Msg = "请输入有效ID";
+                        }
+                        else
+                        {
+                            responseModel.IsSuccess = new Bll.WeChat.feedback_typebll().DeleteById(typeid);
+                            responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
+                        }
                         break;
                         #endregion
                 }

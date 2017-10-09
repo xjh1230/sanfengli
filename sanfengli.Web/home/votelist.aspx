@@ -7,7 +7,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta charset="utf-8">
-    <title>世界选美大赛-比赛投票</title>
+    <title><%= vote == null ? "比赛投票" : vote.title %></title>
 
     <meta content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport">
 
@@ -18,7 +18,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link href="../Content/mobile_module.css" rel="stylesheet" />
-    <link href="../Content/shop_vote.css" rel="stylesheet" />
+    <link href="../Content/shop_vote.css?v=1" rel="stylesheet" />
 
     <script src="../Scripts/jquery-1.10.2.min.js"></script>
     <script src="../Scripts/vote.js"></script>
@@ -97,6 +97,9 @@
             width: 100%;
             margin-top: 10px;
             z-index:10;
+            height:35px;
+            font-size:15px;
+            line-height:34px;
         }
         .option_list{
             min-height:450px;
@@ -112,9 +115,8 @@
             <div class="vote_content">
                 <p class="vote_title"><%= vote == null ? "比赛投票" : vote.title %></p>
                 <div>
-                    <div class="vote_remark" onclick="switchRemark(this)">
+                    <div class="vote_remark">
                         <p><%=vote==null?"":vote.remark %></p>
-                        <a href="javascript:;" class="open"></a>
                     </div>
                 </div>
                 <br />

@@ -85,6 +85,23 @@ namespace sanfengli.Mvc.Controllers
             responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
             return Json(responseModel);
         }
+        public JsonResult saveType(wp_article_type_new model)
+        {
+            BaseOutput responseModel = new BaseOutput();
+
+            responseModel.IsSuccess = new Bll.WeChat.wp_article_type_newbll().SaveModel(model);
+            responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
+            return Json(responseModel);
+        }
+
+        public JsonResult deleteType(wp_article_type_new model)
+        {
+            BaseOutput responseModel = new BaseOutput();
+            //model.cTime = DateTime.Now;
+            responseModel.IsSuccess = new Bll.WeChat.wp_article_type_newbll().DeleteModel(model.Id);
+            responseModel.Msg = responseModel.IsSuccess ? "成功" : "失败";
+            return Json(responseModel);
+        }
 
 
     }

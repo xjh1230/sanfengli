@@ -29,5 +29,20 @@ namespace sanfengli.Bll.WeChat
                 return UpdateItem(model);
             }
         }
+
+        public bool DeleteById(int id)
+        {
+            try
+            {
+                using (var db = DbFactory.OpenDbConnection())
+                {
+                    return db.Delete<feedback_type>(s => s.Id == id) > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

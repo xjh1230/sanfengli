@@ -88,6 +88,7 @@ namespace sanfengli.Web.home.ajax
                         string src = HttpUtility.UrlDecode(RequestHelper.GetFormString("src"));
                         string introduce = HttpUtility.UrlDecode(RequestHelper.GetFormString("introduce"));
                         string manifesto = HttpUtility.UrlDecode(RequestHelper.GetFormString("manifesto"));
+                        string addr = HttpUtility.UrlDecode(RequestHelper.GetFormString("addr"));
                         int voteId = RequestHelper.GetFormInt("voteId", 0);
                         string phone = RequestHelper.GetFormString("phone");
                         string token = RequestHelper.GetFormString("token");
@@ -119,7 +120,8 @@ namespace sanfengli.Web.home.ajax
                                 pic.system = 0;
                                 pic.md5 = "";
                                 pic.sha1 = "";
-                                pic.status = 0;
+                                pic.status = 1;
+                                pic.system = 1;
 
                                 var pic_id = new Bll.WeChat.wp_picturebll().InsertItem(pic);
 
@@ -140,6 +142,7 @@ namespace sanfengli.Web.home.ajax
                                     model.option_status = 0;
                                     model.phone = phone;
                                     model.option_status = 0;
+                                    model.address = addr;
                                     response.IsSuccess = new wp_shop_vote_optionbll().InsertItem(model) > 0;
                                 }
                                 else
