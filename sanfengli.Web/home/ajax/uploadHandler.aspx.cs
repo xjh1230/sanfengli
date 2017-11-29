@@ -194,32 +194,45 @@ namespace sanfengli.Web.home.ajax
                         }
                         else
                         {
-                            vote_log_byvote = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogTodayByVoteId(uid, vote_id);
+                            //vote_log_byvote = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogTodayByVoteId(uid, vote_id);
+                            vote_log_byvote = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogByVoteId(uid, vote_id);
                             int user_vote_count = vote_log_byvote == null ? 0 : vote_log_byvote.Count;
-                            if (user_vote_count > vote.multi_num)
+                            if (user_vote_count >= vote.multi_num)
                             {
                                 response.IsSuccess = false;
-                                response.Msg = "今日票已投完";
+                                response.Msg = "票已投完";
                             }
                             else
                             {
-                                vote_log_count_byoption = new Bll.WeChat.wp_shop_vote_logbll().GetVoteCountTodayByOptionId(uid, option_id);
-                                if (vote_log_count_byoption > 0)
-                                {
-                                    response.IsSuccess = false;
-                                    response.Msg = "已投票";
-                                }
-                                else
-                                {
-                                    wp_shop_vote_log model = new wp_shop_vote_log();
-                                    model.uid = uid;
-                                    model.vote_id = vote_id;
-                                    model.option_id = option_id;
-                                    model.token = vote.token;
-                                    model.ctime = (int)BaseClass.ConvertDataTimeToLong(DateTime.Now);
-                                    response.IsSuccess = new Bll.WeChat.wp_shop_vote_logbll().InsertModel(model) > 0;
-                                    response.Msg = response.IsSuccess ? "投票成功" : "投票失败，请重试";
-                                }
+                                #region 限制每日每人(被投票人)一票
+                                //vote_log_count_byoption = new Bll.WeChat.wp_shop_vote_logbll().GetVoteCountTodayByOptionId(uid, option_id);
+                                //if (vote_log_count_byoption > 0)
+                                //{
+                                //    response.IsSuccess = false;
+                                //    response.Msg = "已投票";
+                                //}
+                                //else
+                                //{
+                                //    wp_shop_vote_log model = new wp_shop_vote_log();
+                                //    model.uid = uid;
+                                //    model.vote_id = vote_id;
+                                //    model.option_id = option_id;
+                                //    model.token = vote.token;
+                                //    model.ctime = (int)BaseClass.ConvertDataTimeToLong(DateTime.Now);
+                                //    response.IsSuccess = new Bll.WeChat.wp_shop_vote_logbll().InsertModel(model) > 0;
+                                //    response.Msg = response.IsSuccess ? "投票成功" : "投票失败，请重试";
+                                //} 
+                                #endregion
+                                #region 不限制每日每人(被投票人)一票
+                                wp_shop_vote_log model = new wp_shop_vote_log();
+                                model.uid = uid;
+                                model.vote_id = vote_id;
+                                model.option_id = option_id;
+                                model.token = vote.token;
+                                model.ctime = (int)BaseClass.ConvertDataTimeToLong(DateTime.Now);
+                                response.IsSuccess = new Bll.WeChat.wp_shop_vote_logbll().InsertModel(model) > 0;
+                                response.Msg = response.IsSuccess ? "投票成功" : "投票失败，请重试";
+                                #endregion
                             }
                         }
                         #endregion

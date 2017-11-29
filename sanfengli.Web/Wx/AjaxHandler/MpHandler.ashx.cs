@@ -29,6 +29,7 @@ namespace sanfengli.Web.Wx.AjaxHandler
                 return;
             }
             string publishJson = EConvert.ConvertEmojiHtml(HttpContext.Current.Server.UrlDecode(Request["menu"]));
+            publishJson = publishJson.Replace("&amp;","&");
             var menu = JsonConvert.DeserializeObject<YchButtonGroup>(publishJson);
             MpEventBll.SaveAllButtonEvent(menu);
             var tmp = AccessTokenContainer.TryGetAccessToken(BaseClass.AppId, BaseClass.Secret);

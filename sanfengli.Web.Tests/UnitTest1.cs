@@ -32,7 +32,25 @@ namespace sanfengli.Web.Tests
 
             var tmp = new Bll.WeChat.wp_survey_answerbll().GetAnswerExport(11);
             //var cvs = Bll.MySqlHelper.DataTableToCsv(tmp);
+            var i = GetStar("da");
+             i = GetStar(12);
+
+            int ii = 123_456_789;
+
             var s = tmp;
+        }
+
+        public string GetStar(object o)
+        {
+            if (o is null) return "";
+            else if(o is int i||(o is string s&&int.TryParse(s,out i)))
+            {
+              return (new string('*',i));
+            }
+            else
+            {
+                return "";
+            }
         }
     }
 }

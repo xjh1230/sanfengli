@@ -481,6 +481,8 @@ function setEditContent(btn) {
     var type = btn.children('.menudata').find('.btype').text();
     var replyType = btn.children('.menudata').find('.breplyType').text();
     var bval = btn.children('.menudata').find('.breplyContent').html();
+    bval = htmldecode(bval);
+    //console.log(bval);
     $("#edit_currentId").val(btn.attr('id'));
     $("#edit_url").val('');
     $("#saytext").html('');
@@ -576,6 +578,16 @@ function imgHtml(list) {
         return t;
     }
 }
+function htmlencode(s) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(s));
+    return div.innerHTML;
+}
+function htmldecode(s) {
+    var div = document.createElement('div');
+    div.innerHTML = s;
+    return div.innerText || div.textContent;
+} 
 $(document).ready(function () {
     bindMenuEvent();
     bindEditEvent();

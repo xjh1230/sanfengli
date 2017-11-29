@@ -48,7 +48,7 @@
 <body>
     <div id="app">
         <div class="fixed_bg"></div>
-        <div  v-for="o in list" :key="o" style="display:none" id="list">
+        <div  v-for="o in list" :key="o" style="" id="list">
             <el-card class="box-card"  >
                <div v-on:click="jump(o)">
                 <span >{{o.name}}<i class="el-icon-arrow-right"  ></i></span>
@@ -80,7 +80,8 @@
         },
         methods: {
             init() {
-                var _this= this;
+                var _this = this;
+                $('#list').hide();
                 $.post('ajax/infoHandler.aspx', { op: 'getInfoType' }, function (res) {
                     var data = $.parseJSON(res);
                     if (data.IsSuccess) {

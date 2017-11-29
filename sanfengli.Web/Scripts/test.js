@@ -1,4 +1,4 @@
-// JavaScript Document by jacy
+﻿// JavaScript Document by jacy
 /**
  定义基本常量
 */

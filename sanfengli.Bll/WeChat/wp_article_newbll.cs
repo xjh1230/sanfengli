@@ -18,6 +18,10 @@ namespace sanfengli.Bll.WeChat
             {
                 sqlwhere.Append($" AND type_id = '{query.type_id}'");
             }
+            else
+            {
+                sqlwhere.Append($" AND type_id is  not null");
+            }
             if (!string.IsNullOrEmpty(query.name))
             {
                 sqlwhere.Append($" AND name like '%{query.name}%' ");

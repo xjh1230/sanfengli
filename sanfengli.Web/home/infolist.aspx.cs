@@ -35,6 +35,11 @@ namespace sanfengli.Web.home
             pageIndex = RequestHelper.GetQueryInt("pageIndex", 1);
             pageSize = RequestHelper.GetQueryInt("pageSize", 5000);
             pageSize = 5000;
+            var article_type = RequestHelper.GetQueryInt("article_type", 0);
+            if (article_type > 0)
+            {
+                type = 1;
+            }
             if (type > 4 || type < 1)
             {
                 type = 1;

@@ -53,7 +53,10 @@ namespace sanfengli.Web.home
                 list.ForEach(s =>
                 {
                     s.IsVote = list_log.Count >= vote.multi_num;
-                    s.IsVoteCurrent = list_log.Any(l => l.uid == user.Id && l.option_id == s.Id);
+                    //限制每个一天只能投一票
+                    //s.IsVoteCurrent = list_log.Any(l => l.uid == user.Id && l.option_id == s.Id);
+                    //不限制每个一天只能投一票
+                    s.IsVoteCurrent = false;
                 });
             }
             if (list != null && list.Count > 0)

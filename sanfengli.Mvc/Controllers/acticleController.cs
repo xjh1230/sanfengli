@@ -41,19 +41,27 @@ namespace sanfengli.Mvc.Controllers
             query.type_id = ConvertHelper.GetInteger(model.conditions["typeid"]);
             query.name = model.conditions["name"];
             var list = new Bll.WeChat.wp_article_newbll().GetList(query, out count, model.page, model.size);
-            if (list != null && list.Count > 0)
+            try
             {
-                list.ForEach(s =>
+                if (list != null && list.Count > 0)
                 {
-                    s.type_name = new Bll.WeChat.wp_article_type_newbll().GetItem((int)s.type_id).name;
-                    s.url = $"{BaseClass.BaseDomin}home/infodetail.aspx?id={s.Id}";
-                });
+                    list.ForEach(s =>
+                    {
+                        var tmp = new Bll.WeChat.wp_article_type_newbll().GetItem((int)s.type_id);
+                        s.type_name =tmp==null?"":tmp.name;
+                        s.url = $"{BaseClass.BaseDomin}home/infodetail.aspx?id={s.Id}";
+                    });
+                }
+                if (list != null && list.Count > 0)
+                {
+                    responseModel.IsSuccess = true;
+                    responseModel.Data = list;
+                    responseModel.TotalCount = count;
+                }
             }
-            if (list != null && list.Count > 0)
+            catch (Exception ex)
             {
-                responseModel.IsSuccess = true;
-                responseModel.Data = list;
-                responseModel.TotalCount = count;
+                
             }
             return Json(responseModel);
         }

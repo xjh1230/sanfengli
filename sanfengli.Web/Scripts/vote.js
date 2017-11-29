@@ -20,6 +20,9 @@ function do_vote(_this, voteid, optionid, uid) {
         var date = $.parseJSON(res);
         if (!date.IsSuccess) {
             $.Dialog.fail(date.Msg);
+            setTimeout(function () {
+                location.reload();
+            }, 1500)
             $(_this).removeClass('has_vote');
         } else {
             $.Dialog.success(date.Msg);

@@ -43,7 +43,10 @@ namespace sanfengli.Web.home
                 var tmp = new Bll.WeChat.wp_picturebll().GetItem((int)option.image);
                 option.ImagePath = tmp == null ? "" : tmp.path;
                 uid = new Bll.WeChat.wp_userbll().GetUserIdByOpenId(openId);
-                option.IsVoteCurrent = new Bll.WeChat.wp_shop_vote_logbll().GetVoteCountTodayByOptionId(uid, option_id) > 0;
+                //限制每个一天只能投一票
+                //option.IsVoteCurrent = new Bll.WeChat.wp_shop_vote_logbll().GetVoteCountTodayByOptionId(uid, option_id) > 0;
+                //不限制每个一天只能投一票
+                option.IsVoteCurrent = false;
                 var list = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogTodayByVoteId(uid, vote_id);
                 option.IsVote = false;
                 if (list != null && list.Count > 0)
