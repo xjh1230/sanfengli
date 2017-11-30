@@ -197,7 +197,7 @@ namespace sanfengli.Web.home.ajax
                             //vote_log_byvote = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogTodayByVoteId(uid, vote_id);
                             vote_log_byvote = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogByVoteId(uid, vote_id);
                             int user_vote_count = vote_log_byvote == null ? 0 : vote_log_byvote.Count;
-                            if (user_vote_count >= vote.multi_num)
+                            if (user_vote_count >= vote.multi_num&& vote.multi_num>0)
                             {
                                 response.IsSuccess = false;
                                 response.Msg = "票已投完";
