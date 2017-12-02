@@ -22,6 +22,8 @@ namespace sanfengli.Common
         public static readonly string Login_Cookie = ConfigurationManager.AppSettings["Cookie_Prefix"] + "ScanLoginKey";
 
         public static readonly string OpenId_Cookie = "Cookie_PrefixOpenId";
+
+        public static readonly string Uid_Cookie = "Cookie_Uid";
         public static long ConvertDataTimeToLong(DateTime dt)
         {
             return (dt.ToUniversalTime().Ticks - 621355968000000000) / 10000000;

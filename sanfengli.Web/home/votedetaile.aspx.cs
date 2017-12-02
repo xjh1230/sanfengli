@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using Bitauto.Mall.Aop;
+using Common;
 using sanfengli.Model.WeiXin;
 using sanfengli.Web.Base;
 using System;
@@ -43,6 +44,7 @@ namespace sanfengli.Web.home
                 var tmp = new Bll.WeChat.wp_picturebll().GetItem((int)option.image);
                 option.ImagePath = tmp == null ? "" : tmp.path;
                 uid = new Bll.WeChat.wp_userbll().GetUserIdByOpenId(openId);
+                LogHandler.Info($"votedetaile页面,uid:{ uid},openId{openId}");
                 //限制每个一天只能投一票
                 //option.IsVoteCurrent = new Bll.WeChat.wp_shop_vote_logbll().GetVoteCountTodayByOptionId(uid, option_id) > 0;
                 //不限制每个一天只能投一票

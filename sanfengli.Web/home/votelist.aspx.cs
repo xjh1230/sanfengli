@@ -1,4 +1,5 @@
-﻿using Common;
+﻿using Bitauto.Mall.Aop;
+using Common;
 using sanfengli.Common;
 using sanfengli.Model.WeiXin;
 using sanfengli.Web.Base;
@@ -42,6 +43,7 @@ namespace sanfengli.Web.home
             if (!string.IsNullOrEmpty(openId))
             {
                 user = new Bll.WeChat.wp_userbll().GetUserInfoByOpenId(openId);
+                //LogHandler.Info($"votelist页,openId{openId},user:{JsonHelper.Serialize(user)}");
                 if (user != null)
                 {
                     list_log = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogTodayByVoteId(user.Id, vote_id);

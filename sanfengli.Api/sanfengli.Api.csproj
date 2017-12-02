@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,16 +47,24 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bitauto.Mall.Aop, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Aop.1.0.9\lib\Bitauto.Mall.Aop.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Bitauto.Mall.Aop.dll</HintPath>
     </Reference>
     <Reference Include="Bitauto.Mall.Comm.Rabbitmq, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Comm.Rabbitmq.1.0.4\lib\Bitauto.Mall.Comm.Rabbitmq.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Bitauto.Mall.Comm.Rabbitmq.dll</HintPath>
     </Reference>
     <Reference Include="Bitauto.Mall.Log, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Log.1.0.6\lib\Bitauto.Mall.Log.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Bitauto.Mall.Log.dll</HintPath>
     </Reference>
     <Reference Include="Bitauto.Mall.Log.Model, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Log.Model.1.0.4\lib\Bitauto.Mall.Log.Model.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Bitauto.Mall.Log.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils, Version=2.0.7.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\BitAuto.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Common">
       <HintPath>..\lib\Common.dll</HintPath>
@@ -68,33 +77,41 @@
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Aop.1.0.9\lib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.PolicyInjection, Version=5.0.414.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Aop.1.0.9\lib\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Aop.1.0.9\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Aop.1.0.9\lib\Microsoft.Practices.Unity.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Practices.Unity.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Practices.Unity.Interception, Version=2.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Aop.1.0.9\lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="RabbitMQ.Client, Version=3.5.7.0, Culture=neutral, PublicKeyToken=89e7d7c5feba84ce, processorArchitecture=MSIL">
-      <HintPath>..\packages\Bitauto.Mall.Other.RabbitMQ.Client.3.5.7.2\lib\RabbitMQ.Client.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\lib\RabbitMQ.Client.dll</HintPath>
     </Reference>
     <Reference Include="Senparc.Weixin, Version=4.14.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\sanfengliweb\packages\Senparc.Weixin.4.14.3\lib\net45\Senparc.Weixin.dll</HintPath>
+      <HintPath>..\packages\Senparc.Weixin.4.14.3\lib\net45\Senparc.Weixin.dll</HintPath>
     </Reference>
     <Reference Include="Senparc.Weixin.MP, Version=14.6.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\sanfengliweb\packages\Senparc.Weixin.MP.14.6.10\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+      <HintPath>..\packages\Senparc.Weixin.MP.14.6.10\lib\net45\Senparc.Weixin.MP.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -107,6 +124,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
     </Reference>

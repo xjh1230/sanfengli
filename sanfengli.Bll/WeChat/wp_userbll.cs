@@ -16,7 +16,15 @@ namespace sanfengli.Bll.WeChat
         {
             wp_user userModel = new wp_user();
 
-            int useId = GetUserIdByOpenId(weixinUser.openid);
+            int useId = 0;
+            if (weixinUser != null)
+            {
+                useId = GetUserIdByOpenId(weixinUser.openid);
+            }
+            if (useId == 0 && fensi != null)
+            {
+                useId = GetUserIdByOpenId(fensi.openid);
+            }
             if (useId == 0)
             {
                 if (fensi == null)
@@ -43,8 +51,6 @@ namespace sanfengli.Bll.WeChat
                     userModel.unionid = fensi.unionid;
                     userModel.status = (sbyte)fensi.subscribe;
                 }
-
-
                 return InsertItem(userModel);
             }
             else
@@ -79,6 +85,19 @@ namespace sanfengli.Bll.WeChat
             return model;
         }
 
+        public wp_user GetUserInfoByUId(long  uId)
+        {
+            wp_user model = null;
+            if (uId>0)
+            {
+                string sql = $"select * from wp_user where uid='{uId}' LIMIT 0,1";
+                using (var db = DbFactory.OpenDbConnection())
+                {
+                    model = db.Select<wp_user>(sql).FirstOrDefault();
+                }
+            }
+            return model;
+        }
 
         /// <summary>
         /// 修改关注状态
@@ -87,7 +106,7 @@ namespace sanfengli.Bll.WeChat
         /// <param name="state"></param>
         public void SetSubscribe(string openId, int state)
         {
-            string sql = $"UPDATE Weixin_User SET status={state} WHERE openid={openId}";
+            string sql = $"UPDATE wp_user SET status={state} WHERE openid={openId}";
 
             ExecuteSql(sql);
         }
