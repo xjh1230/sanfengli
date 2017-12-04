@@ -22,6 +22,35 @@ namespace sanfengli.Common
         }
 
 
+    
+
+        /// <summary>
+        /// 处理Url参数
+        /// </summary>
+        /// <param name="url">url字符串</param>
+        /// <param name="paramText">参数名</param>
+        /// <param name="paramValue">参数值</param>
+        /// <returns></returns>
+
+        public static string BuildUrl(string url, string paramText, string paramValue)
+        {
+            Regex reg = new Regex(string.Format("{0}=[^&]*", paramText), RegexOptions.IgnoreCase);
+            Regex reg1 = new Regex("[&]{2,}", RegexOptions.IgnoreCase);
+            string _url;
+            _url = reg.Replace(url, "");
+            if (_url.IndexOf("?", StringComparison.Ordinal) == -1)
+                _url += string.Format("?{0}={1}", paramText, paramValue);//?
+            else
+                _url += string.Format("&{0}={1}", paramText, paramValue);//&
+            _url = reg1.Replace(_url, "&");
+            _url = _url.Replace("?&", "?");
+            if (string.IsNullOrEmpty(paramValue))
+            {
+                _url = _url.Replace($"?{paramText}=","").Replace($"&{paramText}=", "");
+            }
+            return _url;
+        }
+
         /// <summary>
         /// 返回Session信息
         /// </summary>
@@ -299,27 +328,6 @@ namespace sanfengli.Common
         }
 
 
-        /// <summary>
-        /// 处理Url参数
-        /// </summary>
-        /// <param name="url">url字符串</param>
-        /// <param name="paramText">参数名</param>
-        /// <param name="paramValue">参数值</param>
-        /// <returns></returns>
-
-        public static string BuildUrl(string url, string paramText, string paramValue)
-        {
-            Regex reg = new Regex(string.Format("{0}=[^&]*", paramText), RegexOptions.IgnoreCase);
-            Regex reg1 = new Regex("[&]{2,}", RegexOptions.IgnoreCase);
-            string _url;
-            _url = reg.Replace(url, "");
-            if (_url.IndexOf("?", StringComparison.Ordinal) == -1)
-                _url += string.Format("?{0}={1}", paramText, paramValue);//?
-            else
-                _url += string.Format("&{0}={1}", paramText, paramValue);//&
-            _url = reg1.Replace(_url, "&");
-            _url = _url.Replace("?&", "?");
-            return _url;
-        }
+    
     }
 }

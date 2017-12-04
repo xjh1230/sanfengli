@@ -46,7 +46,7 @@ namespace sanfengli.Web.home
                 //LogHandler.Info($"votelist页,openId{openId},user:{JsonHelper.Serialize(user)}");
                 if (user != null)
                 {
-                    list_log = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogTodayByVoteId(user.Id, vote_id);
+                    list_log = new Bll.WeChat.wp_shop_vote_logbll().GetVoteLogByVoteId(user.Id, vote_id);
                 }
             }
 

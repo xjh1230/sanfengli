@@ -56,6 +56,31 @@ namespace sanfengli.Web.Base
                     returnurl = Request.Url?.ToString();
                     string code = RequestHelper.GetQueryString("code");
                     string state = RequestHelper.GetQueryString("state");
+                    string redirect_uri = RequestHelper.GetQueryString("redirect_uri");
+                    #region MyRegion
+                    //021QRK2o05U3Lr1f2tZn0Tdt2o0QRK26
+                    //http://sfl.sanfengli.cn/home/votelist.aspx?vote_id=8&code=021QRK2o05U3Lr1f2tZn0Tdt2o0QRK26&state=http:%2F%2Fsfl.sanfengli.cn%2Fhome%2Fvotelist.aspx%3Fvote_id%3D8&from=groupmessage&isappinstalled=0,api
+                    //https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6c4c8bb521e45019&redirect_uri=http%3A%2F%2Fsfl.sanfengli.cn%2Fhome%2Fvotelist.aspx%3Fvote_id%3D8%26from%3Dgroupmessage&response_type=code&scope=snsapi_userinfo&state=http%3A%2F%2Fsfl.sanfengli.cn%2Fhome%2Fvotelist.aspx%3Fvote_id%3D8%26from%3Dgroupmessage&connect_redirect=1#wechat_redirect
+                    //http://sfl.sanfengli.cn/home/votelist.aspx?vote_id=8&code=021QRK2o05U3Lr1f2tZn0Tdt2o0QRK26&state=http:%2F%2Fsfl.sanfengli.cn%2Fhome%2Fvotelist.aspx%3Fvote_id%3D8&from=groupmessage&isappinstalled=0,code=021QRK2o05U3Lr1f2tZn0Tdt2o0QRK26,state=http://sfl.sanfengli.cn/home/votelist.aspx?vote_id=8
+
+                    //string from = RequestHelper.GetQueryString("from");
+                    //if (!string.IsNullOrEmpty(code)&&string.Equals(code, "021QRK2o05U3Lr1f2tZn0Tdt2o0QRK26", StringComparison.InvariantCultureIgnoreCase) && !string.IsNullOrEmpty(state))
+                    //{
+                    //    OAuthScope scope;
+                    //    if (IsNeedUserInfo)
+                    //    {
+                    //        scope = OAuthScope.snsapi_userinfo;
+                    //    }
+                    //    else
+                    //    {
+                    //        scope = OAuthScope.snsapi_base;
+                    //    }
+                    //    string oauthUrl = Weixin.OauthUrl(state, state, scope);
+                    //    LogHandler.Info($"from:{from},code:{code},statue:{state},oauthUrl:{oauthUrl}" );
+                    //    Response.Redirect(oauthUrl);
+                    //} 
+                    #endregion
+
                     if (string.IsNullOrWhiteSpace(code))
                     {
                         OAuthScope scope;
@@ -67,7 +92,7 @@ namespace sanfengli.Web.Base
                         {
                             scope = OAuthScope.snsapi_base;
                         }
-                        string oauthUrl = Weixin.OauthUrl(Request.Url?.ToString(), returnurl, scope);
+                        string oauthUrl = Weixin.OauthUrl(Request.Url?.ToString(), "", scope);
                         LogHandler.Info("code为空,oauthUrl:" + oauthUrl);
                         Response.Redirect(oauthUrl);
                     }
@@ -101,6 +126,7 @@ namespace sanfengli.Web.Base
                                 lock (OAuthCodeCollectionLock)
                                 {
                                     oAuthAccessTokenResult = OAuthCodeCollection[code];
+                                  
                                 }
                             }
                             try
@@ -118,6 +144,15 @@ namespace sanfengli.Web.Base
                                 {
                                     OAuthCodeCollection[code] = oAuthAccessTokenResult;
                                 }
+                            }
+                            else
+                            {
+                                var url = Request.Url.ToString();
+                                url = WebTools.BuildUrl(url, "code", "");
+                                LogHandler.Info($"code:{code} 已经使用.redirect_uri:{url}");
+                               
+                                Response.Redirect(url);
+
                             }
                             //var oAuthAccessTokenResult = OAuthApi.GetAccessToken(BaseClass.AppId, BaseClass.Secret, code);
                             if (oAuthAccessTokenResult.errcode != 0)
@@ -142,6 +177,11 @@ namespace sanfengli.Web.Base
                             string token = new LoginTokenID(userModel).ToString();
                             WebTools.WriteCookie(WebTools.ych_weixintoken, token, 1);
                             //Response.Redirect("test.aspx"); //Redirect(url);
+                            //if (!string.IsNullOrEmpty(code))
+                            //{
+                                OAuthCodeCollection.Remove(code);
+                            //}
+                           
                         }
                         catch (Exception ex)
                         {

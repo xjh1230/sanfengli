@@ -27,6 +27,11 @@ namespace sanfengli.Web
 
             try
             {
+
+                string url = Request.Url.ToString();
+
+                var urlTmp = WebTools.BuildUrl(url,"code","");
+                Response.Write(urlTmp);
                 DataTable dt = new DataTable();
                 DataTable dt1 = new DataTable();
                 dt1.Columns.Add("Id");
