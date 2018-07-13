@@ -1,0 +1,23 @@
+﻿@charset "UTF-8";
+/*** 清零 ***/
+/*----------------------------------------------------------------------------------*/
+
+body, ul, li, p, h1, h2, h3, h4, h5, h6, form, fieldset, table, td.img, div, dl, dt, dd, input {
+	margin:0;
+	padding:0;
+	border:none
+}
+body{font:normal 12px/1.5 'Microsoft Yahei',Helvetica,arial,sans-serif; color:#333; background:#fff;}
+li{list-style:none;}
+h1, h2, h3, h4, h5, h6, b{font-weight:normal; font-size:12px;}
+i, em {font-style:normal;}
+input, textarea, select{outline:none;}
+input{border:none 0;}
+input::-ms-clear{display:none;}
+textarea{resize:none;}
+a{text-decoration:none; color:#666;}
+a img{display:block; border:none;}
+.clear:after{display:block; content:''; clear:both;}
+.clear{zoom:1;}
+.fl {display:inline; float:left;}
+.fr {display:inline; float:right;}

@@ -1,0 +1,1106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1BB0C3C4-65EE-44FA-83CB-1802D8398F22}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>sanfengli.Web</RootNamespace>
+    <AssemblyName>sanfengli.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Bitauto.Mall.Aop">
+      <HintPath>..\lib\Bitauto.Mall.Aop.dll</HintPath>
+    </Reference>
+    <Reference Include="Bitauto.Mall.Comm.Rabbitmq">
+      <HintPath>..\lib\Bitauto.Mall.Comm.Rabbitmq.dll</HintPath>
+    </Reference>
+    <Reference Include="Bitauto.Mall.Log">
+      <HintPath>..\lib\Bitauto.Mall.Log.dll</HintPath>
+    </Reference>
+    <Reference Include="Bitauto.Mall.Log.Model">
+      <HintPath>..\lib\Bitauto.Mall.Log.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="BitAuto.Utils">
+      <HintPath>..\lib\BitAuto.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="Common">
+      <HintPath>..\lib\Common.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\lib\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.PolicyInjection">
+      <HintPath>..\lib\Microsoft.Practices.EnterpriseLibrary.PolicyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\lib\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity">
+      <HintPath>..\lib\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Interception">
+      <HintPath>..\lib\Microsoft.Practices.Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data">
+      <HintPath>..\lib\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RabbitMQ.Client">
+      <HintPath>..\lib\RabbitMQ.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Senparc.Weixin, Version=4.14.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.4.14.3\lib\net45\Senparc.Weixin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Senparc.Weixin.MP, Version=14.6.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Senparc.Weixin.MP.14.6.10\lib\net45\Senparc.Weixin.MP.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.bootstrap">
+      <HintPath>..\packages\AspNet.ScriptManager.bootstrap.3.0.0\lib\net45\AspNet.ScriptManager.bootstrap.dll</HintPath>
+    </Reference>
+    <Reference Include="AspNet.ScriptManager.jQuery">
+      <HintPath>..\packages\AspNet.ScriptManager.jQuery.1.10.2\lib\net45\AspNet.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.MSAjax">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.MSAjax.5.0.0\lib\net45\Microsoft.ScriptManager.MSAjax.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.WebForms">
+      <HintPath>..\packages\Microsoft.AspNet.ScriptManager.WebForms.5.0.0\lib\net45\Microsoft.ScriptManager.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Web.Optimization.WebForms">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.WebForms.1.1.3\lib\net45\Microsoft.AspNet.Web.Optimization.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.FriendlyUrls">
+      <HintPath>..\packages\Microsoft.AspNet.FriendlyUrls.Core.1.0.2\lib\net45\Microsoft.AspNet.FriendlyUrls.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="admin\ajax\acticleHandler.aspx" />
+    <Content Include="admin\ajax\export.aspx" />
+    <Content Include="admin\ajax\feedbackHandler.aspx" />
+    <Content Include="admin\answerdetail.aspx" />
+    <Content Include="admin\article\index.html" />
+    <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css" />
+    <Content Include="admin\article\static\js\app.256c59cf00006a9b26bb.js" />
+    <Content Include="admin\article\static\js\manifest.e58316aee1efb109e2f5.js" />
+    <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js" />
+    <Content Include="admin\feedbackcontent.aspx" />
+    <Content Include="admin\feedbackmgr.aspx" />
+    <Content Include="admin\feedbacktype.aspx" />
+    <Content Include="admin\surveyanswer.aspx" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\datetimepicker\css\bootstrap.css" />
+    <Content Include="Content\datetimepicker\css\datetimepicker.css" />
+    <Content Include="Content\datetimepicker\css\datetimepicker_blue.css" />
+    <Content Include="Content\datetimepicker\css\dropdown.css" />
+    <Content Include="Content\datetimepicker\img\glyphicons-halflings.png" />
+    <Content Include="Content\datetimepicker\js\bootstrap-datetimepicker.js" />
+    <Content Include="Content\datetimepicker\js\bootstrap-datetimepicker.min.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.bg.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ca.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.cs.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.da.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.de.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.el.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.es.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.fi.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.fr.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.he.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.hr.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.hu.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.id.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.is.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.it.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ja.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.kr.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.lt.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.lv.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ms.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.nb.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.nl.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.pl.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.pt-BR.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.pt.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ro.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.rs-latin.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.rs.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ru.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sk.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sl.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sv.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.sw.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.th.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.tr.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.ua.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.uk.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.zh-CN.js" />
+    <Content Include="Content\datetimepicker\js\locales\bootstrap-datetimepicker.zh-TW.js" />
+    <Content Include="Content\guo.css" />
+    <Content Include="Content\mobile_module.css" />
+    <Content Include="Content\select2.min.css" />
+    <Content Include="Content\shop_vote.css" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\uploadlist.css" />
+    <Content Include="css\AdminLTE.min.css" />
+    <Content Include="css\base.css" />
+    <Content Include="css\basic.css" />
+    <Content Include="css\bootstrap-timepicker.min.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\dataTables.bootstrap.css" />
+    <Content Include="css\daterangepicker-bs3.css" />
+    <Content Include="css\emojis.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\index.css" />
+    <Content Include="css\login.css" />
+    <Content Include="css\menu.css" />
+    <Content Include="css\module.css" />
+    <Content Include="css\tableStyle.css" />
+    <Content Include="css\templatemo_main.css" />
+    <Content Include="css\weiphp.css" />
+    <Content Include="dist\css\AdminLTE.css" />
+    <Content Include="dist\css\AdminLTE.min.css" />
+    <Content Include="dist\css\skins\skin-black-light.css" />
+    <Content Include="dist\css\skins\skin-black-light.min.css" />
+    <Content Include="dist\css\skins\skin-black.css" />
+    <Content Include="dist\css\skins\skin-black.min.css" />
+    <Content Include="dist\css\skins\skin-blue-light.css" />
+    <Content Include="dist\css\skins\skin-blue-light.min.css" />
+    <Content Include="dist\css\skins\skin-blue.css" />
+    <Content Include="dist\css\skins\skin-blue.min.css" />
+    <Content Include="dist\css\skins\skin-green-light.css" />
+    <Content Include="dist\css\skins\skin-green-light.min.css" />
+    <Content Include="dist\css\skins\skin-green.css" />
+    <Content Include="dist\css\skins\skin-green.min.css" />
+    <Content Include="dist\css\skins\skin-purple-light.css" />
+    <Content Include="dist\css\skins\skin-purple-light.min.css" />
+    <Content Include="dist\css\skins\skin-purple.css" />
+    <Content Include="dist\css\skins\skin-purple.min.css" />
+    <Content Include="dist\css\skins\skin-red-light.css" />
+    <Content Include="dist\css\skins\skin-red-light.min.css" />
+    <Content Include="dist\css\skins\skin-red.css" />
+    <Content Include="dist\css\skins\skin-red.min.css" />
+    <Content Include="dist\css\skins\skin-yellow-light.css" />
+    <Content Include="dist\css\skins\skin-yellow-light.min.css" />
+    <Content Include="dist\css\skins\skin-yellow.css" />
+    <Content Include="dist\css\skins\skin-yellow.min.css" />
+    <Content Include="dist\css\skins\_all-skins.css" />
+    <Content Include="dist\css\skins\_all-skins.min.css" />
+    <Content Include="dist\img\avatar.png" />
+    <Content Include="dist\img\avatar04.png" />
+    <Content Include="dist\img\avatar2.png" />
+    <Content Include="dist\img\avatar3.png" />
+    <Content Include="dist\img\avatar5.png" />
+    <Content Include="dist\img\boxed-bg.jpg" />
+    <Content Include="dist\img\boxed-bg.png" />
+    <Content Include="dist\img\credit\american-express.png" />
+    <Content Include="dist\img\credit\cirrus.png" />
+    <Content Include="dist\img\credit\mastercard.png" />
+    <Content Include="dist\img\credit\mestro.png" />
+    <Content Include="dist\img\credit\paypal.png" />
+    <Content Include="dist\img\credit\paypal2.png" />
+    <Content Include="dist\img\credit\visa.png" />
+    <Content Include="dist\img\default-50x50.gif" />
+    <Content Include="dist\img\icons.png" />
+    <Content Include="dist\img\photo1.png" />
+    <Content Include="dist\img\photo2.png" />
+    <Content Include="dist\img\photo3.jpg" />
+    <Content Include="dist\img\photo4.jpg" />
+    <Content Include="dist\img\user1-128x128.jpg" />
+    <Content Include="dist\img\user2-160x160.jpg" />
+    <Content Include="dist\img\user3-128x128.jpg" />
+    <Content Include="dist\img\user4-128x128.jpg" />
+    <Content Include="dist\img\user5-128x128.jpg" />
+    <Content Include="dist\img\user6-128x128.jpg" />
+    <Content Include="dist\img\user7-128x128.jpg" />
+    <Content Include="dist\img\user8-128x128.jpg" />
+    <Content Include="dist\js\app.min.js" />
+    <Content Include="dist\js\demo.js" />
+    <Content Include="dist\js\pages\dashboard.js" />
+    <Content Include="dist\js\pages\dashboard2.js" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="home\ajax\infoHandler.aspx" />
+    <Content Include="home\ajax\uploadHandler.aspx" />
+    <Content Include="home\articlelist.aspx" />
+    <Content Include="home\index.html" />
+    <Content Include="home\infodetail.aspx" />
+    <Content Include="home\infolist.aspx" />
+    <Content Include="home\joinvote.aspx" />
+    <Content Include="home\static\css\app.d325c69aab69e80b6664aa67d22ea6ab.css" />
+    <Content Include="home\static\js\app.9929ce3753fe6a7df8a1.js" />
+    <Content Include="home\static\js\manifest.61e8c6f5ae26f7c50ead.js" />
+    <Content Include="home\static\js\vendor.88f3694f64345e07f54a.js" />
+    <Content Include="home\upload.aspx" />
+    <Content Include="home\uploadlist.aspx" />
+    <Content Include="home\votedetaile.aspx" />
+    <Content Include="home\votelist.aspx" />
+    <Content Include="img\64x64.gif" />
+    <Content Include="img\activity.png" />
+    <Content Include="img\add-icon.png" />
+    <Content Include="img\add.png" />
+    <Content Include="img\addons.png" />
+    <Content Include="img\app_no_pic.png" />
+    <Content Include="img\area_arrow.png" />
+    <Content Include="img\arrow_down.png" />
+    <Content Include="img\arrow_left.png" />
+    <Content Include="img\arrow_left_red.png" />
+    <Content Include="img\arrow_left_white.png" />
+    <Content Include="img\arrow_right.png" />
+    <Content Include="img\arrow_right_gray.png" />
+    <Content Include="img\arrow_right_gray1.png" />
+    <Content Include="img\arrow_top.png" />
+    <Content Include="img\attachment_1.png" />
+    <Content Include="img\base_z.png" />
+    <Content Include="img\bdmap.png" />
+    <Content Include="img\beta2.0.png" />
+    <Content Include="img\bg.gif" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\bg.png" />
+    <Content Include="img\bg2.jpg" />
+    <Content Include="img\bg_body.jpg" />
+    <Content Include="img\bg_icon.png" />
+    <Content Include="img\big_bag.jpg" />
+    <Content Include="img\blank_pic.png" />
+    <Content Include="img\book.png" />
+    <Content Include="img\button.png" />
+    <Content Include="img\calendar.jpg" />
+    <Content Include="img\checking.png" />
+    <Content Include="img\checking1.png" />
+    <Content Include="img\check_fail.png" />
+    <Content Include="img\check_icon.png" />
+    <Content Include="img\check_icon_disable.png" />
+    <Content Include="img\check_loading.jpg" />
+    <Content Include="img\check_loading_inner.png" />
+    <Content Include="img\check_radio_selected.png" />
+    <Content Include="img\check_radio_selected_disable.png" />
+    <Content Include="img\check_right.jpg" />
+    <Content Include="img\check_right.png" />
+    <Content Include="img\class\class_chat.png" />
+    <Content Include="img\class\class_course.png" />
+    <Content Include="img\class\class_data.png" />
+    <Content Include="img\class\class_intro.png" />
+    <Content Include="img\class\class_notice.png" />
+    <Content Include="img\class\class_qingjia.png" />
+    <Content Include="img\class\class_question.png" />
+    <Content Include="img\class\class_signin.png" />
+    <Content Include="img\class\class_teacher.png" />
+    <Content Include="img\class\class_test.png" />
+    <Content Include="img\class\class_user.png" />
+    <Content Include="img\class\exit_class.png" />
+    <Content Include="img\class_ico.png" />
+    <Content Include="img\clock.png" />
+    <Content Include="img\close.png" />
+    <Content Include="img\comment.png" />
+    <Content Include="img\coupon_item_bg.png" />
+    <Content Include="img\coupon_line.png" />
+    <Content Include="img\coupon_line_disable.png" />
+    <Content Include="img\cry.png" />
+    <Content Include="img\default.png" />
+    <Content Include="img\default_goods_pic.jpg" />
+    <Content Include="img\default_head.png" />
+    <Content Include="img\default_head_50.png" />
+    <Content Include="img\delete.png" />
+    <Content Include="img\division.png" />
+    <Content Include="img\edit.png" />
+    <Content Include="img\empty_content.png" />
+    <Content Include="img\error.png" />
+    <Content Include="img\error_icon.png" />
+    <Content Include="img\facebook.png" />
+    <Content Include="img\face\1.png" />
+    <Content Include="img\face\10.png" />
+    <Content Include="img\face\11.png" />
+    <Content Include="img\face\12.png" />
+    <Content Include="img\face\13.png" />
+    <Content Include="img\face\14.png" />
+    <Content Include="img\face\15.png" />
+    <Content Include="img\face\16.png" />
+    <Content Include="img\face\17.png" />
+    <Content Include="img\face\18.png" />
+    <Content Include="img\face\19.png" />
+    <Content Include="img\face\2.png" />
+    <Content Include="img\face\20.png" />
+    <Content Include="img\face\21.png" />
+    <Content Include="img\face\22.png" />
+    <Content Include="img\face\23.png" />
+    <Content Include="img\face\24.png" />
+    <Content Include="img\face\25.png" />
+    <Content Include="img\face\26.png" />
+    <Content Include="img\face\27.png" />
+    <Content Include="img\face\28.png" />
+    <Content Include="img\face\29.png" />
+    <Content Include="img\face\3.png" />
+    <Content Include="img\face\30.png" />
+    <Content Include="img\face\31.png" />
+    <Content Include="img\face\32.png" />
+    <Content Include="img\face\33.png" />
+    <Content Include="img\face\34.png" />
+    <Content Include="img\face\35.png" />
+    <Content Include="img\face\36.png" />
+    <Content Include="img\face\37.png" />
+    <Content Include="img\face\38.png" />
+    <Content Include="img\face\39.png" />
+    <Content Include="img\face\4.png" />
+    <Content Include="img\face\40.png" />
+    <Content Include="img\face\41.png" />
+    <Content Include="img\face\42.png" />
+    <Content Include="img\face\43.png" />
+    <Content Include="img\face\44.png" />
+    <Content Include="img\face\45.png" />
+    <Content Include="img\face\46.png" />
+    <Content Include="img\face\47.png" />
+    <Content Include="img\face\48.png" />
+    <Content Include="img\face\49.png" />
+    <Content Include="img\face\5.png" />
+    <Content Include="img\face\50.png" />
+    <Content Include="img\face\51.png" />
+    <Content Include="img\face\52.png" />
+    <Content Include="img\face\53.png" />
+    <Content Include="img\face\54.png" />
+    <Content Include="img\face\55.png" />
+    <Content Include="img\face\56.png" />
+    <Content Include="img\face\57.png" />
+    <Content Include="img\face\58.png" />
+    <Content Include="img\face\59.png" />
+    <Content Include="img\face\6.png" />
+    <Content Include="img\face\60.png" />
+    <Content Include="img\face\61.png" />
+    <Content Include="img\face\62.png" />
+    <Content Include="img\face\63.png" />
+    <Content Include="img\face\64.png" />
+    <Content Include="img\face\65.png" />
+    <Content Include="img\face\66.png" />
+    <Content Include="img\face\67.png" />
+    <Content Include="img\face\68.png" />
+    <Content Include="img\face\69.png" />
+    <Content Include="img\face\7.png" />
+    <Content Include="img\face\70.png" />
+    <Content Include="img\face\71.png" />
+    <Content Include="img\face\72.png" />
+    <Content Include="img\face\73.png" />
+    <Content Include="img\face\74.png" />
+    <Content Include="img\face\75.png" />
+    <Content Include="img\face\76.png" />
+    <Content Include="img\face\77.png" />
+    <Content Include="img\face\78.png" />
+    <Content Include="img\face\79.png" />
+    <Content Include="img\face\8.png" />
+    <Content Include="img\face\80.png" />
+    <Content Include="img\face\81.png" />
+    <Content Include="img\face\82.png" />
+    <Content Include="img\face\83.png" />
+    <Content Include="img\face\84.png" />
+    <Content Include="img\face\85.png" />
+    <Content Include="img\face\86.png" />
+    <Content Include="img\face\87.png" />
+    <Content Include="img\face\88.png" />
+    <Content Include="img\face\89.png" />
+    <Content Include="img\face\9.png" />
+    <Content Include="img\face\90.png" />
+    <Content Include="img\face\91.png" />
+    <Content Include="img\face\92.png" />
+    <Content Include="img\face\93.png" />
+    <Content Include="img\face\94.png" />
+    <Content Include="img\face\95.png" />
+    <Content Include="img\face\96.png" />
+    <Content Include="img\face\97.png" />
+    <Content Include="img\face\98.png" />
+    <Content Include="img\face\99.png" />
+    <Content Include="img\fail.png" />
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\favicon1a951a.ico" />
+    <Content Include="img\font-8196.png" />
+    <Content Include="img\getqrcode.jpg" />
+    <Content Include="img\goods_detail_shot.png" />
+    <Content Include="img\gray_delete.png" />
+    <Content Include="img\help01.png" />
+    <Content Include="img\help02.jpg" />
+    <Content Include="img\help02.png" />
+    <Content Include="img\help03.jpg" />
+    <Content Include="img\help03.png" />
+    <Content Include="img\help04.jpg" />
+    <Content Include="img\help04.png" />
+    <Content Include="img\help05.png" />
+    <Content Include="img\help06.png" />
+    <Content Include="img\help_more.png" />
+    <Content Include="img\history.png" />
+    <Content Include="img\hudong_icon.png" />
+    <Content Include="img\ico.png" />
+    <Content Include="img\ico1.png" />
+    <Content Include="img\ico1_hover.png" />
+    <Content Include="img\icon.png" />
+    <Content Include="img\icon32_loading_dark.gif" />
+    <Content Include="img\icon32_loading_light.gif" />
+    <Content Include="img\icon_about.png" />
+    <Content Include="img\icon_add.png" />
+    <Content Include="img\icon_arrow.png" />
+    <Content Include="img\icon_audio_play.gif" />
+    <Content Include="img\icon_bag.png" />
+    <Content Include="img\icon_book.png" />
+    <Content Include="img\icon_buy.png" />
+    <Content Include="img\icon_car.png" />
+    <Content Include="img\icon_card.png" />
+    <Content Include="img\icon_card_blue.png" />
+    <Content Include="img\icon_card_gray.png" />
+    <Content Include="img\icon_chat.png" />
+    <Content Include="img\icon_clothes.png" />
+    <Content Include="img\icon_coupon.png" />
+    <Content Include="img\icon_crown.png" />
+    <Content Include="img\icon_cup.png" />
+    <Content Include="img\icon_custom.png" />
+    <Content Include="img\icon_date.png" />
+    <Content Include="img\icon_detail.png" />
+    <Content Include="img\icon_dinner.png" />
+    <Content Include="img\icon_diy.png" />
+    <Content Include="img\icon_gift.png" />
+    <Content Include="img\icon_gift_red.png" />
+    <Content Include="img\icon_hitegg.png" />
+    <Content Include="img\icon_home.png" />
+    <Content Include="img\icon_laugh.png" />
+    <Content Include="img\icon_link.png" />
+    <Content Include="img\icon_list.png" />
+    <Content Include="img\icon_list_red.png" />
+    <Content Include="img\icon_me_blue.png" />
+    <Content Include="img\icon_me_gray.png" />
+    <Content Include="img\icon_money.png" />
+    <Content Include="img\icon_nav.png" />
+    <Content Include="img\icon_notice_blue.png" />
+    <Content Include="img\icon_notice_gray.png" />
+    <Content Include="img\icon_order.png" />
+    <Content Include="img\icon_pan.png" />
+    <Content Include="img\icon_pencil.png" />
+    <Content Include="img\icon_pic.png" />
+    <Content Include="img\icon_product.png" />
+    <Content Include="img\icon_qr.png" />
+    <Content Include="img\icon_quiz.png" />
+    <Content Include="img\icon_scrach.png" />
+    <Content Include="img\icon_search.png" />
+    <Content Include="img\icon_search_gray.png" />
+    <Content Include="img\icon_setting.png" />
+    <Content Include="img\icon_share_blue.png" />
+    <Content Include="img\icon_share_gray.png" />
+    <Content Include="img\icon_signin_blue.png" />
+    <Content Include="img\icon_signin_gray.png" />
+    <Content Include="img\icon_sound.png" />
+    <Content Include="img\icon_sound_play.gif" />
+    <Content Include="img\icon_star.png" />
+    <Content Include="img\icon_store.png" />
+    <Content Include="img\icon_survey.png" />
+    <Content Include="img\icon_tag.png" />
+    <Content Include="img\icon_tel.png" />
+    <Content Include="img\icon_test.png" />
+    <Content Include="img\icon_text.png" />
+    <Content Include="img\icon_ticket_blue.png" />
+    <Content Include="img\icon_ticket_gray.png" />
+    <Content Include="img\icon_time.png" />
+    <Content Include="img\icon_time_gray.png" />
+    <Content Include="img\icon_trash.png" />
+    <Content Include="img\icon_vote.png" />
+    <Content Include="img\icon_web.png" />
+    <Content Include="img\icon_web_gray.png" />
+    <Content Include="img\icon_write.png" />
+    <Content Include="img\index_bg.jpg" />
+    <Content Include="img\info.png" />
+    <Content Include="img\iphone0.png" />
+    <Content Include="img\iphone1.png" />
+    <Content Include="img\iphone_head.png" />
+    <Content Include="img\item_arrow.png" />
+    <Content Include="img\jia.png" />
+    <Content Include="img\jian.png" />
+    <Content Include="img\jump_err.png" />
+    <Content Include="img\jump_success.png" />
+    <Content Include="img\keyboard-icon.png" />
+    <Content Include="img\left_icon_.png" />
+    <Content Include="img\left_icon_1.png" />
+    <Content Include="img\left_icon_2.png" />
+    <Content Include="img\left_icon_3.png" />
+    <Content Include="img\left_icon_4.png" />
+    <Content Include="img\left_icon_5.png" />
+    <Content Include="img\left_icon_6.png" />
+    <Content Include="img\loading.gif" />
+    <Content Include="img\loading_icon.gif" />
+    <Content Include="img\logo.png" />
+    <Content Include="img\mask.png" />
+    <Content Include="img\media_z2880f5.png" />
+    <Content Include="img\menu.png" />
+    <Content Include="img\message_icon.png" />
+    <Content Include="img\mobile_jump_err_face.png" />
+    <Content Include="img\mobile_jump_success_face.png" />
+    <Content Include="img\money_coupon.jpg" />
+    <Content Include="img\msgicon.png" />
+    <Content Include="img\msg_tab.png" />
+    <Content Include="img\nav.png" />
+    <Content Include="img\new.gif" />
+    <Content Include="img\new.png" />
+    <Content Include="img\notice.png" />
+    <Content Include="img\no_cover.png" />
+    <Content Include="img\no_cover_pic.png" />
+    <Content Include="img\no_cover_pic_s.png" />
+    <Content Include="img\no_pic.png" />
+    <Content Include="img\no_template_icon.png" />
+    <Content Include="img\one_thinktit.png" />
+    <Content Include="img\phone_icon.png" />
+    <Content Include="img\pic_card.png" />
+    <Content Include="img\pic_li.png" />
+    <Content Include="img\pic_location.png" />
+    <Content Include="img\pic_money.png" />
+    <Content Include="img\pic_quan.png" />
+    <Content Include="img\pic_store.png" />
+    <Content Include="img\pic_tag.png" />
+    <Content Include="img\plus.png" />
+    <Content Include="img\preview_phone.jpg" />
+    <Content Include="img\preview_phone_short.jpg" />
+    <Content Include="img\prize_icon.png" />
+    <Content Include="img\public_icon.png" />
+    <Content Include="img\pwd_icon.png" />
+    <Content Include="img\qr-code-bg.png" />
+    <Content Include="img\qrcode_icon.png" />
+    <Content Include="img\questionnaire.png" />
+    <Content Include="img\radio_check.png" />
+    <Content Include="img\radio_icon.png" />
+    <Content Include="img\radio_icon_check.png" />
+    <Content Include="img\radio_icon_check_disable.png" />
+    <Content Include="img\radio_icon_disable.png" />
+    <Content Include="img\refresh_icon.png" />
+    <Content Include="img\release_topic.png" />
+    <Content Include="img\remark.png" />
+    <Content Include="img\ren.png" />
+    <Content Include="img\renren.png" />
+    <Content Include="img\round_mask.png" />
+    <Content Include="img\search.png" />
+    <Content Include="img\select-icon.png" />
+    <Content Include="img\select_down_icon.png" />
+    <Content Include="img\setting.png" />
+    <Content Include="img\share-friend.png" />
+    <Content Include="img\share_concern.png" />
+    <Content Include="img\share_concern2.png" />
+    <Content Include="img\share_tips.png" />
+    <Content Include="img\side_bg.png" />
+    <Content Include="img\sina.png" />
+    <Content Include="img\slide_arrow_down.png" />
+    <Content Include="img\slide_arrow_up.png" />
+    <Content Include="img\small_bag.jpg" />
+    <Content Include="img\smile.png" />
+    <Content Include="img\sort.png" />
+    <Content Include="img\sort_hover.png" />
+    <Content Include="img\sort_list.png" />
+    <Content Include="img\sort_up.png" />
+    <Content Include="img\spec_img_add.jpg" />
+    <Content Include="img\step.png" />
+    <Content Include="img\success.png" />
+    <Content Include="img\success_icon.png" />
+    <Content Include="img\suishoupai-banner.png" />
+    <Content Include="img\tab_sign.png" />
+    <Content Include="img\test.jpg" />
+    <Content Include="img\test_sound.mp3" />
+    <Content Include="img\ticket.png" />
+    <Content Include="img\title.png" />
+    <Content Include="img\titlebar.png" />
+    <Content Include="img\top_line.png" />
+    <Content Include="img\top_logo.png" />
+    <Content Include="img\top_nav_down.png" />
+    <Content Include="img\tou.jpg" />
+    <Content Include="img\ttl_bg_s1.gif" />
+    <Content Include="img\ttl_bg_s2.gif" />
+    <Content Include="img\ttl_bg_s3.gif" />
+    <Content Include="img\ttl_bg_s4.gif" />
+    <Content Include="img\ttl_bg_s5.gif" />
+    <Content Include="img\ttl_s1.gif" />
+    <Content Include="img\tv_icon.png" />
+    <Content Include="img\user_center_shot.png" />
+    <Content Include="img\user_icon.png" />
+    <Content Include="img\view.png" />
+    <Content Include="img\vote.jpg" />
+    <Content Include="img\vote.png" />
+    <Content Include="img\vouchers.jpg" />
+    <Content Include="img\weiphp_logo.png" />
+    <Content Include="img\weixin-frame__head.png" />
+    <Content Include="img\weixin.png" />
+    <Content Include="img\wifi.png" />
+    <Content Include="img\write.png" />
+    <Content Include="img\write_icon.png" />
+    <Content Include="img\wx-frame-2.png" />
+    <Content Include="img\wxxxckq.jpg" />
+    <Content Include="img\wx_menu_keyboard_icon.png" />
+    <Content Include="img\wx_menu_list_icon.png" />
+    <Content Include="img\yes.png" />
+    <Content Include="img\yes_pic.png" />
+    <Content Include="img\yes_white.png" />
+    <Content Include="img\y_yao.jpg" />
+    <Content Include="img\zan.png" />
+    <Content Include="Log4net.config" />
+    <Content Include="Scripts\alert\colsed.js" />
+    <Content Include="Scripts\alert\colsednew.js" />
+    <Content Include="Scripts\alert\css\colosed.css" />
+    <Content Include="Scripts\alert\images\ln_bgare.png" />
+    <Content Include="Scripts\alert\images\top_bg.png" />
+    <Content Include="Scripts\alert\images\x.png" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap-datepicker.zh-CN.js" />
+    <Content Include="Scripts\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\data-analysis.js" />
+    <Content Include="Scripts\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\daterangepicker.js" />
+    <Content Include="Scripts\dialog.js" />
+    <Content Include="Scripts\dialogpc.js" />
+    <Content Include="Scripts\elementui\index.css" />
+    <Content Include="Scripts\elementui\index.js" />
+    <Content Include="Scripts\elementui\vue.js" />
+    <Content Include="Scripts\emoji-data.js" />
+    <Content Include="Scripts\jquery-1.8.3.min.js" />
+    <Content Include="Scripts\jquery.dataTables.min.js" />
+    <Content Include="Scripts\jquery.emoji.js" />
+    <Content Include="Scripts\jquery.emoji.min.js" />
+    <Content Include="Scripts\jquery.flot.min.js" />
+    <Content Include="Scripts\jquery.flot.pie.js" />
+    <Content Include="Scripts\jquery.mCustomScrollbar.min.js" />
+    <Content Include="Scripts\jweixin-1.0.0.js" />
+    <Content Include="Scripts\layer\layer.js" />
+    <Content Include="Scripts\layer\mobile\layer.js" />
+    <Content Include="Scripts\layer\mobile\need\layer.css" />
+    <Content Include="Scripts\layer\skin\default\icon-ext.png" />
+    <Content Include="Scripts\layer\skin\default\icon.png" />
+    <Content Include="Scripts\layer\skin\default\layer.css" />
+    <Content Include="Scripts\layer\skin\default\loading-0.gif" />
+    <Content Include="Scripts\layer\skin\default\loading-1.gif" />
+    <Content Include="Scripts\layer\skin\default\loading-2.gif" />
+    <Content Include="Scripts\menu\index.js" />
+    <Content Include="Scripts\menu\template.js" />
+    <Content Include="Scripts\messageBox.js" />
+    <Content Include="Scripts\mobile_module.js" />
+    <Content Include="Scripts\moment.js" />
+    <Content Include="Scripts\msgReply\common.js" />
+    <Content Include="Scripts\msgReply\msgreply.js" />
+    <Content Include="Scripts\My97DatePicker\calendar.js" />
+    <Content Include="Scripts\My97DatePicker\config.js" />
+    <Content Include="Scripts\My97DatePicker\lang\en.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-cn.js" />
+    <Content Include="Scripts\My97DatePicker\lang\zh-tw.js" />
+    <Content Include="Scripts\My97DatePicker\My97DatePicker.htm" />
+    <Content Include="Scripts\My97DatePicker\skin\datePicker.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\default\img.gif" />
+    <Content Include="Scripts\My97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Scripts\My97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Scripts\My97DatePicker\WdatePicker.js" />
+    <Content Include="Scripts\My97DatePicker\web.txt" />
+    <Content Include="Scripts\prefixfree.min.js" />
+    <Content Include="Scripts\select2.min.js" />
+    <Content Include="Scripts\Sortable.js" />
+    <Content Include="Scripts\Sortable.min.js" />
+    <Content Include="Scripts\spin.js" />
+    <Content Include="Scripts\templatemo_script.js" />
+    <Content Include="Scripts\test.js" />
+    <Content Include="Scripts\upload\access.js" />
+    <Content Include="Scripts\upload\amazeui.ie8polyfill.min.js" />
+    <Content Include="Scripts\upload\amazeui.min.css" />
+    <Content Include="Scripts\upload\amazeui.min.js" />
+    <Content Include="Scripts\upload\amazeui.widgets.helper.min.js" />
+    <Content Include="Scripts\upload\common.css" />
+    <Content Include="Scripts\upload\common.js" />
+    <Content Include="Scripts\upload\h5_upload.js" />
+    <Content Include="Scripts\upload\hm.js" />
+    <Content Include="Scripts\validate.js" />
+    <Content Include="Scripts\vote.js" />
+    <Content Include="test.aspx" />
+    <Content Include="test.html" />
+    <Content Include="Wx\AutoReply.aspx" />
+    <Content Include="Wx\MenuManager.aspx" />
+    <Content Include="Wx\MsgReply.aspx" />
+    <Content Include="Wx\PassiveReply.aspx" />
+    <Content Include="Content\datetimepicker\less\datetimepicker.less" />
+    <Content Include="Content\datetimepicker\LICENSE" />
+    <Content Include="Content\datetimepicker\README.md" />
+    <Content Include="home\static\css\app.d325c69aab69e80b6664aa67d22ea6ab.css.map" />
+    <Content Include="home\static\js\app.9929ce3753fe6a7df8a1.js.map" />
+    <Content Include="home\static\js\manifest.61e8c6f5ae26f7c50ead.js.map" />
+    <Content Include="home\static\js\vendor.88f3694f64345e07f54a.js.map" />
+    <Content Include="admin\article\static\css\app.b49d6ac7dcd5a639ee10d6e28e1a2f51.css.map" />
+    <Content Include="admin\article\static\fonts\element-icons.b02bdc1.ttf" />
+    <Content Include="admin\article\static\js\app.256c59cf00006a9b26bb.js.map" />
+    <Content Include="admin\article\static\js\manifest.e58316aee1efb109e2f5.js.map" />
+    <Content Include="admin\article\static\js\vendor.adf85e2fadfe1cfea9d6.js.map" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.eot" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.woff" />
+    <Content Include="Scripts\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Scripts\fonts\FontAwesome.otf" />
+    <Content Include="Scripts\elementui\fonts\element-icons.ttf" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\WebForms\DetailsView.js" />
+    <Content Include="Scripts\WebForms\Focus.js" />
+    <Content Include="Scripts\WebForms\GridView.js" />
+    <Content Include="Scripts\WebForms\Menu.js" />
+    <Content Include="Scripts\WebForms\MenuStandards.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjax.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxApplicationServices.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxComponentModel.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxCore.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxGlobalization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxHistory.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxNetwork.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxSerialization.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxTimer.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebForms.js" />
+    <Content Include="Scripts\WebForms\MSAjax\MicrosoftAjaxWebServices.js" />
+    <Content Include="Scripts\WebForms\SmartNav.js" />
+    <Content Include="Scripts\WebForms\TreeView.js" />
+    <Content Include="Scripts\WebForms\WebForms.js" />
+    <Content Include="Scripts\WebForms\WebParts.js" />
+    <Content Include="Scripts\WebForms\WebUIValidation.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Bundle.config" />
+    <Content Include="packages.config" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <Content Include="Wx\AjaxHandler\MpHandler.ashx" />
+    <Content Include="Wx\AjaxHandler\MsgReplyHandler.ashx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="admin\ajax\acticleHandler.aspx.cs">
+      <DependentUpon>acticleHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ajax\acticleHandler.aspx.designer.cs">
+      <DependentUpon>acticleHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ajax\export.aspx.cs">
+      <DependentUpon>export.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ajax\export.aspx.designer.cs">
+      <DependentUpon>export.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\ajax\feedbackHandler.aspx.cs">
+      <DependentUpon>feedbackHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\ajax\feedbackHandler.aspx.designer.cs">
+      <DependentUpon>feedbackHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\answerdetail.aspx.cs">
+      <DependentUpon>answerdetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\answerdetail.aspx.designer.cs">
+      <DependentUpon>answerdetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\feedbackcontent.aspx.cs">
+      <DependentUpon>feedbackcontent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\feedbackcontent.aspx.designer.cs">
+      <DependentUpon>feedbackcontent.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\feedbackmgr.aspx.cs">
+      <DependentUpon>feedbackmgr.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\feedbackmgr.aspx.designer.cs">
+      <DependentUpon>feedbackmgr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\feedbacktype.aspx.cs">
+      <DependentUpon>feedbacktype.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\feedbacktype.aspx.designer.cs">
+      <DependentUpon>feedbacktype.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\surveyanswer.aspx.cs">
+      <DependentUpon>surveyanswer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\surveyanswer.aspx.designer.cs">
+      <DependentUpon>surveyanswer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Base\PageBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\PageBaseHome.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Base\PageInfo.cs" />
+    <Compile Include="Base\PageTypeEnum.cs" />
+    <Compile Include="Base\ResponseModel.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Handler\ActionHandler.cs" />
+    <Compile Include="home\ajax\infoHandler.aspx.cs">
+      <DependentUpon>infoHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ajax\infoHandler.aspx.designer.cs">
+      <DependentUpon>infoHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\ajax\uploadHandler.aspx.cs">
+      <DependentUpon>uploadHandler.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\ajax\uploadHandler.aspx.designer.cs">
+      <DependentUpon>uploadHandler.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\articlelist.aspx.cs">
+      <DependentUpon>articlelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\articlelist.aspx.designer.cs">
+      <DependentUpon>articlelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\infodetail.aspx.cs">
+      <DependentUpon>infodetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\infodetail.aspx.designer.cs">
+      <DependentUpon>infodetail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\infolist.aspx.cs">
+      <DependentUpon>infolist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\infolist.aspx.designer.cs">
+      <DependentUpon>infolist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\joinvote.aspx.cs">
+      <DependentUpon>joinvote.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\joinvote.aspx.designer.cs">
+      <DependentUpon>joinvote.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\upload.aspx.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\upload.aspx.designer.cs">
+      <DependentUpon>upload.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\uploadlist.aspx.cs">
+      <DependentUpon>uploadlist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\uploadlist.aspx.designer.cs">
+      <DependentUpon>uploadlist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\votedetaile.aspx.cs">
+      <DependentUpon>votedetaile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\votedetaile.aspx.designer.cs">
+      <DependentUpon>votedetaile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home\votelist.aspx.cs">
+      <DependentUpon>votelist.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home\votelist.aspx.designer.cs">
+      <DependentUpon>votelist.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wx\AjaxHandler\MpHandler.ashx.cs">
+      <DependentUpon>MpHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Wx\AjaxHandler\MsgReplyHandler.ashx.cs">
+      <DependentUpon>MsgReplyHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Wx\AutoReply.aspx.cs">
+      <DependentUpon>AutoReply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wx\AutoReply.aspx.designer.cs">
+      <DependentUpon>AutoReply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wx\MenuManager.aspx.cs">
+      <DependentUpon>MenuManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wx\MenuManager.aspx.designer.cs">
+      <DependentUpon>MenuManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wx\MsgReply.aspx.cs">
+      <DependentUpon>MsgReply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wx\MsgReply.aspx.designer.cs">
+      <DependentUpon>MsgReply.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Wx\PassiveReply.aspx.cs">
+      <DependentUpon>PassiveReply.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Wx\PassiveReply.aspx.designer.cs">
+      <DependentUpon>PassiveReply.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\sanfengli.Bll\sanfengli.Bll.csproj">
+      <Project>{96644bcb-b719-4ce8-aa0f-9070c2542d5f}</Project>
+      <Name>sanfengli.Bll</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sanfengli.Common\sanfengli.Common.csproj">
+      <Project>{7288c622-2539-47be-846a-ac4bf89745dd}</Project>
+      <Name>sanfengli.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\sanfengli.Model\sanfengli.Model.csproj">
+      <Project>{25b4bec9-3c1a-4376-bd0c-58f2787c03eb}</Project>
+      <Name>sanfengli.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51706</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:51706/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>这台计算机上缺少此项目引用的 NuGet 程序包。使用“NuGet 程序包还原”可下载这些程序包。有关更多信息，请参见 http://go.microsoft.com/fwlink/?LinkID=322105。缺少的文件是 {0}。</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

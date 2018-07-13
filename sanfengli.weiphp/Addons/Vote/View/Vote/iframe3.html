@@ -1,0 +1,22 @@
+<extend name="Home@Base/common" />
+
+<block name="body">
+    <iframe id='frame-contents' style='width: 1000px; height: 1000px;' src="{$url}" frameborder="0"></iframe>
+
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(function() {
+            setIframeHeight(document.getElementById('frame-contents'));
+        })
+
+        function setIframeHeight(iframe) {
+            if (iframe) {
+                var iframeWin = iframe.contentWindow || iframe.contentDocument.parentWindow;
+                if (iframeWin.document.body) {
+                    iframe.height = iframeWin.document.documentElement.scrollHeight || iframeWin.document.body.scrollHeight;
+                }
+            }
+        };
+    </script>
+</block>
